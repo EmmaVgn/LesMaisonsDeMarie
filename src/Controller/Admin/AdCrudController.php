@@ -53,7 +53,6 @@ class AdCrudController extends AbstractCrudController
                 ->setFormTypeOption('by_reference', false)
                 ->hideOnIndex(),
             FormField::addColumn(6),
-            TextEditorField::new('introduction', 'Description courte')->hideOnIndex(),
             TextEditorField::new('content', 'Contenu de l\'annonce')->hideOnIndex(),
         ];
     }
