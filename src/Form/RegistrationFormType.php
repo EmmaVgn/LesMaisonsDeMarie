@@ -110,7 +110,7 @@ class RegistrationFormType extends AbstractType
                     'message' => 'Merci d\'indiquer votre nom',
                 ])
             ])
-            ->add('address', TextType::class, [
+            ->add('adress', TextType::class, [
                 'label' => 'Votre adresse :',
                 'label_attr' => [
                     'class' => 'lh-label fw-medium'
