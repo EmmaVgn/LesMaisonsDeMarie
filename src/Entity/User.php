@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -61,6 +63,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $createdTokenAt = null;
+
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Avatar $avatar = null;
 
     public function getId(): ?int
     {
@@ -268,4 +273,28 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
 
         return $this;
     }
+
+    public function getAvatar(): ?Avatar
+    {
+        return $this->avatar;
+    }
+
+    public function setAvatar(?Avatar $avatar): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($avatar === null && $this->avatar !== null) {
+            $this->avatar->setUser(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($avatar !== null && $avatar->getUser() !== $this) {
+            $avatar->setUser($this);
+        }
+
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+
 }
