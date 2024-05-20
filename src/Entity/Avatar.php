@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Entity;
-
 use Serializable;
 use Imagine\Gd\Imagine;
 use Doctrine\ORM\Mapping as ORM;
@@ -12,7 +10,6 @@ use Doctrine\ORM\Mapping\HasLifecycleCallbacks;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
-
 #[ORM\Entity(repositoryClass: AvatarRepository::class)]
 #[HasLifecycleCallbacks]
 #[Vich\Uploadable]
@@ -22,7 +19,6 @@ class Avatar implements Serializable
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-
     #[Assert\Image(
         maxSize: '2M',
         maxSizeMessage: 'L\'image est trop lourde ({{ size }} {{ suffix }}). 
@@ -43,34 +39,27 @@ class Avatar implements Serializable
     )]
     #[Vich\UploadableField(mapping: 'avatars_images', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
-
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
-
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
-
     #[ORM\OneToOne(inversedBy: 'avatar', cascade: ['persist', 'remove'])]
     private ?User $user = null;
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
     }
-
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): static
     {
         $this->updatedAt = $updatedAt;
-
         return $this;
     }
 
-        /**
+    /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the update. If this
      * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
@@ -82,29 +71,24 @@ class Avatar implements Serializable
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
-
         if (null !== $imageFile) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
         }
     }
-
     public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
-
     public function setImageName(?string $imageName): void
     {
         $this->imageName = $imageName;
     }
-
     public function getImageName(): ?string
     {
         return $this->imageName;
     }
-
     #[PostPersist]
     #[PostUpdate]
     public function resize()
@@ -115,10 +99,12 @@ class Avatar implements Serializable
 
         // create smaller image
         $width = 100;
+        $height = 130;
         $imagine = new Imagine;
         $image = $imagine->open($this->imageFile);
         $size = $image->getSize();
-        $image->resize($size->widen($width));
+        $image->resize($size->widen($width))
+            ->resize($size->heighten($height));
         $realpath = $this->imageFile->getRealPath();
         $image->save($realpath);
     }
@@ -134,6 +120,7 @@ class Avatar implements Serializable
         $this->imageFile = $this->imageFile;
 
     }
+
 
     public function getUser(): ?User
     {

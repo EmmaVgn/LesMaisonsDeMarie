@@ -3,21 +3,23 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Ad;
+use App\Entity\User;
 use App\Form\AdImageFormType;
+use Symfony\Component\Intl\Countries;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
-use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use Symfony\Component\Intl\Countries;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class AdCrudController extends AbstractCrudController
 {
@@ -32,7 +34,9 @@ class AdCrudController extends AbstractCrudController
             ->setPageTitle('index', 'Annonces :')
             ->setPageTitle('new', 'Créer une annonce')
             ->setPaginatorPageSize(10)
-            ->setEntityLabelInSingular('une Annonce');
+            ->setPageTitle('edit', fn (Ad $ad) => (string) 'Modifier ' . $ad->getName())
+            ->setPageTitle('detail', fn (Ad $ad) => (string) 'Modifier ' . $ad->getName());
+         
     }
 
     public function configureFields(string $pageName): iterable
@@ -57,6 +61,12 @@ class AdCrudController extends AbstractCrudController
                 ->setFormTypeOption('by_reference', false)
                 ->hideOnIndex(),
             FormField::addColumn(6),
+            AssociationField::new('author', 'Auteur')
+            ->setRequired(true)
+            ->setFormTypeOptions([
+                'class' => User::class, // Utilisez l'entité User
+                'choice_label' => 'fullname', // Ou toute autre méthode que vous avez définie pour afficher l'utilisateur dans la liste déroulante
+            ]),
             TextField::new('city', 'Ville de l\'annonce')->hideOnIndex(),
             CountryField::new('country', 'Pays de l\'annonce')->hideOnIndex(),
             TextEditorField::new('content', 'Contenu de l\'annonce')->hideOnIndex(),
@@ -65,18 +75,12 @@ class AdCrudController extends AbstractCrudController
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
-        $countryCode = $entityInstance->getCountry();
-        $countryName = Countries::getName($countryCode, 'fr');
-        $entityInstance->setCountry($countryName);
         $entityInstance->setCity(ucfirst($entityInstance->getCity()));
         parent::persistEntity($entityManager, $entityInstance);
     }
 
     public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
     {
-        $countryCode = $entityInstance->getCountry();
-        $countryName = Countries::getName($countryCode, 'fr');
-        $entityInstance->setCountry($countryName);
         $entityInstance->setCity(ucfirst($entityInstance->getCity()));
         parent::updateEntity($entityManager, $entityInstance);
     }

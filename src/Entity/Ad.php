@@ -58,11 +58,19 @@ class Ad
     #[ORM\Column(length: 255)]
     private ?string $country = null;
 
+    #[ORM\ManyToOne(inversedBy: 'ads')]
+    private ?User $author = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->images = new ArrayCollection();
         $this->bookings = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return $this->name;
     }
 
     /**
@@ -92,21 +100,27 @@ class Ad
         return $notAvailableDays;
     }
 
-    public function __toString()
+    /**
+     * Vérifie si les dates de réservation sont continues par rapport aux dates existantes
+     *
+     * @param \DateTimeImmutable $startDateAt
+     * @param \DateTimeImmutable $endDateAt
+     * @return boolean
+     */
+    public function areDatesContinuous(\DateTimeImmutable $startDateAt, \DateTimeImmutable $endDateAt): bool
     {
-        return $this->name;
+        $notAvailableDays = $this->getNotAvailableDays();
+        foreach ($notAvailableDays as $day) {
+            if ($day < $endDateAt && $day > $startDateAt) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function setId(int $id): static
-    {
-        $this->id = $id;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -205,7 +219,7 @@ class Ad
     {
         if (!$this->images->contains($image)) {
             $this->images->add($image);
-            $image->setImages($this);
+            $image->setAd($this);
         }
 
         return $this;
@@ -215,15 +229,15 @@ class Ad
     {
         if ($this->images->removeElement($image)) {
             // set the owning side to null (unless already changed)
-            if ($image->getImages() === $this) {
-                $image->setImages(null);
+            if ($image->getAd() === $this) {
+                $image->setAd(null);
             }
         }
 
         return $this;
     }
 
-        /**
+    /**
      * @return Collection<int, Booking>
      */
     public function getBookings(): Collection
@@ -285,6 +299,18 @@ class Ad
     public function setCountry(string $country): static
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    public function setAuthor(?User $author): static
+    {
+        $this->author = $author;
 
         return $this;
     }

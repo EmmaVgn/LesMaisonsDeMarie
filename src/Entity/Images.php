@@ -22,7 +22,7 @@ class Images
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
 
-    #[ORM\Column]
+    #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
 
     #[ORM\ManyToOne(inversedBy: 'images')]
@@ -64,6 +64,11 @@ class Images
         return $this->imageName;
     }
 
+    public function __toString(): string
+    {
+        return $this->imageName;
+    }
+
     public function setImageName(string $imageName): static
     {
         $this->imageName = $imageName;
@@ -76,19 +81,12 @@ class Images
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function getImages(): ?Ad
+    public function getAd(): ?Ad
     {
         return $this->ad;
     }
 
-    public function setImages(?Ad $ad): static
+    public function setAd(?Ad $ad): static
     {
         $this->ad = $ad;
 

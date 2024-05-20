@@ -5,11 +5,12 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Scheb\TwoFactorBundle\Model\Email\TwoFactorInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
@@ -38,6 +39,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
      */
     #[ORM\Column]
     private ?string $password = null;
+
     private ?string $plainPassword = null;
 
     #[ORM\Column(length: 255)]
@@ -47,7 +49,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $address = null;
+    private ?string $adress = null;
 
     #[ORM\Column(length: 255)]
     private ?string $postalCode = null;
@@ -55,7 +57,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\Column(length: 255)]
     private ?string $city = null;
 
-    #[ORM\Column(length: 20)]
+    #[ORM\Column(length: 255)]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -67,15 +69,40 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Avatar $avatar = null;
 
-        /**
+    /**
      * @var Collection<int, Booking>
      */
     #[ORM\OneToMany(targetEntity: Booking::class, mappedBy: 'booker')]
     private Collection $bookings;
 
+    /**
+     * @var Collection<int, Ad>
+     */
+    #[ORM\OneToMany(targetEntity: Ad::class, mappedBy: 'author')]
+    private Collection $ads;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $description = null;
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
+        $this->ads = new ArrayCollection();
+    }
+
+    public function __toString()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
+
+    /**
+     * Vérifie si l'utilisateur est auteur d'une annonce
+     *
+     * @return boolean
+     */
+    public function isAuthor(): bool
+    {
+        return !$this->ads->isEmpty();
     }
 
     public function getId(): ?int
@@ -105,32 +132,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         return (string) $this->email;
     }
 
-    public function isEmailAuthEnabled(): bool
-    {
-        return true; // This can be a persisted field to switch email code authentication on/off
-    }
-
-    public function getEmailAuthRecipient(): string
-    {
-        return $this->email;
-    }
-
-    public function getEmailAuthCode(): string
-    {
-        if (null === $this->authCode) {
-            throw new \LogicException('The email authentication code was not set');
-        }
-
-        return $this->authCode;
-    }
-
-    public function setEmailAuthCode(string $authCode): void
-    {
-        $this->authCode = $authCode;
-    }
-
     /**
      * @see UserInterface
+     *
      * @return list<string>
      */
     public function getRoles(): array
@@ -212,14 +216,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         return $this;
     }
 
-    public function getAddress(): ?string
+    /**
+     * Retourne le nom complet de l'utilisateur
+     *
+     * @return string
+     */
+    public function getFullname(): string
     {
-        return $this->address;
+        return "{$this->firstname} {$this->lastname}";
     }
 
-    public function setAddress(string $address): static
+    public function getAdress(): ?string
     {
-        $this->address = $address;
+        return $this->adress;
+    }
+
+    public function setAdress(string $adress): static
+    {
+        $this->adress = $adress;
 
         return $this;
     }
@@ -260,7 +274,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         return $this;
     }
 
-
     public function getResetToken(): ?string
     {
         return $this->resetToken;
@@ -285,6 +298,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         return $this;
     }
 
+    public function isEmailAuthEnabled(): bool
+    {
+        return true; // This can be a persisted field to switch email code authentication on/off
+    }
+
+    public function getEmailAuthRecipient(): string
+    {
+        return $this->email;
+    }
+
+    public function getEmailAuthCode(): string
+    {
+        if (null === $this->authCode) {
+            throw new \LogicException('The email authentication code was not set');
+        }
+
+        return $this->authCode;
+    }
+
+    public function setEmailAuthCode(string $authCode): void
+    {
+        $this->authCode = $authCode;
+    }
+
     public function getAvatar(): ?Avatar
     {
         return $this->avatar;
@@ -307,7 +344,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         return $this;
     }
 
-        /**
+    /**
      * @return Collection<int, Booking>
      */
     public function getBookings(): Collection
@@ -337,5 +374,45 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
         return $this;
     }
 
+    /**
+     * @return Collection<int, Ad>
+     */
+    public function getAds(): Collection
+    {
+        return $this->ads;
+    }
 
+    public function addAd(Ad $ad): static
+    {
+        if (!$this->ads->contains($ad)) {
+            $this->ads->add($ad);
+            $ad->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAd(Ad $ad): static
+    {
+        if ($this->ads->removeElement($ad)) {
+            // set the owning side to null (unless already changed)
+            if ($ad->getAuthor() === $this) {
+                $ad->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
 }
