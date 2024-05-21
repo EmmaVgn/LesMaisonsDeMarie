@@ -35,7 +35,7 @@ class Equipment
     ],
         mimeTypesMessage: 'Le type MIME du fichier n\'est pas valide ({{ type }}). Les formats autorisés sont {{ types }}'
     )]
-    #[Vich\UploadableField(mapping: 'model_images', fileNameProperty: 'imageName')]
+    #[Vich\UploadableField(mapping: 'equipments_images', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
 
     #[ORM\Column(length: 255)]
