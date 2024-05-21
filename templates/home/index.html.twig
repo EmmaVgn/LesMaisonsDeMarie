@@ -1,62 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil
+{% block title %}Bienvenue dans nos hébergements
 {% endblock %}
 
 {% block body %}
-	<div class="p-5 mb-4 bg-body-tertiary rounded-3">
-		<div class="container-fluid py-5">
-			<h1 class="display-5 fw-bold">Custom jumbotron</h1>
-			<p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-			<button class="btn btn-primary btn-lg" type="button">Example button</button>
-		</div>
+
+
+	<div class="jumbotron">
+		<h1 class="display-4">Bienvenue aux maisons de Marie</h1>
+		<p class="lead">Dans le sud ouest de la france,en bordure du Périgord, à proximité de Bergerac, tout près du village médiéval Castillonnes.</p>
+		<hr class="my-4">
+		<p>
+			je vous propose 3 maisons de charme du 18 ème siècle, aujourd’hui transformées en maisons de vacances hors du temps. Faites une échappée belle et venez profiter d’une des plus belles régions.</p>
+		<p class="lead">
+			<a class="btn btn-secondary btn-lg" href={{ path('ads_index') }} role=" button">Voir les maisons
+			</a>
+		</p>
 	</div>
-	<h2>Nos meilleures réservations</h2>
+
+	<h1>Voici les hébergements que nous proposons</h1>
 	<div class="row">
-		<div class="col-lg-4 col-md-4">
-			<div class="card border-dark mb-3" style="max-width: 20rem;padding: 0;">
-				<div class="card-header">3 chambres,
-					<strong>49€ / nuit</strong>
-					<br>
-					<small>Pas encore noté</small>
-				</div>
-				<img src="https://placehold.co/600x400/png" alt="">
-				<div class="card-body">
-					<h4 class="card-title">Très belle villa</h4>
-					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, earum?</p>
-					<a href="#" class="btn btn-secondary">En savoir plus</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-4">
-			<div class="card border-dark mb-3" style="max-width: 20rem;padding: 0;">
-				<div class="card-header">3 chambres,
-					<strong>49€ / nuit</strong>
-					<br>
-					<small>Pas encore noté</small>
-				</div>
-				<img src="https://placehold.co/600x400/png" alt="">
-				<div class="card-body">
-					<h4 class="card-title">Très belle villa</h4>
-					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, earum?</p>
-					<a href="#" class="btn btn-secondary">En savoir plus</a>
-				</div>
-			</div>
-		</div>
-		<div class="col-lg-4 col-md-4">
-			<div class="card border-dark mb-3" style="max-width: 20rem;padding: 0;">
-				<div class="card-header">3 chambres,
-					<strong>49€ / nuit</strong>
-					<br>
-					<small>Pas encore noté</small>
-				</div>
-				<img src="https://placehold.co/600x400/png" alt="">
-				<div class="card-body">
-					<h4 class="card-title">Très belle villa</h4>
-					<p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, earum?</p>
-					<a href="#" class="btn btn-secondary">En savoir plus</a>
-				</div>
-			</div>
-		</div>
+		{% for ad in ad %}
+			{% include "ad/_ad.html.twig" %}
+		{% endfor %}
 	</div>
+
+
 {% endblock %}

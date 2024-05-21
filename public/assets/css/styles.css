@@ -28,11 +28,6 @@
 }
 
 .fusion-secondary-header {
-  --header_top_bg_color: #3e3e3e;
-  --snav_color: #747474;
-}
-
-.fusion-secondary-header {
   color: #747474;
   font-size: 12px;
   height: 30px;
