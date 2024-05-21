@@ -20,7 +20,7 @@ class ResetPasswordRequestFormType extends AbstractType
                 ],
                 'required' => true,
                 'attr' => [
-                    'placeholder' => 'e.g. picard@starfleet.org',
+                    'placeholder' => 'contact@lesmaisonsdemarie.net',
                     'class' => 'form-control-login'
                 ],
                 'constraints' => new Email()
