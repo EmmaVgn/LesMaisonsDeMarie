@@ -9,6 +9,7 @@ use App\Repository\AdRepository;
 use App\Repository\EquipmentRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdController extends AbstractController
@@ -47,6 +48,23 @@ class AdController extends AbstractController
             'form' => $form->createView(),
             'notAvailableDays' => $notAvailableDays,
         ]);
+    }
+
+    #[Route('/api/ads/{slug}/not-available-days', name: 'ads_not_available_days', methods: ['GET'])]
+    public function getNotAvailableDays($slug, AdRepository $adRepository): JsonResponse
+    {
+        $ad = $adRepository->findOneBy(['slug' => $slug]);
+
+        if (!$ad) {
+            return $this->json(['error' => 'Ad not found'], 404);
+        }
+
+        $notAvailableDays = $ad->getNotAvailableDays();
+        $formattedDays = array_map(function ($day) {
+            return $day->format('d.m.Y');
+        }, $notAvailableDays);
+
+        return $this->json($formattedDays);
     }
 
 
