@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .separated-list {
   list-style-type: none;
 }
@@ -41,6 +46,24 @@
   .fusion-secondary-header {
     display: none;
   }
+}
+
+.hero-section {
+  background: url("https://www.lesmaisonsdemarie.net/images/maison1/13.jpg")
+    no-repeat center center/cover;
+  color: #f8f5f0;
+  text-align: center;
+  padding: 4rem 2rem;
+  height: 100%;
+}
+
+.hero-section .container {
+  max-width: 90px;
+  margin: 0 auto;
+}
+
+.hero-section h1 {
+  font-weight: bold;
 }
 
 /*--------------------------------------------------------------

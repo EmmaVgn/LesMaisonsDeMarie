@@ -5,20 +5,17 @@
 
 {% block body %}
 
-
-	<div class="jumbotron">
-		<h1 class="display-4">Bienvenue aux maisons de Marie</h1>
-		<p class="lead">Dans le sud ouest de la france,en bordure du Périgord, à proximité de Bergerac, tout près du village médiéval Castillonnes.</p>
-		<hr class="my-4">
-		<p>
-			je vous propose 3 maisons de charme du 18 ème siècle, aujourd’hui transformées en maisons de vacances hors du temps. Faites une échappée belle et venez profiter d’une des plus belles régions.</p>
-		<p class="lead">
-			<a class="btn btn-secondary btn-lg" href={{ path('ads_index') }} role=" button">Voir les maisons
-			</a>
-		</p>
+	<div>
+		<h1>3 Gîtes de charmes avec piscine privé pour chaque gîtes</h1>
+		<hr>
+		<p>Les Maisons de Marie vous accueillent dans un cadre exceptionnel, au coeur de la campagne, à 1h30 de l'océan' 
+											Vous pourrez profiter de la piscine privée de chaque gîte, de la terrasse et du jardin. Les gîtes sont entièrement équipés et décorés avec soin. 
+											Vous pourrez également profiter du barbecue, du dépaisement et du soleil. Les Maisons de Marie sont idéales pour des vacances en famille ou entre amis.</p>
 	</div>
 
-	<h1>Voici les hébergements que nous proposons</h1>
+
+	<h1>Nos gîtes</h1>
+	<hr>
 	<div class="row">
 		{% for ad in ad %}
 			{% include "ad/_ad.html.twig" %}
