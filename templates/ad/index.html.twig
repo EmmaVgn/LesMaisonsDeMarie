@@ -4,10 +4,12 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Voici les annonces de nos hôtes !</h1>
-	<div class="row">
-		{% for ad in ads %}
-			{% include "ad/_ad.html.twig" %}
-		{% endfor %}
+	<div class="home">
+		<h1>Voici les hébergements de Marie !</h1>
+		<div class="row">
+			{% for ad in ads %}
+				{% include "ad/_ad.html.twig" %}
+			{% endfor %}
+		</div>
 	</div>
 {% endblock %}
