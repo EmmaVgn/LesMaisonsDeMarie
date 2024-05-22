@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 5000);
     }
 
+
     fetchNotAvailableDays(slug).then(notAvailableDays => {
         initializeFlatpickr(notAvailableDays);
         handleFormSubmission();

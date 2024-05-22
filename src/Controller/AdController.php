@@ -1,12 +1,11 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Entity\Booking;
 use App\Form\BookingFormType;
 use App\Repository\AdRepository;
-use App\Repository\EquipmentRepository;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -14,11 +13,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class AdController extends AbstractController
 {
-
     #[Route('/ads', name: 'ads_index')]
     public function index(AdRepository $adRepository): Response
     {
-
         $ads = $adRepository->findAll();
 
         return $this->render('ad/index.html.twig', [
@@ -66,6 +63,4 @@ class AdController extends AbstractController
 
         return $this->json($formattedDays);
     }
-
-
 }

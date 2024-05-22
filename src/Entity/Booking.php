@@ -69,7 +69,7 @@ class Booking
         // 2. Il faut comparer les dates choisies avec les dates impossibles
         $bookingDays = $this->getDays();
 
-        $formatDay = function ($day){
+        $formatDay = function ($day) {
             return $day->format('Y-m-d');
         };
 
@@ -104,24 +104,6 @@ class Booking
         return $days;
     }
 
-    // /**
-    //  * Dans le cas où le client souhaite deux nuits minimum au niveau de la résa
-    //  *
-    //  * @param ExecutionContextInterface $context
-    //  * @param mixed $payload
-    //  * @return void
-    //  */
-    // #[Assert\Callback()]
-    // public function validateDuration(ExecutionContextInterface $context, mixed $payload): void
-    // {
-    //     $duration = $this->getDuration();
-    //     if ($duration < 2) {
-    //         $context->buildViolation('La réservation doit être d\'au moins deux nuits.')
-    //             ->atPath('endDateAt')
-    //             ->addViolation();
-    //     }
-    // }
-
     public function getDuration()
     {
         $diff = $this->endDateAt->diff($this->startDateAt);
@@ -137,7 +119,6 @@ class Booking
     {
         return $this->ad->areDatesContinuous($this->startDateAt, $this->endDateAt);
     }
-
 
     public function getId(): ?int
     {
