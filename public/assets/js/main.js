@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
     async function fetchNotAvailableDays(slug) {
         try {
             const response = await fetch(`/api/ads/${slug}/not-available-days`);
-            const data_1 = await response.json();
-            console.log('Fetched not available days:', data_1);
-            return data_1;
+            const data = await response.json();
+            console.log('Fetched not available days:', data);
+            return data;
         } catch (error) {
             console.error('Error fetching not available days:', error);
             return [];
@@ -59,11 +59,11 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleFormSubmission() {
         document.querySelector('form').addEventListener('submit', function (event) {
             event.preventDefault();
-
+    
             var form = event.target;
             var formData = new FormData(form);
             var action = form.action;
-
+    
             fetch(action, {
                 method: form.method,
                 body: formData
@@ -94,17 +94,16 @@ document.addEventListener('DOMContentLoaded', function () {
         var alertDiv = document.createElement('div');
         alertDiv.className = 'alert alert-warning'; // Utilise les classes Bootstrap pour le style
         alertDiv.innerText = message;
-
+    
         // Ajoute l'élément d'alerte en haut du formulaire
         var form = document.querySelector('form');
         form.insertBefore(alertDiv, form.firstChild);
-
+    
         // Supprime l'alerte après 5 secondes
         setTimeout(function () {
             alertDiv.remove();
         }, 5000);
     }
-
 
     fetchNotAvailableDays(slug).then(notAvailableDays => {
         initializeFlatpickr(notAvailableDays);
