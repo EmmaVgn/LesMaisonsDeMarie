@@ -7,6 +7,7 @@ use App\Entity\User;
 use App\Entity\Images;
 use App\Entity\Booking;
 use App\Entity\Contact;
+use App\Entity\Criteria;
 use App\Entity\Equipment;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,6 +41,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Annonces', 'fa-solid fa-bed', Ad::class);
         yield MenuItem::linkToCrud('Réservations', 'fas fa-calendar', Booking::class);
         yield MenuItem::linkToCrud('Equipements', 'fa-solid fa-toolbox', Equipment::class);
+        yield MenuItem::linkToCrud('Critères-Equipement', 'fa-solid fa-mug-saucer', Criteria::class);
         yield MenuItem::linkToCrud('Images', 'fas fa-image', Images::class);
         yield MenuItem::linkToCrud('Messages', 'fas fa-envelope', Contact::class);
         yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-user', User::class);

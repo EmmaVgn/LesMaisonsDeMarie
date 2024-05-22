@@ -4,15 +4,15 @@ namespace App\Controller\Admin;
 
 use App\Entity\Ad;
 use App\Entity\User;
+use App\Entity\Equipment;
 use App\Form\AdImageFormType;
-use Symfony\Component\Intl\Countries;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
@@ -33,6 +33,7 @@ class AdCrudController extends AbstractCrudController
         return $crud
             ->setPageTitle('index', 'Annonces :')
             ->setPageTitle('new', 'Créer une annonce')
+            ->setEntityLabelInSingular('une Annonce')
             ->setPaginatorPageSize(10)
             ->setPageTitle('edit', fn (Ad $ad) => (string) 'Modifier ' . $ad->getName())
             ->setPageTitle('detail', fn (Ad $ad) => (string) 'Modifier ' . $ad->getName());
@@ -59,6 +60,13 @@ class AdCrudController extends AbstractCrudController
             CollectionField::new('images', 'Images')
                 ->setEntryType(AdImageFormType::class)
                 ->setFormTypeOption('by_reference', false)
+                ->hideOnIndex(),
+            AssociationField::new('equipment', 'Équipements')
+                ->setQueryBuilder(
+                    fn (QueryBuilder $queryBuilder) => $queryBuilder->getEntityManager()->getRepository(Equipment::class)->createQueryBuilder('e')->orderBy('e.name')
+                )
+                ->setFormTypeOption('by_reference', false)
+                ->autocomplete()
                 ->hideOnIndex(),
             FormField::addColumn(6),
             AssociationField::new('author', 'Auteur')
