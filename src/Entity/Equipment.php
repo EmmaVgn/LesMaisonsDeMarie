@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\SlugTrait;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\EquipmentRepository;
 use Doctrine\Common\Collections\Collection;
@@ -11,6 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\Entity(repositoryClass: EquipmentRepository::class)]
 class Equipment
 {
+    use SlugTrait;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -19,9 +22,6 @@ class Equipment
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Le nom de l\'equipement est obligatoire !')]
     private ?string $name = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $slug = null;
 
     /**
      * @var Collection<int, Ad>
@@ -55,18 +55,6 @@ class Equipment
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): static
-    {
-        $this->slug = $slug;
 
         return $this;
     }
