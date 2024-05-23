@@ -1636,3 +1636,42 @@ a.btn-outline-grey {
   opacity: 1;
   visibility: visible;
 }
+
+/*--------------------------------------------------------------
+# emails
+--------------------------------------------------------------*/
+
+.container-email {
+  width: 80%;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.header-email {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+.header-email h1 {
+  margin: 0;
+  font-size: 24px;
+}
+.content-email {
+  margin-top: 20px;
+}
+.content-email h2 {
+  font-size: 20px;
+}
+.details-email {
+  margin-top: 20px;
+}
+.details-email p {
+  margin: 5px 0;
+}
+.footer-email {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}

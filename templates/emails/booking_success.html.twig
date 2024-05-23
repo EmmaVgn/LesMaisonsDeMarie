@@ -1,33 +1,30 @@
-<h1>Votre réservation est confirmée n°{{ booking.id }}</h1>
-
-<div class="row">
-	<div class="col-md-6">
-		<h4>Votre voyage</h4>
-		<div class="d-flex flex-column pb-3">
-			{% if not firstImage is empty %}
-				<img src="{{ vich_uploader_asset(firstImage, 'imageFile') }}" class="image-reservation" alt="{{ b.ad.name }}">
-			{% else %}
-				<img src="{{ asset('assets/img/default-img.jpg') }}" class="image-reservation" alt="Default Image">
-			{% endif %}
-		</div>
-		<h5 class="fs-5 fw-bold">Dates</h5>
-		<p>Du
-			{{ booking.startDateAt|format_datetime('long', 'none', locale='fr') }}
-			au
-			{{ booking.endDateAt|format_datetime('long', 'none', locale='fr') }}</p>
+<div class="container-email">
+	<div class="header-email">
+		<h1>Confirmation de Réservation</h1>
 	</div>
+	<div class="content-email">
+		<h2>Bonjour
+			{{ user.firstname }}
+			{{ user.lastname }}</h2>
+		<p>Merci d'avoir réservé chez nous. Nous sommes heureux de vous confirmer votre réservation.</p>
 
-	<p>Merci à vous
-		{{ user.firstname }}
-		{{ user.lastname }}
-		& à très vite!!</p>
-
-
-	<tfoot>
-		<tr>
-			<td colspan="3">Total :</td>
-			<td>{{ booking.amount / 100 }}
-				€</td>
-		</tr>
-	</tfoot>
-</table>
+		<div class="details-email">
+			<h3>Détails de la Réservation :</h3>
+			<p>
+				<strong>Date de début :</strong>
+				{{ booking.startDateAt|format_datetime('long', 'none', locale='fr') }}</p>
+			<p>
+				<strong>Date de fin :</strong>
+				{{ booking.endDateAt|format_datetime('long', 'none', locale='fr') }}</p>
+			<strong>Montant total :</strong>
+			{{ booking.amount / 100 }}
+			€
+		</p>
+	</div>
+</div>
+<div class="footer-email">
+	<p>Nous sommes impatients de vous accueillir.</p>
+	<p>Si vous avez des questions, n'hésitez pas à nous contacter.</p>
+	<p>Merci,</p>
+	<p>Marie</p>
+</div>
