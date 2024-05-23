@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\CreatedAtTrait;
 use App\Entity\Trait\SlugTrait;
 use App\Repository\AdRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -13,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Ad
 {
     use SlugTrait;
+    use CreatedAtTrait;
     
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -33,9 +35,6 @@ class Ad
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
-
-    #[ORM\Column(options: ['default' => 'CURRENT_TIMESTAMP'])]
-    private ?\DateTimeImmutable $createdAt = null;
 
     /**
      * @var Collection<int, Images>

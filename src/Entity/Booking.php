@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\CreatedAtTrait;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\BookingRepository;
@@ -11,6 +12,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 #[ORM\HasLifecycleCallbacks]
 class Booking
 {
+    use CreatedAtTrait;
+    
     public const STATUS_PENDING = 'PENDING';
     public const STATUS_PAID = 'PAID';
 
@@ -34,9 +37,6 @@ class Booking
     #[ORM\Column]
     #[Assert\GreaterThan(propertyPath: "startDateAt", message: "La date de départ doit être plus éloignée que la date d'arrivée !")]
     private ?\DateTimeImmutable $endDateAt = null;
-
-    #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
 
     #[ORM\Column]
     private ?int $amount = null;

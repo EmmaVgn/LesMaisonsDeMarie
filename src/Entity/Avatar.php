@@ -39,12 +39,16 @@ class Avatar
     )]
     #[Vich\UploadableField(mapping: 'avatars_images', fileNameProperty: 'imageName')]
     private ?File $imageFile = null;
+
     #[ORM\Column(nullable: true)]
     private ?string $imageName = null;
+
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $updatedAt = null;
+
     #[ORM\OneToOne(inversedBy: 'avatar', cascade: ['persist', 'remove'])]
     private ?User $user = null;
+    
     public function getId(): ?int
     {
         return $this->id;
