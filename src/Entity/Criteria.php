@@ -37,11 +37,9 @@ class Criteria
         return $this->id;
     }
 
-    public function setId(int $id): static
+    public function __toString()
     {
-        $this->id = $id;
-
-        return $this;
+        return $this->name;
     }
 
     public function getName(): ?string
