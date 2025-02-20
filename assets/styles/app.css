@@ -1,3 +1,180 @@
+/* Titres */
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Lato", serif;
+  line-height: 1.3;
+  overflow-y: hidden;
+  font-display: swap;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 1.75rem;
+}
+h4 {
+  font-size: 1.5rem;
+}
+
+/*--------------------------------------------------------------
+# Général
+--------------------------------------------------------------*/
+
+html,
 body {
-    background-color: skyblue;
+  font-family: "Bodoni Moda", serif !important;
+  font-display: swap;
+  position: relative;
+  height: 100%;
+  text-decoration: none;
+  list-style: none;
+  background-color: #fff;
+  scroll-behavior: smooth;
+  max-width: 100%;
+  font-size: 1.3rem;
+  line-height: 2;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.bg-custom {
+  background-color: #ede4d1;
+}
+
+.contact-info a {
+  color: black;
+}
+
+.footer-brand {
+  margin-left: 25%;
+}
+.footer-separator {
+  border: none;
+  border-top: 1px solid #a7b69a;
+  width: 80%;
+  margin: auto;
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: #c2a47f;
+}
+
+.contact-lower {
+  margin-top: 90px !important;
+}
+
+/*--------------------------------------------------------------
+# Navbar Latérrale
+--------------------------------------------------------------*/
+.sidebar {
+  position: fixed;
+
+  right: 0;
+  width: 60px;
+  height: 100vh;
+  background-color: #3d3d3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  transition: width 0.3s ease-in-out;
+  overflow: hidden;
+}
+
+/* Bouton de menu (hamburger) */
+.toggle-btn {
+  background: none;
+  border: none;
+  font-size: 50px;
+  color: #c2a47f;
+  cursor: pointer;
+}
+
+/* Liste des liens (cachée par défaut) */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  display: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #c2a47f;
+  font-size: 1.2rem;
+  display: block;
+  padding: 10px 0;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  background-color: #666;
+}
+
+/* Lorsque la classe 'open' est ajoutée, afficher la liste */
+.sidebar.open {
+  width: 200px;
+}
+
+.sidebar.open .nav-links {
+  display: block;
+}
+
+/* Masquer le sous-menu par défaut */
+.submenu {
+  display: none;
+  margin-left: 20px;
+}
+
+/* Style du menu principal */
+.nav-links {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 10px 0;
+}
+
+/* Bouton de menu déroulant ▼ */
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: #ede4d1;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+/* Sous-menu (caché par défaut) */
+.submenu {
+  display: none;
+  list-style: none;
+  padding-left: 20px;
+}
+
+/* Afficher le sous-menu quand "open" est activé */
+.submenu.open {
+  display: block;
+}
+
+/* Effet au survol */
+.nav-links a:hover,
+.dropdown-btn:hover {
+  background-color: #666;
 }
