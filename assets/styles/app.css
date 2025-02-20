@@ -47,6 +47,93 @@ body {
 }
 
 /*--------------------------------------------------------------
+# Boutons
+--------------------------------------------------------------*/
+.btn-custom {
+  background-color: rgba(167, 182, 154, 0.9); /* Vert sauge avec opacité */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Effet hover */
+.btn-custom:hover {
+  background-color: #c2a47f; /* Or doux */
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Effet focus */
+.btn-custom:focus {
+  outline: 2px solid #c2a47f;
+  outline-offset: 3px;
+}
+
+/* Bouton désactivé */
+.btn-custom:disabled {
+  background-color: #ddd;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Bouton avec contour uniquement */
+.btn-custom-outline {
+  background-color: transparent;
+  color: #a7b69a;
+  border: 2px solid #a7b69a;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-outline:hover {
+  background-color: #a7b69a;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Bouton arrondi */
+.btn-custom-round {
+  background-color: #c2a47f;
+  color: white;
+  border-radius: 50px;
+  padding: 12px 30px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-round:hover {
+  background-color: #a7b69a;
+  transform: scale(1.05);
+}
+
+/* Bouton fantôme (sans fond) */
+.btn-custom-ghost {
+  background: none;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-custom-ghost:hover {
+  background: white;
+  color: #a7b69a;
+}
+
+/* Bouton pour mobile (plein écran) */
+.btn-custom-mobile {
+  width: 100%;
+  padding: 15px;
+  font-size: 1.3rem;
+}
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .bg-custom {
@@ -81,9 +168,8 @@ body {
 --------------------------------------------------------------*/
 .sidebar {
   position: fixed;
-
   right: 0;
-  width: 60px;
+  width: 80px;
   height: 100vh;
   background-color: #3d3d3d;
   display: flex;
@@ -93,6 +179,7 @@ body {
   padding-top: 20px;
   transition: width 0.3s ease-in-out;
   overflow: hidden;
+  z-index: 1000;
 }
 
 /* Bouton de menu (hamburger) */
@@ -177,4 +264,67 @@ body {
 .nav-links a:hover,
 .dropdown-btn:hover {
   background-color: #666;
+}
+
+/* Section image d'accueil */
+.hero {
+  position: relative;
+  width: calc(100% - 80px);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Image responsive */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Texte centré sur l'image */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Bouton */
+.btn-primary {
+  background-color: #a7b69a; /* Vert sauge */
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #c2a47f; /* Or doux */
+}
+@keyframes droneFly {
+  from {
+    transform: scale(1.2) translateX(-10px);
+  }
+  to {
+    transform: scale(1) translateX(10px);
+  }
+}
+
+/* Appliquer l'effet sur l'image */
+.hero-image {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  animation: droneFly 8s ease-in-out forwards;
 }
