@@ -5,13 +5,7 @@
 {% endblock %}
 
 {% block body %}
-	<section class="hero">
-		<img src="{{ asset('images/piscine.jpg') }}" alt="Les Maisons de Marie" class="hero-image">
-		<div class="hero-text">
-			<h1>Bienvenue aux Maisons de Marie</h1>
-			<p>Des gîtes et maisons d'hôtes d'exception en Dordogne.</p>
-			<a href="#" class="btn btn-custom-round">Découvrir nos gîtes</a>
-		</div>
-	</section>
+	{% include "home/firstImage.html.twig" %}
+	{% include "home/presentation.html.twig" %}
 
 {% endblock %}
