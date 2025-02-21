@@ -179,7 +179,7 @@ body {
   padding-top: 20px;
   transition: width 0.3s ease-in-out;
   overflow: hidden;
-  z-index: 1000;
+  z-index: 2000;
 }
 
 /* Bouton de menu (hamburger) */
@@ -266,7 +266,9 @@ body {
   background-color: #666;
 }
 
-/* Section image d'accueil */
+/*--------------------------------------------------------------
+# Image d'accueil
+--------------------------------------------------------------*/
 .hero {
   position: relative;
   width: 100%;
@@ -281,36 +283,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.4); /* Blanc avec opacité */
+  background: rgba(255, 255, 255, 0.4); /* Superposition blanche avec opacité */
   z-index: 2;
 }
 
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
-.gites-section .row {
-  flex-wrap: nowrap; /* Empêche le retour à la ligne */
-  overflow: hidden; /* Évite un débordement */
-}
-
-/* Texte centré sur l'image */
-.hero-text img {
-  width: 30%;
-  height: 80%;
-  margin-top: 20%;
-  margin-left: 20%;
-  position: relative;
-  z-index: 200;
-}
-
-/* Appliquer l'effet sur l'image */
 .hero-image {
   width: 100%;
   height: 100vh;
@@ -318,109 +294,86 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  transform: blur(25px);
+  z-index: 1;
+  transform: blur(25px); /* Applique le flou à l'image */
 }
 
-/* Section des gîtes */
-.gites-section {
-  padding: 80px 0;
-  background-color: #ede4d1;
-  height: 100%;
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centre le texte */
+  z-index: 2;
+  color: #333;
+  text-align: center;
 }
 
-/* Image à gauche */
-.gites-image {
-  height: 80%;
-}
-.gites-image img {
-  width: 100%;
-  height: 100%;
-  max-width: auto;
-  display: block;
-  margin: 0 auto;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Cartes des gîtes */
-.gite-card {
+.hero-text h1 {
+  font-size: 7rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 20px;
-  background: #ede4d1;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Style du lien */
-.gite-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-
   height: 100%;
 }
 
-/* Contenu de la carte */
-.gite-content {
-  padding: 20px;
-  transition: transform 0.3s ease;
-}
-
-/* Effet Hover */
-.gite-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* Effet d’apparition subtile */
-.gite-card:hover .gite-content {
-  transform: translateY(-5px);
-}
-
-/* Séparateur vertical entre les cartes */
-.gite-card:not(:last-child) {
-  border-right: 2px solid rgba(194, 164, 127, 0.5); /* Séparateur plus doux */
-  padding-right: 20px;
-}
-
-/* Animation d'entrée */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.gite-card {
-  animation: fadeIn 0.6s ease-in-out;
-}
-
-/* Titres des gîtes */
-.gite-card h3 {
-  font-family: "Dosis", serif;
-  font-size: 1.5rem;
-  color: #a7b69a; /* Vert sauge */
-}
-
-/* Texte des gîtes */
-.gite-card p {
-  font-size: 1rem;
+.hero-left {
+  font-size: 10rem;
+  font-weight: bold;
+  margin-top: 50px;
   color: #333;
+  text-align: left;
+  line-height: 1; /* Maintient la hauteur des lignes */
+  height: 1.2em; /* Hauteur similaire à "Maisons de Marie" */
+  padding-right: 20px; /* Ajoute un peu d'espace entre "LES" et "Maisons" */
 }
 
-.gites-section {
-  background: url("{{ asset('images/background.jpg') }}") no-repeat center
-    center/cover;
-  background-attachment: fixed;
+.hero-right {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  line-height: 0.8; /* Ajuste la hauteur pour "Maisons de Marie" */
+  padding-left: 10px;
+}
+
+/*--------------------------------------------------------------
+# Presentation homepage
+--------------------------------------------------------------*/
+.hero-content {
+  position: relative;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.hero-overlay {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  text-align: left;
+}
+
+.hero-overlay h1,
+h2 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+}
+
+.hero-overlay h1 {
+  color: #3d3d3d;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.image-right {
+  display: flex;
+  justify-content: flex-end; /* Aligne l'image à droite */
+}
+
+.image-right img {
+  width: 100%;
+  margin-right: 100px; /* Ajuste l'espacement à droite si nécessaire */
+  border-radius: 10px; /* Si tu veux arrondir les bords de l'image */
+  opacity: 0.6; /* Ajuste l'opacité pour un effet plus doux */
+  filter: brightness(80%);
 }
