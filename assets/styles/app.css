@@ -269,9 +269,30 @@ body {
 /* Section image d'accueil */
 .hero {
   position: relative;
-  width: calc(100% - 80px);
+  width: 100%;
   height: 100vh;
   overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4); /* Blanc avec opacité */
+  z-index: 2;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .gites-section .row {
@@ -280,25 +301,13 @@ body {
 }
 
 /* Texte centré sur l'image */
-.hero-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-  background: rgba(0, 0, 0, 0.5);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-@keyframes droneFly {
-  from {
-    transform: scale(1.2) translateX(-10px);
-  }
-  to {
-    transform: scale(1) translateX(10px);
-  }
+.hero-text img {
+  width: 30%;
+  height: 80%;
+  margin-top: 20%;
+  margin-left: 20%;
+  position: relative;
+  z-index: 200;
 }
 
 /* Appliquer l'effet sur l'image */
@@ -306,10 +315,10 @@ body {
   width: 100%;
   height: 100vh;
   object-fit: cover;
-  animation: droneFly 8s ease-in-out forwards;
   position: absolute;
   top: 0;
   left: 0;
+  transform: blur(25px);
 }
 
 /* Section des gîtes */
