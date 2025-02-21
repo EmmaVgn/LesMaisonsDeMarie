@@ -377,3 +377,39 @@ h2 {
   opacity: 0.6; /* Ajuste l'opacité pour un effet plus doux */
   filter: brightness(80%);
 }
+
+/*--------------------------------------------------------------
+# Histoire homepage
+--------------------------------------------------------------*/
+.history-overlay {
+  padding: 60px; /* Ajoute un peu de padding */
+  background-color: #f5f5f5; /* Couleur de fond différente pour la section histoire */
+  border-radius: 10px; /* Bord arrondi pour donner du style */
+  margin-right: 50px; /* Ajuste l'espacement à droite si nécessaire */
+  width: 930px;
+  height: 800px;
+}
+
+.history-overlay h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.history-overlay p {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Image à gauche et légèrement montée */
+.image-left img {
+  width: 80%; /* Prend toute la largeur disponible */
+  height: 930px;
+  position: relative;
+  top: -150px; /* Décale légèrement l'image vers le haut */
+  margin-left: 80px; /* Ajuste l'espacement à gauche si nécessaire */
+  border-radius: 10px; /* Bord arrondi pour une belle finition */
+}
