@@ -42,6 +42,12 @@ class House
     private ?\DateTimeImmutable $createdAt = null;
 
     /**
+     * @var Collection<int, Equipment>
+     */
+    #[ORM\ManyToMany(targetEntity: Equipment::class, mappedBy: 'houses')]
+    private Collection $equipment;
+
+    /**
      * @var Collection<int, Images>
      */
     #[ORM\OneToMany(targetEntity: Images::class, mappedBy: 'house', orphanRemoval: true, cascade: ['persist'])]
@@ -51,6 +57,7 @@ class House
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->images = new ArrayCollection();
+        $this->equipment = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -178,6 +185,31 @@ class House
             if ($image->getHouse() === $this) {
                 $image->setHouse(null);
             }
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Equipment>
+     */
+    public function getEquipment(): Collection
+    {
+        return $this->equipment;
+    }
+
+    public function addEquipment(Equipment $equipment): static
+    {
+        if (!$this->equipment->contains($equipment)) {
+            $this->equipment->add($equipment);
+            $equipment->addHouse($this);
+        }
+        return $this;
+    }
+
+    public function removeEquipment(Equipment $equipment): static
+    {
+        if ($this->equipment->removeElement($equipment)) {
+            $equipment->removeHouse($this);
         }
         return $this;
     }
