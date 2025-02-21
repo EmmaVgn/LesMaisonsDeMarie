@@ -2,29 +2,28 @@
 	<button class="toggle-btn" id="toggleBtn">☰</button>
 	<ul class="nav-links">
 		<li>
-			<a href="index.html">Accueil</a>
+			<a href="{{ path('homepage')}}">Accueil</a>
 		</li>
 		<li>
 			<!-- "Mes gîtes" mène à la page complète -->
-			<a href="mes-gites.html" class="main-link">Mes gîtes</a>
+			<a href={{ path('houseAll')}} class="main-link">Mes gîtes</a>
 			<!-- Flèche pour ouvrir le menu -->
 			<button class="dropdown-btn" id="toggleGites">▼</button>
 			<!-- Sous-menu -->
 			<ul class="submenu" id="submenuGites">
 				<li>
-					<a href="gite1.html">Gîte 1</a>
+					<a href={{ path('house1')}}>La petite maison
+					</a>
 				</li>
 				<li>
-					<a href="gite2.html">Gîte 2</a>
+					<a href={{ path('house2')}}>La périgourdine
+					</a>
 				</li>
 				<li>
-					<a href="gite3.html">Gîte 3</a>
+					<a href="{{ path('house3')}}">La castille
+					</a>
 				</li>
 			</ul>
-		</li>
-
-		<li>
-			<a href="a-propos.html">À propos</a>
 		</li>
 		<li>
 			<a href="contact.html">Contact</a>

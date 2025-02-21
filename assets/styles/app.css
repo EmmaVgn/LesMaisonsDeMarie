@@ -216,7 +216,7 @@ body {
 
 /* Lorsque la classe 'open' est ajoutée, afficher la liste */
 .sidebar.open {
-  width: 200px;
+  width: 350px;
 }
 
 .sidebar.open .nav-links {
