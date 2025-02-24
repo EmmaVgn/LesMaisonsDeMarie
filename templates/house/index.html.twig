@@ -6,26 +6,29 @@
 {% block body %}
 	{% include "shared/_navbar.html.twig" %}
 
-	<section class="container mt-3">
-		<div
-			class=" row">
-			<!-- Maison 1 : Image à gauche, texte à droite -->
-			<div class="col-12 mb-4">
-				<div class="house-row">
-					<div class="house-image">
-						<img src="{{ asset('images/house/Petite/vue devant.jpg') }}" alt="La Petite Maison" class="img-fluid">
-					</div>
-					<div class="house-text">
-						<h2>La Petite Maison</h2>
-						<p>Une maison charmante, idéale pour 4 personnes, avec une piscine privée et un cadre paisible.</p>
-						<a href="{{ path('house1') }}" class="btn-custom-outline">Voir la maison</a>
+	<section class="container  mt-3">
+		<div class="row">
+			<div
+				class="houseall">
+				<!-- Maison 1 : Image à gauche, texte à droite -->
+				<div class="col-12 mb-4">
+					<div class="house-row  p-4 ">
+						<div class="house-image">
+							<img src="{{ asset('images/house/Petite/vue devant.jpg') }}" alt="La Petite Maison" class="img-fluid">
+						</div>
+						<div class="house-text">
+							<h2>La Petite Maison</h2>
+							<p>Une maison charmante, idéale pour 4 personnes, avec une piscine privée et un cadre paisible.</p>
+							<a href="{{ path('house1') }}" class="btn-custom-outline">Voir la maison</a>
+						</div>
 					</div>
 				</div>
 			</div>
-
+			<hr>
 			<!-- Maison 2 : Image à droite, texte à gauche (inversée) -->
+
 			<div class="col-12 mb-4">
-				<div class="house-row reverse">
+				<div class="house-row t p-4">
 					<div class="house-text">
 						<h2>La maison des cousins</h2>
 						<p>Maison pour 5 personnes, offrant une atmosphère accueillante avec une piscine sécurisée.</p>
@@ -36,20 +39,26 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- Maison 3 : Image à gauche, texte à droite -->
-			<div class="col-12 mb-4">
-				<div class="house-row">
-					<div class="house-image">
-						<img src="{{ asset('images/house/Castille/vue devant.jpg') }}" alt="La Castille" class="img-fluid">
-					</div>
-					<div class="house-text">
-						<h2>La grande maison</h2>
-						<p>Grande maison pour 12 personnes, idéale pour des vacances en famille ou entre amis, avec un grand jardin.</p>
-						<a href="{{ path('house3') }}" class="btn-custom-outline">Voir la maison</a>
+			<div class="houseall">
+				<hr>
+				<!-- Maison 3 : Image à gauche, texte à droite -->
+				<div class="col-12 mb-4">
+					<div class="house-row p-4 ">
+						<div class="house-image">
+							<img src="{{ asset('images/house/Castille/vue devant.jpg') }}" alt="La Castille" class="img-fluid">
+						</div>
+						<div class="house-text">
+							<h2>
+								grande maison</h2>
+							<p>
+								maison pour 12 personnes, idéale pour des vacances en famille ou entre amis, avec un grand jardin.</p>
+							<a href="{{ path('house3') }}" class="btn-custom-outline">
+								la maison</a>
+						</div>
 					</div>
 				</div>
 			</div>
+			<hr>
 		</div>
 	</section>
 {% endblock %}

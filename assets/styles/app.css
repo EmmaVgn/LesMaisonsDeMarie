@@ -47,8 +47,8 @@ body {
   box-sizing: border-box;
 }
 .right-margin {
-  margin-right: 80px !important; /* Ajoute une marge de 160px à droite */
-  padding-right: 80px !important; /* Si tu veux ajouter aussi du padding pour plus de confort */
+  margin-right: 100px !important; /* Ajoute une marge de 160px à droite */
+  padding-right: 100px !important; /* Si tu veux ajouter aussi du padding pour plus de confort */
 }
 
 /*--------------------------------------------------------------
@@ -387,141 +387,68 @@ h2 {
 /*--------------------------------------------------------------
 # House houseAll
 --------------------------------------------------------------*/
+.bg-beige-light {
+  background-color: #ede4d1;
+}
 
-/* Style pour les lignes de maisons */
 .house-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
-  padding: 20px 0;
-  border-bottom: 1px solid #ddd; /* Légère ligne de séparation */
+  align-items: center;
 }
 
-/* Image de la maison */
-.house-image img {
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Ombre légère */
-  transition: transform 0.3s ease-in-out; /* Animation de survol */
-  height: 300px;
-}
-
-/* Effet au survol de l'image */
-.house-image img:hover {
-  transform: scale(1.05); /* Zoom de l'image au survol */
-}
-
-/* Texte de la maison */
 .house-text {
-  max-width: 60%;
+  padding: 20px;
 }
 
-.house-text h2 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+.house-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
-.house-text p {
-  font-size: 1.1rem;
-  color: #555;
-  line-height: 1.6;
+.rounded {
+  border-radius: 10px;
 }
 
-/* Responsivité */
-@media (max-width: 768px) {
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
   .house-row {
-    flex-direction: column; /* Sur les petits écrans, les éléments s'empilent */
-  }
-
-  .house-image,
-  .house-text {
-    padding-left: 0;
-    padding-right: 0;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 /*--------------------------------------------------------------
 # House house
 --------------------------------------------------------------*/
-.bg-custom-house {
-  background-color: #3d3d3d;
-  color: #ede4d1;
+/* .houseall {
+  background: linear-gradient(
+    to bottom,
+    #fff 10%,
+    /* Début du dégradé blanc */
+/* #ede4d1 40%,
+    /* Le beige au milieu */ /* #fff 100% /* Fin du dégradé blanc */
+/* );
+}*/
+
+.houseall {
+  background: conic-gradient(#fff, #ede4d1);
 }
 
-.site-portfolio {
-  padding-top: 10px;
-  padding-bottom: 24px;
+.house-image {
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+  border-radius: 10px;
 }
-
 .flex-container {
   display: flex;
   height: 100%;
   flex-wrap: wrap;
-}
-
-.large-item {
-  flex: 0 0 60%; /* 60% pour la grande image */
-  display: flex;
-  align-items: stretch;
-}
-
-.small-items-first {
-  flex: 0 0 40%; /* 40% pour les petites images à droite */
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding-left: 8px;
-}
-
-.small-item {
-  flex: 1;
-  display: flex;
-  align-items: stretch;
-}
-
-.small-items-first > .small-item:nth-child(2) {
-  padding-top: 8px;
-}
-
-.item-wrap {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.item-wrap:after {
-  z-index: 2;
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  visibility: hidden;
-  opacity: 0;
-  transition: 0.3s all ease-in-out;
-}
-
-.item-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.3s transform ease;
-  transform: scale(1);
-}
-
-.item-wrap:hover img {
-  transform: scale(1.05);
-}
-
-.item-wrap:hover:after {
-  opacity: 1;
-  visibility: visible;
 }
 
 /* Pour les SVG et leur mise en forme */
@@ -589,4 +516,19 @@ h2 {
   width: 24px; /* Taille de l'icône, vous pouvez ajuster cette valeur */
   height: 24px; /* Taille de l'icône, pour garder le ratio */
   object-fit: contain;
+}
+
+/*--------------------------------------------------------------
+# HContact
+--------------------------------------------------------------*/
+/* Formulaire */
+form .form-control {
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+/* Enlever la bordure des champs de texte */
+.form-control:focus {
+  border-color: #c2a47f;
+  box-shadow: 0 0 5px rgba(194, 164, 127, 0.8);
 }
