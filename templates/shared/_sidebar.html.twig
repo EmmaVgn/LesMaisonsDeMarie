@@ -5,28 +5,28 @@
 			<a href="{{ path('homepage')}}">Accueil</a>
 		</li>
 		<li>
-			<!-- "Mes gîtes" mène à la page complète -->
+
 			<a href={{ path('houseAll')}} class="main-link">Mes gîtes</a>
-			<!-- Flèche pour ouvrir le menu -->
+
 			<button class="dropdown-btn" id="toggleGites">▼</button>
-			<!-- Sous-menu -->
+
 			<ul class="submenu" id="submenuGites">
 				<li>
 					<a href={{ path('house1')}}>La petite maison
 					</a>
 				</li>
 				<li>
-					<a href={{ path('house2')}}>La périgourdine
+					<a href={{ path('house2')}}>La maison des cousin
 					</a>
 				</li>
 				<li>
-					<a href="{{ path('house3')}}">La castille
+					<a href={{ path('house3')}}>La grande maison
 					</a>
 				</li>
 			</ul>
 		</li>
 		<li>
-			<a href="contact.html">Contact</a>
+			<a href={{ path('contact')}}>Contact</a>
 		</li>
 	</ul>
 </nav>

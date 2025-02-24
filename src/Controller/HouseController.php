@@ -10,31 +10,33 @@ final class HouseController extends AbstractController{
     #[Route('/les-maisons', name: 'houseAll')]
     public function all(): Response
     {
+
+
         return $this->render('house/index.html.twig', [
-            'controller_name' => 'HouseController',
+          
         ]);
     }
 
     #[Route('/la-petite-maison', name: 'house1')]
     public function index(): Response
     {
-        return $this->render('house/index.html.twig', [
+        return $this->render('house/house1.html.twig', [
             'controller_name' => 'HouseController',
         ]);
     }
 
-    #[Route('/la-perigourdine', name: 'house2')]
+    #[Route('/la-maison-des-cousins', name: 'house2')]
     public function perigourdine(): Response
     {
-        return $this->render('house/index.html.twig', [
+        return $this->render('house/house2.html.twig', [
             'controller_name' => 'HouseController',
         ]);
     }
 
-    #[Route('/la-castille', name: 'house3')]
+    #[Route('/la-grande-maison', name: 'house3')]
     public function castille(): Response
     {
-        return $this->render('house/index.html.twig', [
+        return $this->render('house/house3.html.twig', [
             'controller_name' => 'HouseController',
         ]);
     }

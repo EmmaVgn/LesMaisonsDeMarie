@@ -1,0 +1,123 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Petite Maison
+{% endblock %}
+
+{% block body %}
+	<div class="bg-custom-house">
+		<div class="container-fluid">
+			<section class="hero">
+				<img src="{{ asset('images/house/Petite/devant.jpeg') }}" alt="Les Maisons de Marie" class="hero-image">
+				<div class="hero-text">
+					<h1>
+						<span class="hero-left">LA</span>
+						<span class="hero-right">PETITE<br>MAISON</span>
+					</h1>
+				</div>
+			</section>
+		</div>
+
+		<!-- Section À propos de la maison -->
+		<div class="container mt-4">
+			<div
+				class="row d-flex justify-content-between">
+				<!-- Texte À propos de la Petite Maison -->
+				<div class="col-md-6">
+					<h4>À PROPOS DE LA PETITE MAISON</h4>
+					<hr>
+					<p>
+						A 4 Km de Castillonnès, un village médiéval, la petite métairie offre une atmosphère de charme qui a su allier matériaux anciens: murs en pierres apparentes, sols en terres cuites…, et un aménagement contemporain et pratique: cuisine bar et mezzanine. Cette habitation idéale pour une famille comprend deux chambres (cinq couchages), deux salles d'eau et un WC séparé. La piscine proche de la maison, est entièrement carrelée et bien exposée. Equipements: lave linge, lave vaisselle, micro-onde, mobilier de jardin, barbecue, et télévision. A proximité: golf, tennis, équitation, randonnées pédestres et cyclistes.
+					</p>
+				</div>
+
+				<!-- Modal pour les équipements -->
+				<div class="col-md-4">
+					<h4>
+						LE LOGEMENT
+					</h4>
+					<hr>
+					<p>
+						<strong>Capacité:</strong>
+						5 personnes
+					</p>
+					<p>
+						<strong>Chambres:</strong>
+						2
+					</p>
+					<p>
+						<strong>Lits:</strong>
+						5
+					</p>
+					<p>
+						<strong>Salle de bain:</strong>
+						2
+					</p>
+
+					<!-- Bouton pour afficher le modal avec les équipements -->
+					<button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#equipmentsModal">Voir les équipements</button>
+
+					<!-- Modal pour les équipements -->
+					{% include "_partial/_modal_equipment.html.twig" %}
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<!-- Galerie photo -->
+		<div class="container mt-4">
+			<h4>Galerie d'images</h4>
+			<div class="row">
+				<div class="col-md-4">
+					<img src="{{ asset('images/house/Petite/terrasse.jpg') }}" alt="Terrasse" class="img-fluid mb-3">
+				</div>
+				<div class="col-md-4">
+					<img src="{{ asset('images/house/Petite/piscine.jpeg') }}" alt="Piscine" class="img-fluid mb-3">
+				</div>
+				<div class="col-md-4">
+					<img src="{{ asset('images/house/Petite/jardin.jpeg') }}" alt="Jardin" class="img-fluid mb-3">
+				</div>
+			</div>
+		</div>
+
+		<!-- Plan Map -->
+		<div class="container mt-4">
+			<h4>Plan de la maison</h4>
+			<!-- Insérer un iframe pour la carte -->
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.463248357757!2d0.5842170768094005!3d44.66931697107203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aae145148e5047%3A0x1f69e49e3cbc07e0!2sLes%20maisons%20de%20Marie!5e0!3m2!1sfr!2sfr!4v1716988782465!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+
+		<!-- Section Contact -->
+		<div class="container mt-4">
+			<h4>Contactez-nous</h4>
+			<p>Pour toute question, n'hésitez pas à nous contacter via notre formulaire ou par téléphone.</p>
+			<div class="contact-info">
+				<p>
+					<strong>Email:</strong>
+					contact@lesmaisonsdemarie.com</p>
+				<p>
+					<strong>Téléphone:</strong>
+					+33 6 12 34 56 78</p>
+			</div>
+			<!-- Formulaire de contact -->
+			<form action="#" method="POST">
+				<div class="mb-3">
+					<label for="name" class="form-label">Nom</label>
+					<input type="text" class="form-control" id="name" required>
+				</div>
+				<div class="mb-3">
+					<label for="email" class="form-label">Email</label>
+					<input type="email" class="form-control" id="email" required>
+				</div>
+				<div class="mb-3">
+					<label for="message" class="form-label">Message</label>
+					<textarea class="form-control" id="message" rows="4" required></textarea>
+				</div>
+				<button type="submit" class="btn btn-custom-outline">Envoyer</button>
+			</form>
+		</div>
+	</div>
+
+
+{% endblock %}
