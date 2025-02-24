@@ -10,10 +10,12 @@ class SendMailService
 {
     protected $mailer;
     protected $security;
+
     public function __construct(MailerInterface $mailer)
     {
         $this->mailer = $mailer;
     }
+
     public function sendEmail(
         string $from,
         string $name,
@@ -28,6 +30,7 @@ class SendMailService
             ->htmlTemplate("emails/$template.html.twig")
             ->context($context)
             ->subject($subject);
+
         $this->mailer->send($email);
     }
 }

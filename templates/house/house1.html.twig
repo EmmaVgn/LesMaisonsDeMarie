@@ -5,17 +5,17 @@
 
 {% block body %}
 	<div class="bg-custom-house">
-		<div class="container-fluid">
-			<section class="hero">
-				<img src="{{ asset('images/house/Petite/devant.jpeg') }}" alt="Les Maisons de Marie" class="hero-image">
-				<div class="hero-text">
-					<h1>
-						<span class="hero-left">LA</span>
-						<span class="hero-right">PETITE<br>MAISON</span>
-					</h1>
-				</div>
-			</section>
-		</div>
+
+		<section class="hero">
+			<img src="{{ asset('images/house/Petite/devant.jpeg') }}" alt="Les Maisons de Marie" class="hero-image">
+			<div class="hero-text">
+				<h1>
+					<span class="hero-left">LA</span>
+					<span class="hero-right">PETITE<br>MAISON</span>
+				</h1>
+			</div>
+		</section>
+
 
 		<!-- Section À propos de la maison -->
 		<div class="container mt-4">
@@ -98,7 +98,7 @@
 					contact@lesmaisonsdemarie.com</p>
 				<p>
 					<strong>Téléphone:</strong>
-					+33 6 12 34 56 78</p>
+					+33 6 09 06 43 01</p>
 			</div>
 			<!-- Formulaire de contact -->
 			<form action="#" method="POST">
@@ -114,7 +114,9 @@
 					<label for="message" class="form-label">Message</label>
 					<textarea class="form-control" id="message" rows="4" required></textarea>
 				</div>
-				<button type="submit" class="btn btn-custom-outline">Envoyer</button>
+				<div class="mb-3">
+					<button type="submit" class="btn-custom-outline b-3">Envoyer</button>
+				</div>
 			</form>
 		</div>
 	</div>
