@@ -37,6 +37,8 @@ window.addEventListener("popstate", function () {
 });
 
 
+
+
 let slideIndex = 0;
 let thumbnails = document.querySelectorAll(".thumbnail");
 let modal = document.getElementById("slideshowModal");

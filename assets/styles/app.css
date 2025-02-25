@@ -340,10 +340,12 @@ h2 {
 .history-overlay {
   padding: 60px; /* Ajoute un peu de padding */
   background-color: #f5f5f5; /* Couleur de fond différente pour la section histoire */
-  border-radius: 10px; /* Bord arrondi pour donner du style */
-  margin-right: 50px; /* Ajuste l'espacement à droite si nécessaire */
+  border-radius: 10px; /* Bord arrondi pour donner du style */ /* Ajuste l'espacement à droite si nécessaire */
   width: 930px;
   height: 800px;
+  margin-right: 160px !important; /* Ajoute une marge de 160px à droite */
+  padding-right: 160px !important;
+  background: conic-gradient(#fff, #ede4d1);
 }
 
 .history-overlay h1 {
@@ -355,6 +357,7 @@ h2 {
 }
 
 .history-overlay p {
+  text-align: justify;
   font-size: 1.2rem;
   color: #555;
   line-height: 1.6;
@@ -368,6 +371,8 @@ h2 {
   top: -150px; /* Décale légèrement l'image vers le haut */
   margin-left: 80px; /* Ajuste l'espacement à gauche si nécessaire */
   border-radius: 10px; /* Bord arrondi pour une belle finition */
+  filter: brightness(80%);
+  opacity: 0.6; /* Ajuste l'opacité pour un effet plus doux */
 }
 /*--------------------------------------------------------------
 # House house
@@ -433,6 +438,33 @@ h2 {
   margin-bottom: 15px;
 }
 
+.modal-header,
+.modal-body {
+  background-color: #3d3d3d;
+  color: #ede4d1;
+}
+
+/* Style de la scrollbar */
+.modal-body::-webkit-scrollbar {
+  width: 12px; /* Largeur de la scrollbar */
+}
+
+/* Le fond de la scrollbar */
+.modal-body::-webkit-scrollbar-track {
+  background-color: #ede4d1; /* couleur beige pour le fond de la scrollbar */
+}
+
+/* Le bouton de la scrollbar */
+.modal-body::-webkit-scrollbar-thumb {
+  background-color: #a7b69a; /* couleur or doux pour le bouton de la scrollbar */
+  border-radius: 10px; /* Arrondir les bords du bouton */
+}
+
+/* Le bouton de la scrollbar quand il est survolé */
+.modal-body::-webkit-scrollbar-thumb:hover {
+  background-color: #a68e5b; /* couleur plus foncée lors du survol */
+}
+
 .modal-body-criteria .criteria-ul li .each-equipment {
   display: flex;
   align-items: center;
@@ -442,17 +474,11 @@ h2 {
 .modal-body-criteria .criteria-ul li .each-equipment-name {
   font-size: 1rem;
   font-weight: 400;
-  color: #3d3d3d;
-}
-/* Style pour le fond du modal */
-.modal-list-equipment {
-  background-color: #c2a47f; /* Fond de couleur beige */
-  color: #3d3d3d; /* Texte en gris */
 }
 
 /* Personnalisation des titres dans le modal */
 .modal-title {
-  color: #3d3d3d; /* Titre en gris */
+  color: #a7b69a; /* Titre en gris */
 }
 
 /* Personnalisation des boutons du modal */
@@ -462,7 +488,7 @@ h2 {
 
 /* Ajout d'une couleur de fond et de texte spécifique pour les autres éléments du modal */
 .modal-body-criteria h3 {
-  color: #3d3d3d; /* Couleur des titres de critères */
+  color: #a7b69a; /* Couleur des titres de critères */
 }
 
 /* Redimensionner les icônes SVG */
@@ -574,27 +600,6 @@ h2 {
   cursor: pointer;
 }
 
-/* Conteneur des miniatures */
-.thumbnail-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  gap: 10px;
-}
-
-.thumbnail-slide {
-  width: 50px;
-  height: 50px;
-  object-fit: cover;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.thumbnail-slide:hover {
-  transform: scale(1.1);
-}
-
 /* Appliquer une couleur de fond transparent pour le tableau */
 .table {
   background-color: transparent !important; /* Fond transparent */
@@ -617,7 +622,7 @@ h2 {
 /* Styliser les cellules des lignes avec fond transparent et texte foncé */
 .table td {
   background-color: transparent !important; /* Fond transparent pour les cellules */
-  color: #555;
+  color: #c2a47f;
   padding: 12px;
   text-align: center;
   border-bottom: 1px solid #ddd; /* Bordure légère en bas des cellules */
@@ -640,7 +645,7 @@ h2 {
 /* Style des titres */
 h4 {
   font-size: 1.6rem;
-  color: #333;
+  color: #c2a47f;
   font-weight: bold;
 }
 /*--------------------------------------------------------------
