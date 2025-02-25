@@ -57,181 +57,63 @@
 					<button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#equipmentsModal">Voir les équipements</button>
 
 					<!-- Modal pour les équipements -->
-					<div class="modal fade" id="equipmentsModal" tabindex="-1" aria-labelledby="equipmentsModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered modal-lg">
-							<div class="modal-content modal-list-equipment">
-								<div class="modal-header">
-									<h1 class="modal-title fs-5 fw-bold" id="equipmentsModalLabel">Ce que propose ce logement</h1>
-									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								</div>
-								<div
-									class="modal-body">
-									<!-- Critères -->
-									<div class="modal-body-criteria">
-										<h3 class="title-criteria">Salle de bain</h3>
-										<ul class="criteria-ul">
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="{{ asset ('images/icones/seche-cheveux-6654accc7a44c560395210.svg') }}" class="img-fluid" alt="Sèche-cheveux">
-														</div>
-													</div>
-													<div class="each-equipment-name">Sèche-cheveux</div>
-												</div>
-											</li>
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/shower-icon.svg" class="img-fluid" alt="Eau chaude">
-														</div>
-													</div>
-													<div class="each-equipment-name">Eau chaude</div>
-												</div>
-											</li>
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/shampoo-icon.svg" class="img-fluid" alt="Shampooing">
-														</div>
-													</div>
-													<div class="each-equipment-name">Shampooing</div>
-												</div>
-											</li>
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/cleaning-products-icon.svg" class="img-fluid" alt="Produits de nettoyage">
-														</div>
-													</div>
-													<div class="each-equipment-name">Produits de nettoyage</div>
-												</div>
-											</li>
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/basics-icon.svg" class="img-fluid" alt="Équipements de base">
-														</div>
-													</div>
-													<div class="each-equipment-name">Équipements de base (Serviettes, draps, savon et papier toilette)</div>
-												</div>
-											</li>
-										</ul>
-									</div>
+					{% include "_partial/_modal_equipment.html.twig" %}
+				</div>
+			</div>
 
-									<div class="modal-body-criteria">
-										<h3 class="title-criteria">Extérieur</h3>
-										<ul class="criteria-ul">
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/barbecue-icon.svg" class="img-fluid" alt="Barbecue">
-														</div>
-													</div>
-													<div class="each-equipment-name">Barbecue</div>
-												</div>
-											</li>
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/lounge-chair-icon.svg" class="img-fluid" alt="Chaises longues">
-														</div>
-													</div>
-													<div class="each-equipment-name">Chaises longues</div>
-												</div>
-											</li>
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/swimming-pool-icon.svg" class="img-fluid" alt="Piscine privée">
-														</div>
-													</div>
-													<div class="each-equipment-name">Piscine privée</div>
-												</div>
-											</li>
-											<li>
-												<div class="each-equipment">
-													<div class="each-equipment-svg-content">
-														<div class="each-equipment-svg">
-															<img src="path/to/private-garden-icon.svg" class="img-fluid" alt="Jardin privé">
-														</div>
-													</div>
-													<div class="each-equipment-name">Jardin privé</div>
-												</div>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
+			<!-- Galerie photo -->
+			<div class="container mt-4">
+				<h4>Galerie d'images</h4>
+				<div class="row">
+					<div class="col-md-4">
+						<img src="{{ asset('images/house/Petite/terrasse.jpg') }}" alt="Terrasse" class="img-fluid mb-3">
+					</div>
+					<div class="col-md-4">
+						<img src="{{ asset('images/house/Petite/piscine.jpeg') }}" alt="Piscine" class="img-fluid mb-3">
+					</div>
+					<div class="col-md-4">
+						<img src="{{ asset('images/house/Petite/jardin.jpeg') }}" alt="Jardin" class="img-fluid mb-3">
 					</div>
 				</div>
-
 			</div>
 
-		</div>
+			<!-- Plan Map -->
+			<div class="container mt-4">
+				<h4>Plan de la maison</h4>
+				<!-- Insérer un iframe pour la carte -->
+				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.463248357757!2d0.5842170768094005!3d44.66931697107203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aae145148e5047%3A0x1f69e49e3cbc07e0!2sLes%20maisons%20de%20Marie!5e0!3m2!1sfr!2sfr!4v1716988782465!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
 
-
-		<!-- Galerie photo -->
-		<div class="container mt-4">
-			<h4>Galerie d'images</h4>
-			<div class="row">
-				<div class="col-md-4">
-					<img src="{{ asset('images/house/Petite/terrasse.jpg') }}" alt="Terrasse" class="img-fluid mb-3">
+			<!-- Section Contact -->
+			<div class="container mt-4">
+				<h4>Contactez-nous</h4>
+				<p>Pour toute question, n'hésitez pas à nous contacter via notre formulaire ou par téléphone.</p>
+				<div class="contact-info">
+					<p>
+						<strong>Email:</strong>
+						contact@lesmaisonsdemarie.com</p>
+					<p>
+						<strong>Téléphone:</strong>
+						+33 6 12 34 56 78</p>
 				</div>
-				<div class="col-md-4">
-					<img src="{{ asset('images/house/Petite/piscine.jpeg') }}" alt="Piscine" class="img-fluid mb-3">
-				</div>
-				<div class="col-md-4">
-					<img src="{{ asset('images/house/Petite/jardin.jpeg') }}" alt="Jardin" class="img-fluid mb-3">
-				</div>
+				<!-- Formulaire de contact -->
+				<form action="#" method="POST">
+					<div class="mb-3">
+						<label for="name" class="form-label">Nom</label>
+						<input type="text" class="form-control" id="name" required>
+					</div>
+					<div class="mb-3">
+						<label for="email" class="form-label">Email</label>
+						<input type="email" class="form-control" id="email" required>
+					</div>
+					<div class="mb-3">
+						<label for="message" class="form-label">Message</label>
+						<textarea class="form-control" id="message" rows="4" required></textarea>
+					</div>
+					<button type="submit" class="btn btn-custom-outline">Envoyer</button>
+				</form>
 			</div>
 		</div>
 
-		<!-- Plan Map -->
-		<div class="container mt-4">
-			<h4>Plan de la maison</h4>
-			<!-- Insérer un iframe pour la carte -->
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.463248357757!2d0.5842170768094005!3d44.66931697107203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aae145148e5047%3A0x1f69e49e3cbc07e0!2sLes%20maisons%20de%20Marie!5e0!3m2!1sfr!2sfr!4v1716988782465!5m2!1sfr!2sfr" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-		</div>
-
-		<!-- Section Contact -->
-		<div class="container mt-4">
-			<h4>Contactez-nous</h4>
-			<p>Pour toute question, n'hésitez pas à nous contacter via notre formulaire ou par téléphone.</p>
-			<div class="contact-info">
-				<p>
-					<strong>Email:</strong>
-					contact@lesmaisonsdemarie.com</p>
-				<p>
-					<strong>Téléphone:</strong>
-					+33 6 12 34 56 78</p>
-			</div>
-			<!-- Formulaire de contact -->
-			<form action="#" method="POST">
-				<div class="mb-3">
-					<label for="name" class="form-label">Nom</label>
-					<input type="text" class="form-control" id="name" required>
-				</div>
-				<div class="mb-3">
-					<label for="email" class="form-label">Email</label>
-					<input type="email" class="form-control" id="email" required>
-				</div>
-				<div class="mb-3">
-					<label for="message" class="form-label">Message</label>
-					<textarea class="form-control" id="message" rows="4" required></textarea>
-				</div>
-				<button type="submit" class="btn btn-custom-outline">Envoyer</button>
-			</form>
-		</div>
-	</div>
-
-	<!-- Modal pour les équipements -->
-{% endblock %}
+		<!-- Modal pour les équipements -->
+	{% endblock %}
