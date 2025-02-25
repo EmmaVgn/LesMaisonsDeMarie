@@ -8,18 +8,6 @@ h4 {
   overflow-y: hidden;
   font-display: swap;
 }
-h1 {
-  font-size: 2.5rem;
-}
-h2 {
-  font-size: 2rem;
-}
-h3 {
-  font-size: 1.75rem;
-}
-h4 {
-  font-size: 1.5rem;
-}
 
 /*--------------------------------------------------------------
 # Général
@@ -207,7 +195,7 @@ body {
   background-color: #666;
 }
 
-/* S'assurer que la navbar prend toute la largeur de l'écran */
+/* Navbar par défaut : prendre toute la largeur de l'écran */
 .navbar {
   width: 100%;
   display: flex;
@@ -215,15 +203,37 @@ body {
   align-items: center; /* Centrer verticalement */
 }
 
-/* Ajuster la taille du logo */
+/* Ajuster la taille du logo sur les écrans larges */
 .navbar-logo {
   max-width: 360px; /* Ajuste la taille du logo comme tu le souhaites */
   height: auto; /* Garde les proportions */
-  margin-left: 230%;
+  margin-left: 230%; /* Ajuste l'espacement du logo à droite (peut être modifié) */
+}
+
+/* Responsivité : ajuster pour les petits écrans */
+@media (max-width: 768px) {
+  /* Sur les petits écrans (tablettes et mobiles) */
+  .navbar {
+    justify-content: flex-start; /* Aligner le contenu à gauche sur les petits écrans */
+    padding: 10px; /* Ajouter un peu d'espacement autour */
+  }
+
+  .navbar-logo {
+    max-width: 150px; /* Réduire la taille du logo pour les petits écrans */
+    margin-left: 0; /* Enlever l'espacement de gauche */
+    margin-right: 20px; /* Espacement droit si nécessaire */
+  }
+}
+
+/* Pour très petits écrans (mobiles très petits) */
+@media (max-width: 480px) {
+  .navbar-logo {
+    max-width: 120px; /* Réduire davantage la taille du logo pour les très petits écrans */
+  }
 }
 
 /*--------------------------------------------------------------
-# Image d'accueil
+# Hero section
 --------------------------------------------------------------*/
 .hero {
   position: relative;
@@ -245,7 +255,7 @@ body {
 
 .hero-image {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   object-fit: cover;
   position: absolute;
   top: 0;
@@ -260,17 +270,20 @@ body {
   left: 50%;
   transform: translate(-50%, -50%); /* Centre le texte */
   z-index: 2;
-  color: #333;
+  color: #fff; /* Améliorer le contraste pour la lisibilité */
   text-align: center;
+  padding: 0 20px;
 }
 
 .hero-text h1 {
-  font-size: 7rem;
+  font-size: 6rem;
   font-weight: bold;
   display: flex;
+  flex-direction: row; /* Par défaut, les éléments sont côte à côte */
   align-items: center;
   justify-content: center;
   height: 100%;
+  line-height: 1.1;
 }
 
 .hero-left {
@@ -285,12 +298,58 @@ body {
 }
 
 .hero-right {
-  font-size: 5rem;
+  font-size: 5.5rem;
   font-weight: bold;
   color: #333;
   text-align: left;
   line-height: 0.8; /* Ajuste la hauteur pour "Maisons de Marie" */
   padding-left: 10px;
+}
+
+/* Responsivité : ajuster la taille du texte et réorganiser les éléments pour les petits écrans */
+@media (max-width: 768px) {
+  .hero-text h1 {
+    font-size: 4rem;
+    flex-direction: column; /* Les éléments sont maintenant empilés */
+  }
+
+  .hero-left {
+    font-size: 6rem;
+    margin-top: 0; /* Ajuste la marge sur les petits écrans */
+  }
+
+  .hero-right {
+    font-size: 4rem;
+  }
+
+  /* Réduire l'opacité de la superposition sur les petits écrans */
+  .hero::before {
+    background: rgba(
+      255,
+      255,
+      255,
+      0.2
+    ); /* Moins opaque sur les écrans plus petits */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+
+  .hero-left {
+    font-size: 4rem;
+  }
+
+  .hero-right {
+    font-size: 3rem;
+  }
+
+  /* Supprimer complètement la superposition sur les très petits écrans */
+  .hero::before {
+    display: none;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -327,11 +386,18 @@ h2 {
 }
 
 .image-right img {
-  width: 100%;
-  margin-right: 100px; /* Ajuste l'espacement à droite si nécessaire */
   border-radius: 10px; /* Si tu veux arrondir les bords de l'image */
   opacity: 0.6; /* Ajuste l'opacité pour un effet plus doux */
   filter: brightness(80%);
+}
+
+@media (max-width: 768px) {
+  .hero-overlay,
+  .history-overlay {
+    padding: 20px;
+    margin-right: 30px; /* Ajuste l'espacement à droite si nécessaire */
+    height: 30vh;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -342,9 +408,8 @@ h2 {
   background-color: #f5f5f5; /* Couleur de fond différente pour la section histoire */
   border-radius: 10px; /* Bord arrondi pour donner du style */ /* Ajuste l'espacement à droite si nécessaire */
   width: 930px;
-  height: 800px;
-  margin-right: 160px !important; /* Ajoute une marge de 160px à droite */
-  padding-right: 160px !important;
+  height: 100vh;
+
   background: conic-gradient(#fff, #ede4d1);
 }
 
@@ -374,6 +439,17 @@ h2 {
   filter: brightness(80%);
   opacity: 0.6; /* Ajuste l'opacité pour un effet plus doux */
 }
+
+/* Pour les petits écrans, pas de top et ajustement des autres propriétés */
+@media (max-width: 768px) {
+  .image-left img {
+    top: 0; /* Retire le décalage pour les petits écrans */
+    width: 100%; /* L'image prend toute la largeur disponible */
+    height: auto; /* Garde les proportions */
+    margin-left: 0; /* Retire le margin-left pour l'aligner correctement */
+  }
+}
+
 /*--------------------------------------------------------------
 # House house
 --------------------------------------------------------------*/
@@ -410,10 +486,13 @@ h2 {
   background-color: #3d3d3d;
   color: #ede4d1;
 }
-/* Pour les SVG et leur mise en forme */
+/*--------------------------------------------------------------
+  Pour les SVG et leur mise en forme
+--------------------------------------------------------------*/
 .each-equipment-svg-content {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .each-equipment-svg {
@@ -465,28 +544,15 @@ h2 {
   background-color: #a68e5b; /* couleur plus foncée lors du survol */
 }
 
-.modal-body-criteria .criteria-ul li .each-equipment {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.modal-body-criteria .criteria-ul li .each-equipment-name {
-  font-size: 1rem;
-  font-weight: 400;
-}
-
-/* Personnalisation des titres dans le modal */
+/* Ajout d'une couleur de fond et de texte spécifique pour les autres éléments du modal */
 .modal-title {
   color: #a7b69a; /* Titre en gris */
 }
 
-/* Personnalisation des boutons du modal */
 .btn-close {
   color: #3d3d3d; /* Couleur du bouton de fermeture */
 }
 
-/* Ajout d'une couleur de fond et de texte spécifique pour les autres éléments du modal */
 .modal-body-criteria h3 {
   color: #a7b69a; /* Couleur des titres de critères */
 }
@@ -496,6 +562,74 @@ h2 {
   width: 24px; /* Taille de l'icône, vous pouvez ajuster cette valeur */
   height: 24px; /* Taille de l'icône, pour garder le ratio */
   object-fit: contain;
+}
+
+/* Responsivité pour les petits écrans */
+@media (max-width: 768px) {
+  /* Modale plus petite sur les tablettes et petits écrans */
+  .modal-dialog {
+    max-width: 90%; /* Augmenter la taille pour occuper plus d'espace sur les petits écrans */
+  }
+
+  /* Réduire la taille du bouton de fermeture */
+  .btn-close {
+    font-size: 1.2rem;
+    top: 10px;
+    right: 10px;
+  }
+
+  /* Ajuster les paddings pour éviter les débordements */
+  .modal-content {
+    padding: 10px; /* Réduire le padding pour les petits écrans */
+  }
+
+  .modal-body {
+    margin-top: 10px; /* Réduire l'espacement sur les petits écrans */
+  }
+
+  /* Réduire la taille des titres dans le modal */
+  .modal-title {
+    font-size: 1.5rem; /* Réduire la taille des titres */
+  }
+
+  /* Réduire les icônes dans le modal */
+  .each-equipment-svg img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Modale encore plus petite sur les très petits écrans */
+  .modal-dialog {
+    max-width: 95%; /* Plus grand pour occuper l'écran entier */
+  }
+
+  /* Réduire encore la taille du bouton de fermeture */
+  .btn-close {
+    font-size: 1rem;
+    top: 5px;
+    right: 5px;
+  }
+
+  /* Réduire encore le padding pour les très petits écrans */
+  .modal-content {
+    padding: 5px;
+  }
+
+  .modal-body {
+    margin-top: 5px; /* Réduire l'espacement sur les très petits écrans */
+  }
+
+  /* Réduire les titres et textes */
+  .modal-title {
+    font-size: 1.2rem;
+  }
+
+  .each-equipment-svg img {
+    width: 16px;
+    height: 16px;
+  }
 }
 
 /*Galery d'images*/
@@ -684,6 +818,10 @@ h4 {
     flex-direction: column;
     align-items: flex-start;
   }
+  .presentation-house {
+    padding-right: 10%;
+    margin-right: 20px;
+  }
 }
 /*--------------------------------------------------------------
 # HContact
@@ -727,20 +865,7 @@ form .form-control {
 }
 
 @media (max-width: 768px) {
-  .contact-content .row {
-    flex-direction: column;
-  }
-
-  .service-contact-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .service-contact-section p {
-    font-size: 0.9rem;
-  }
-
-  .service-contact-section .btn-primary {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+  .service-contact-section {
+    display: none;
   }
 }

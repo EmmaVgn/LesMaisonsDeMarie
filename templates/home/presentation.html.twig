@@ -1,9 +1,12 @@
 <section class="container-fluid hero-content mt-5">
-	<div class="row">
-		<div class="col-md-6">
+
+	<div
+		class="row">
+
+		<!-- Colonne pour le texte -->
+		<div class="col-lg-7 col-md-12 mb-4">
 			<div class="hero-overlay">
-				<h1>Les Maisons de Marie
-				</h1>
+				<h1>Les Maisons de Marie</h1>
 				<p>
 					En Lot-et-Garonne, aux portes de la Dordogne, en Périgord pourpre - celui des vins de Bergerac - les trois Maisons de Marie se nichent dans les méandres du Dropt.
 					<br><br>
@@ -14,15 +17,17 @@
 						<span>Voir les gîtes</span>
 					</a>
 				</p>
-
-				<br>
-
 			</div>
 		</div>
-		<div class="col-md-6">
+
+		<!-- Colonne pour l'image -->
+		<div class="col-lg-5 col-md-12 order-lg-1 d-flex align-items-center">
 			<div class="image-right">
-				<img src=" {{ asset('images/Accueil/terrasse.png') }}" alt=" maison de Marie" class=" img-fluid" style="width: 95%;">
+				<img src="{{ asset('images/Accueil/terrasse.png') }}" alt="maison de Marie" class="img-fluid rounded" style="max-width: 100%; height: auto;">
 			</div>
 		</div>
+
 	</div>
+
+
 </section>

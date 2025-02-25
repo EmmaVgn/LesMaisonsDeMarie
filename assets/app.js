@@ -38,53 +38,63 @@ window.addEventListener("popstate", function () {
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+  let slideIndex = 0;
+  let thumbnails = document.querySelectorAll(".thumbnail");
+  let modal = document.getElementById("slideshowModal");
+  let fullImage = document.getElementById("fullImage");
+  let closeBtn = document.querySelector(".close");
+  let prevBtn = document.querySelector(".prev");
+  let nextBtn = document.querySelector(".next");
 
-let slideIndex = 0;
-let thumbnails = document.querySelectorAll(".thumbnail");
-let modal = document.getElementById("slideshowModal");
-let fullImage = document.getElementById("fullImage");
-let closeBtn = document.querySelector(".close");
-let prevBtn = document.querySelector(".prev");
-let nextBtn = document.querySelector(".next");
+  // Vérification si closeBtn existe
+  if (closeBtn) {
+    // Fermer le modal
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = "none";  // Fermer le modal
+    });
+  } else {
+    console.log("Le bouton de fermeture n'a pas été trouvé.");
+  }
 
-// Ouvrir le diaporama au clic sur une image
-thumbnails.forEach((thumbnail, index) => {
-  thumbnail.addEventListener("click", function() {
-    openModal(index);  // Ouvre le diaporama
+  // Ouvrir le diaporama au clic sur une image
+  thumbnails.forEach((thumbnail, index) => {
+    thumbnail.addEventListener("click", function() {
+      openModal(index);  // Ouvre le diaporama
+    });
   });
-});
 
-// Fonction pour ouvrir le modal
-function openModal(index) {
-  modal.style.display = "block";  // Afficher le modal
-  slideIndex = index;
-  showSlides(slideIndex);
-}
+  // Fonction pour ouvrir le modal
+  function openModal(index) {
+    modal.style.display = "block";  // Afficher le modal
+    slideIndex = index;
+    showSlides(slideIndex);
+  }
 
-// Fermer le modal
-closeBtn.addEventListener('click', function() {
-  modal.style.display = "none";  // Fermer le modal
-});
+  // Afficher l'image dans le diaporama
+  function showSlides(index) {
+    let imageSrc = thumbnails[index].getAttribute("data-full");
+    fullImage.src = imageSrc;
+  }
 
-// Afficher l'image dans le diaporama
-function showSlides(index) {
-  let imageSrc = thumbnails[index].getAttribute("data-full");
-  fullImage.src = imageSrc;
-}
+  // Déplacer à l'image suivante ou précédente
+  function moveSlide(n) {
+    slideIndex += n;
+    if (slideIndex < 0) slideIndex = thumbnails.length - 1;
+    if (slideIndex >= thumbnails.length) slideIndex = 0;
+    showSlides(slideIndex);
+  }
 
-// Déplacer à l'image suivante ou précédente
-function moveSlide(n) {
-  slideIndex += n;
-  if (slideIndex < 0) slideIndex = thumbnails.length - 1;
-  if (slideIndex >= thumbnails.length) slideIndex = 0;
-  showSlides(slideIndex);
-}
+  // Associer les flèches de navigation aux fonctions moveSlide
+  if (prevBtn) {
+    prevBtn.addEventListener('click', function() {
+      moveSlide(-1);  // Flèche gauche
+    });
+  }
 
-// Associer les flèches de navigation aux fonctions moveSlide
-prevBtn.addEventListener('click', function() {
-  moveSlide(-1);  // Flèche gauche
-});
-
-nextBtn.addEventListener('click', function() {
-  moveSlide(1);  // Flèche droite
+  if (nextBtn) {
+    nextBtn.addEventListener('click', function() {
+      moveSlide(1);  // Flèche droite
+    });
+  }
 });
