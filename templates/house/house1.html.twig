@@ -75,7 +75,7 @@
 				<strong>Basse saison:</strong>
 				du 1er octobre au 30 avril
 			</p>
-			<table class="table table-bordered">
+			<table class="table">
 				<thead>
 					<tr>
 						<th scope="col">Période</th>
@@ -119,19 +119,20 @@
 			</div>
 		</div>
 
+
 		<!-- Diaporama Modal -->
-		<div class="modal" id="slideshowModal">
-			<span class="close" onclick="closeModal()">&times;</span>
-			<div class="modal-content">
+		<div id="slideshowModal" class="modal diaporama-house">
+			<div class="diaporama-content">
+				<span class="close">&times;</span>
 				<div class="slideshow-container">
-					<div class="mySlides fade">
-						<img src="" alt="Image full" id="fullImage" class="full-image">
-					</div>
-					<a class="prev" onclick="moveSlide(-1)">&#10094;</a>
-					<a class="next" onclick="moveSlide(1)">&#10095;</a>
+					<img id="fullImage" src="" alt="Image du diaporama" class="full-image">
 				</div>
-				<div class="thumbnail-container">
-					<img class="thumbnail-slide" src="" alt="thumbnail" onclick="currentSlide(0)">
+				<a href="javascript:void(0);" class="prev">&#10094;</a>
+				<a href="javascript:void(0);" class="next">&#10095;</a>
+
+				<!-- Miniatures sous l'image principale -->
+				<div
+					class="thumbnail-container"><!-- Miniatures ajoutées dynamiquement avec JavaScript -->
 				</div>
 			</div>
 		</div>
@@ -183,9 +184,4 @@
 			<button type="submit" class="btn-custom-outline">Envoyer</button>
 		</form>
 	</div>
-{% endblock %}
-{% block importmap %}
-	{# do NOT call parent() #}
-
-	{{ importmap(['app', 'diaporama']) }}
 {% endblock %}

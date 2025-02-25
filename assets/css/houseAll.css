@@ -1,0 +1,37 @@
+/*--------------------------------------------------------------
+# House houseAll
+--------------------------------------------------------------*/
+.bg-beige-light {
+  background-color: #ede4d1;
+}
+
+.house-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.house-text {
+  padding: 20px;
+}
+
+.house-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .house-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

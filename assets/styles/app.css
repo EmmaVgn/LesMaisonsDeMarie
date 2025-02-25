@@ -74,20 +74,6 @@ body {
   color: white;
   transform: scale(1.05);
 }
-
-/*--------------------------------------------------------------
-# .breadcrumb
---------------------------------------------------------------*/
-.breadcrumb a {
-  text-decoration: none; /* Enlève le soulignement */
-  color: #3d3d3d; /* Couleur gris anthracite */
-}
-
-/* Changer la couleur du lien actif */
-.breadcrumb .breadcrumb-item.active {
-  color: #3d3d3d; /* Couleur gris anthracite pour l'élément actif */
-}
-
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
@@ -308,8 +294,8 @@ body {
 }
 
 /*--------------------------------------------------------------
-# Presentation homepage
---------------------------------------------------------------*/
+  # Presentation homepage
+  --------------------------------------------------------------*/
 .hero-content {
   position: relative;
   width: 100%;
@@ -349,8 +335,8 @@ h2 {
 }
 
 /*--------------------------------------------------------------
-# Histoire homepage
---------------------------------------------------------------*/
+  # Histoire homepage
+  --------------------------------------------------------------*/
 .history-overlay {
   padding: 60px; /* Ajoute un peu de padding */
   background-color: #f5f5f5; /* Couleur de fond différente pour la section histoire */
@@ -383,45 +369,6 @@ h2 {
   margin-left: 80px; /* Ajuste l'espacement à gauche si nécessaire */
   border-radius: 10px; /* Bord arrondi pour une belle finition */
 }
-
-/*--------------------------------------------------------------
-# House houseAll
---------------------------------------------------------------*/
-.bg-beige-light {
-  background-color: #ede4d1;
-}
-
-.house-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.house-text {
-  padding: 20px;
-}
-
-.house-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.rounded {
-  border-radius: 10px;
-}
-
-.shadow-sm {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 767px) {
-  .house-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
 /*--------------------------------------------------------------
 # House house
 --------------------------------------------------------------*/
@@ -452,8 +399,8 @@ h2 {
 }
 
 /*--------------------------------------------------------------
-# House display
---------------------------------------------------------------*/
+  # House display
+  --------------------------------------------------------------*/
 .bg-custom-house {
   background-color: #3d3d3d;
   color: #ede4d1;
@@ -498,7 +445,7 @@ h2 {
   color: #3d3d3d;
 }
 /* Style pour le fond du modal */
-.modal-content {
+.modal-list-equipment {
   background-color: #c2a47f; /* Fond de couleur beige */
   color: #3d3d3d; /* Texte en gris */
 }
@@ -525,6 +472,7 @@ h2 {
   object-fit: contain;
 }
 
+/*Galery d'images*/
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -544,62 +492,47 @@ h2 {
   transition: transform 0.3s ease;
 }
 
-/* Animation de fondu */
-.fade {
-  animation: fade 2s ease-in-out infinite;
-}
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-/* Modal du diaporama */
-.modal {
-  display: none;
+/* Le modal du diaporama */
+.modal.diaporama-house {
+  display: none; /* Cacher par défaut */
   position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px); /* Fond flou */
-  overflow: hidden; /* Évite les barres de défilement */
+  z-index: 1000; /* Au-dessus de tout */
+  left: 60%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* Centrer le modal */
+  background-color: rgba(0, 0, 0, 0.8); /* Fond sombre */
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 90%; /* Limite de largeur du modal */
+  max-height: 80vh;
+  overflow: hidden; /* Empêche le défilement */
+}
+
+/* Contenu du modal */
+.diaporama-content {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modal-content {
-  position: relative;
-  background: transparent !important
-  ;
+  height: 100%;
   border-radius: 10px;
   max-width: 80%; /* Limiter la largeur maximale */
   max-height: 80%; /* Limiter la hauteur maximale */
   padding: 10px;
   overflow: hidden;
+  top: 10%;
 }
 
+/* Image pleine taille dans le modal */
 .full-image {
   width: 100%;
   height: auto;
   display: block;
-  margin: auto;
   max-width: 100%; /* Limite la largeur de l'image */
   max-height: 70vh;
-  object-fit: contain; /* Limite la hauteur de l'image */
+  object-fit: contain; /* L'image s'adapte sans déformer */
+  margin: 0 auto;
 }
 
 /* Flèches de navigation */
@@ -607,27 +540,38 @@ h2 {
 .next {
   position: absolute;
   top: 50%;
-  padding: 16px;
   color: #fff;
-  font-size: 18px;
+  font-size: 30px;
   font-weight: bold;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.6);
-  border: none;
+  padding: 16px;
   border-radius: 50%;
+  z-index: 1;
 }
 
 .prev {
-  left: 0;
+  left: 10px;
 }
 
 .next {
-  right: 0;
+  right: 10px;
 }
 
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Le bouton pour fermer */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* Conteneur des miniatures */
@@ -651,17 +595,91 @@ h2 {
   transform: scale(1.1);
 }
 
-/* Bouton de fermeture */
-.close {
-  position: absolute;
-  top: 20px;
-  right: 10%;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
+/* Appliquer une couleur de fond transparent pour le tableau */
+.table {
+  background-color: transparent !important; /* Fond transparent */
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Légère ombre autour du tableau */
 }
 
+/* Donner une couleur plus foncée aux lignes d'en-têtes */
+.table th {
+  background-color: transparent !important; /* Fond transparent pour les en-têtes */
+  color: #c2a47f; /* Beige doré */
+  font-weight: bold;
+  text-align: center;
+  padding: 12px;
+  border-bottom: 2px solid #ddd; /* Bordure du bas des en-têtes */
+}
+
+/* Styliser les cellules des lignes avec fond transparent et texte foncé */
+.table td {
+  background-color: transparent !important; /* Fond transparent pour les cellules */
+  color: #555;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd; /* Bordure légère en bas des cellules */
+  /* Supprimer les autres bordures */
+  border-left: none;
+  border-right: none;
+}
+
+/* Au survol de chaque ligne, changer légèrement la couleur */
+.table tr:hover td {
+  background-color: #c2a47f !important; /* Couleur de fond au survol */
+}
+
+/* Espacement et largeur des cellules */
+.table td,
+.table th {
+  padding: 10px 20px;
+}
+
+/* Style des titres */
+h4 {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: bold;
+}
+/*--------------------------------------------------------------
+# House houseAll
+--------------------------------------------------------------*/
+.bg-beige-light {
+  background-color: #ede4d1;
+}
+
+.house-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.house-text {
+  padding: 20px;
+}
+
+.house-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767px) {
+  .house-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 /*--------------------------------------------------------------
 # HContact
 --------------------------------------------------------------*/

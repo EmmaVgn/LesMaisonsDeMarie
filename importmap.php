@@ -43,4 +43,29 @@ return [
         'path' => './assets/js/diaporama.js',
         'entrypoint' => true,
     ],
+    'contact' => [
+        'path' => './assets/css/contact.css',
+        'type' => 'css',
+        'entrypoint' => true,
+    ],
+    'homepage' => [
+        'path' => './assets/css/homepage.css',
+        'type' => 'css',
+        'entrypoint' => true,
+    ],
+    'houseAll' => [
+        'path' => './assets/css/houseAll.css',
+        'type' => 'css',
+        'entrypoint' => true,
+    ],
+    'housePage' => [
+        'path' => './assets/css/housePage.css',
+        'type' => 'css',
+        'entrypoint' => true,
+    ],
+    'style.css' => [
+        'path' => './assets/styles/app.css',
+        'type' => 'css',
+        'entrypoint' => true,
+    ],
 ];
