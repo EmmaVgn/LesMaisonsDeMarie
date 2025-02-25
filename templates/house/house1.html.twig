@@ -183,4 +183,9 @@
 			<button type="submit" class="btn-custom-outline">Envoyer</button>
 		</form>
 	</div>
-</div>{% endblock %}
+{% endblock %}
+{% block importmap %}
+	{# do NOT call parent() #}
+
+	{{ importmap(['app', 'diaporama']) }}
+{% endblock %}

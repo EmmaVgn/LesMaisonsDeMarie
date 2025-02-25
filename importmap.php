@@ -39,4 +39,8 @@ return [
         'version' => '5.3.3',
         'type' => 'css',
     ],
+    'diaporama' => [
+        'path' => './assets/js/diaporama.js',
+        'entrypoint' => true,
+    ],
 ];
