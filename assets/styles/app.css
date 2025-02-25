@@ -274,7 +274,7 @@ body {
 }
 
 .hero-left {
-  font-size: 10rem;
+  font-size: 8rem;
   font-weight: bold;
   margin-top: 50px;
   color: #333;
@@ -285,7 +285,7 @@ body {
 }
 
 .hero-right {
-  font-size: 5.8rem;
+  font-size: 5rem;
   font-weight: bold;
   color: #333;
   text-align: left;
@@ -698,4 +698,49 @@ form .form-control {
 .form-control:focus {
   border-color: #c2a47f;
   box-shadow: 0 0 5px rgba(194, 164, 127, 0.8);
+}
+
+/*--------------------------------------------------------------
+# Contact rapide
+--------------------------------------------------------------*/
+.service-contact-section {
+  background-color: #3d3d3d;
+  color: #ede4d1;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.service-contact-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.service-contact-section p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/*Contact Form*/
+.show {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .contact-content .row {
+    flex-direction: column;
+  }
+
+  .service-contact-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-contact-section p {
+    font-size: 0.9rem;
+  }
+
+  .service-contact-section .btn-primary {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }
