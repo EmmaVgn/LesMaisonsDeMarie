@@ -533,6 +533,48 @@ body {
   opacity: 0.5;
 }
 
+@media (max-width: 768px) {
+  /* HERO - Ajustement du texte */
+  .house-text h1 {
+    font-size: 4rem;
+    flex-direction: column; /* Texte empilé */
+  }
+
+  .house-left {
+    font-size: 5rem;
+    margin-top: 0;
+  }
+
+  .house-right {
+    font-size: 3.5rem;
+  }
+}
+
+/* Ajustement des images */
+.house-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 480px) {
+  .house-text h1 {
+    font-size: 3rem;
+  }
+
+  .house-left {
+    font-size: 4rem;
+  }
+
+  .house-right {
+    font-size: 3rem;
+  }
+
+  /* Ajustement des images */
+  .house-image {
+    width: 100%;
+    height: auto;
+  }
+}
 .each-equipment-svg-content {
   display: flex;
   align-items: center;
