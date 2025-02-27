@@ -42,7 +42,7 @@
 			<meta name="twitter:description" content="Trouvez votre hébergement idéal en Dordogne avec Les Maisons de Marie.">
 			<meta name="twitter:image" content="{{ asset('images/house/Petite/maison.jpeg') }}">
 
-		{% elseif app.request.attributes.get('_route') starts with 'house' %}
+		{% elseif app.request.attributes.get('_route') starts with 'house' and maison is defined %}
 			<!-- ✅ Meta pour les pages de chaque maison -->
 			<meta name="description" content="Découvrez notre maison {{ maison.nom }} en Dordogne. Profitez d’un hébergement de charme avec piscine près de Bergerac.">
 			<meta name="keywords" content="gîte {{ maison.nom }}, maison d'hôte Dordogne, séjour en Périgord, location vacances {{ maison.nom }}">
@@ -56,6 +56,7 @@
 			<meta name="twitter:title" content="{{ maison.nom }} - Maison d'Hôte en Dordogne">
 			<meta name="twitter:description" content="{{ maison.description|striptags|slice(0, 150) }}...">
 			<meta name="twitter:image" content="{{ asset(maison.image) }}">
+
 
 		{% elseif app.request.attributes.get('_route') == 'contact' %}
 			<!-- ✅ Meta pour la page Contact -->
@@ -107,14 +108,12 @@
 		{% endblock %}
 	</head>
 
-	<body>
-		{% include "shared/_flash.html.twig" %}
-		<header>
-			{% include "shared/_sidebar.html.twig" %}
-		</header>
+	{% include "shared/_flash.html.twig" %}
+	<header>
+		{% include "shared/_sidebar.html.twig" %}
+	</header>
 
-		{% block body %}
-			<div class="container marketing {{ margin }}"></div>
-		{% endblock %}
-	</body>
+	{% block body %}
+		<div class="container marketing {{ margin }}"></div>
+	{% endblock %}
 </html>
