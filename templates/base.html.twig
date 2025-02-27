@@ -1,27 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 	<head>
+		<!-- Encodage et compatibilité -->
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<meta name="description" content="Les maisons de Marie, gîtes de charme en Lot-et-Garonne">
+
+		{% if app.request.attributes.get('_route') == 'homepage' %}
+
+			<!-- 🔥 Balises SEO -->
+			<meta name="description" content="Location de maisons d'hôte restaurées, gîtes et villas avec piscine près de Bergerac en Périgord, Dordogne. Découvrez des hébergements de charme en pleine nature.">
+			<meta name="keywords" content="gîte Dordogne, location maison Bergerac, hébergement Périgord, villa avec piscine, maison d'hôte">
+			<meta
+			name="author" content="Les Maisons de Marie">
+
+			<!-- Open Graph (Facebook & LinkedIn) -->
+			<meta property="og:title" content="Les Maisons de Marie - Location de gîtes de charme en Dordogne">
+			<meta property="og:description" content="Découvrez nos maisons d'hôte, gîtes et villas avec piscine en Périgord, Dordogne. Parfait pour vos vacances en pleine nature !">
+			<meta property="og:image" content="{{ asset('images/les_maisons_de_marie_CAC.png') }}">
+			<meta property="og:url" content="{{ app.request.uri }}">
+			<meta
+			property="og:type" content="website">
+
+			<!-- Twitter Card (X) -->
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:title" content="Les Maisons de Marie - Location de gîtes en Dordogne">
+			<meta name="twitter:description" content="Location de maisons d'hôte et gîtes avec piscine près de Bergerac, Dordogne. Séjournez en pleine nature avec charme et confort.">
+			<meta name="twitter:image" content="{{ asset('images/les_maisons_de_marie_CAC.png') }}">
+		{% elseif app.request.attributes.get('_route') == 'houseall' %}
+			<!-- ✅ Meta pour la page Nos Maisons -->
+			<meta name="description" content="Explorez nos maisons d'hôte et gîtes en Dordogne. Découvrez nos logements de charme avec piscine près de Bergerac.">
+			<meta name="keywords" content="gîte de charme, maison d'hôte Dordogne, location saisonnière Bergerac, villa piscine Périgord">
+
+			<meta property="og:title" content="Nos Gîtes & Maisons d'Hôtes en Dordogne">
+			<meta property="og:description" content="Découvrez nos trois maisons d'hôte en Dordogne. Hébergement idéal pour des vacances paisibles.">
+			<meta property="og:image" content="{{ asset('images/house/Petite/maison.jpeg') }}">
+			<meta property="og:url" content="{{ app.request.uri }}">
+
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:title" content="Nos Gîtes & Maisons d'Hôtes en Dordogne">
+			<meta name="twitter:description" content="Trouvez votre hébergement idéal en Dordogne avec Les Maisons de Marie.">
+			<meta name="twitter:image" content="{{ asset('images/house/Petite/maison.jpeg') }}">
+
+		{% elseif app.request.attributes.get('_route') starts with 'house' %}
+			<!-- ✅ Meta pour les pages de chaque maison -->
+			<meta name="description" content="Découvrez notre maison {{ maison.nom }} en Dordogne. Profitez d’un hébergement de charme avec piscine près de Bergerac.">
+			<meta name="keywords" content="gîte {{ maison.nom }}, maison d'hôte Dordogne, séjour en Périgord, location vacances {{ maison.nom }}">
+
+			<meta property="og:title" content="{{ maison.nom }} - Maison d'Hôte en Dordogne">
+			<meta property="og:description" content="{{ maison.description|striptags|slice(0, 150) }}...">
+			<meta property="og:image" content="{{ asset(maison.image) }}">
+			<meta property="og:url" content="{{ app.request.uri }}">
+
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:title" content="{{ maison.nom }} - Maison d'Hôte en Dordogne">
+			<meta name="twitter:description" content="{{ maison.description|striptags|slice(0, 150) }}...">
+			<meta name="twitter:image" content="{{ asset(maison.image) }}">
+
+		{% elseif app.request.attributes.get('_route') == 'contact' %}
+			<!-- ✅ Meta pour la page Contact -->
+			<meta name="description" content="Contactez Les Maisons de Marie pour réserver votre séjour en Dordogne. Réponse rapide et personnalisée.">
+			<meta name="keywords" content="contact gîte Dordogne, réserver maison Périgord, location vacances Bergerac">
+
+			<meta property="og:title" content="Contactez Les Maisons de Marie">
+			<meta property="og:description" content="Besoin d’informations ou envie de réserver votre séjour ? Contactez-nous !">
+			<meta property="og:image" content="{{ asset('images/Accueil/salon1.png') }}">
+			<meta property="og:url" content="{{ app.request.uri }}">
+
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:title" content="Contactez Les Maisons de Marie">
+			<meta name="twitter:description" content="Contactez-nous pour réserver votre séjour dans un gîte de charme en Dordogne.">
+			<meta name="twitter:image" content="{{ asset('images/Accueil/salon1.png') }}">
+		{% endif %}
 
 		<title>
-			{% block title %}
-				Les maisons de Marie
+			{% block title %}Les Maisons de Marie
 			{% endblock %}
 		</title>
-		<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+
+
+		<!-- ✅ Favicon -->
+		<link rel="icon" type="image/png" href="{{ asset('images/favicon.ico') }}">
+		<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/apple-touch-icon.png') }}">
+		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon-32x32.png') }}">
+		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon-16x16.png') }}">
+		<link
+		rel="manifest" href="{{ asset('images/site.webmanifest') }}">
+
+		<!-- ✅ Optimisation des performances -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+		<link rel="preload" href="{{ asset('styles/app.css') }}" as="style">
+		<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
+
 		{% block stylesheets %}
-			<link rel="stylesheet" href="{{ asset('styles/app.css') }}">
 			<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/solid.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 			<link rel="preload" href="{{ asset('/css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-			<link rel="preconnect" href="https://fonts.googleapis.com">
-			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-			<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 		{% endblock %}
-
 
 		{% block javascripts %}
 			{% block importmap %}
@@ -29,16 +106,15 @@
 			{% endblock %}
 		{% endblock %}
 	</head>
+
 	<body>
 		{% include "shared/_flash.html.twig" %}
 		<header>
-
 			{% include "shared/_sidebar.html.twig" %}
 		</header>
+
 		{% block body %}
 			<div class="container marketing {{ margin }}"></div>
-
 		{% endblock %}
-
 	</body>
 </html>

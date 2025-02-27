@@ -6,14 +6,31 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-final class HouseController extends AbstractController{
+final class HouseController extends AbstractController
+{
+    private array $houses = [
+        'house1' => [
+            'nom' => 'La Petite Maison',
+            'description' => "Charme absolu pour cette petite ferme où rien ne manque.",
+            'image' => 'images/house/Petite/maison.jpeg',
+        ],
+        'house2' => [
+            'nom' => 'La Maison des Cousins',
+            'description' => "Véritable maison périgourdine avec toit à deux pentes et tuiles plates. Mur à colombages et magnifiques chambres avec charpentes apparentes.",
+            'image' => 'images/house/Perigourdine/vue ciel2.jpg',
+        ],
+        'house3' => [
+            'nom' => 'La Grande Maison',
+            'description' => "Superbe maison de caractère au charme intemporel. Cuisine et salle à manger très conviviales. Lieu idéal pour des retrouvailles entre amis et familles.",
+            'image' => 'images/house/Castille/vue ciel5.png',
+        ]
+    ];
+
     #[Route('/les-maisons', name: 'houseAll')]
     public function all(): Response
     {
-
-
         return $this->render('house/index.html.twig', [
-          
+            'houses' => $this->houses,
         ]);
     }
 
@@ -21,7 +38,7 @@ final class HouseController extends AbstractController{
     public function index(): Response
     {
         return $this->render('house/house1.html.twig', [
-            'controller_name' => 'HouseController',
+            'maison' => $this->houses['house1'],
         ]);
     }
 
@@ -29,7 +46,7 @@ final class HouseController extends AbstractController{
     public function perigourdine(): Response
     {
         return $this->render('house/house2.html.twig', [
-            'controller_name' => 'HouseController',
+            'maison' => $this->houses['house2'],
         ]);
     }
 
@@ -37,7 +54,7 @@ final class HouseController extends AbstractController{
     public function castille(): Response
     {
         return $this->render('house/house3.html.twig', [
-            'controller_name' => 'HouseController',
+            'maison' => $this->houses['house3'],
         ]);
     }
 }

@@ -6,59 +6,63 @@
 {% block body %}
 	{% include "shared/_navbar.html.twig" %}
 
-	<section class="container mt-3">
-		<div class="row">
-			<div
-				class="houseall">
-				<!-- Maison 1 : Image à gauche, texte à droite -->
-				<div class="col-12 mb-4">
-					<div class="house-row p-4 d-flex flex-column flex-md-row">
-						<div class="house-image col-md-6">
-							<img src="{{ asset('images/house/Petite/vue devant.jpg') }}" alt="La Petite Maison vue devant" class="img-fluid">
-						</div>
-						<div class="house-text col-md-6">
-							<h2>La Petite Maison</h2>
-							<p>Charme absolu pour cette petite ferme où rien ne manque.</p>
-							<a href="{{ path('house1') }}" class="btn-custom-outline">Voir la maison</a>
+	<section class="container-fluid houseall-container mt-3">
+		<div class="house-presentaion">
+			<div class="container">
+				<div class="row">
+					<div
+						class="houseall">
+						<!-- Maison 1 : Image à gauche, texte à droite -->
+						<div class="col-12 mb-4">
+							<div class="houseall-row p-4 d-flex flex-column flex-md-row">
+								<div class="houseall-image col-md-6">
+									<img src="{{ asset('images/house/Petite/maison.jpeg') }}" alt="La Petite Maison vue devant" class="img-fluid">
+								</div>
+								<div class="houseall-text col-md-6">
+									<h2>La Petite Maison</h2>
+									<p>Charme absolu pour cette petite ferme où rien ne manque.</p>
+									<a href="{{ path('house1') }}" class="btn-custom-outline">Voir la maison</a>
+								</div>
+							</div>
 						</div>
 					</div>
+
+					<hr>
+
+					<!-- Maison 2 : Image à droite, texte à gauche (inversée) -->
+					<div class="col-12 mb-4">
+						<div class="houseall-row p-4 d-flex flex-column flex-md-row-reverse">
+							<div class="houseall-text col-md-6">
+								<h2>La Maison des Cousins</h2>
+								<p>Véritable maison périgourdine avec toit à deux pentes et tuiles plates. Mur à colombages et magnifiques chambres avec charpentes apparentes.</p>
+								<a href="{{ path('house2') }}" class="btn-custom-outline">Voir la maison</a>
+							</div>
+							<div class="houseall-image col-md-6">
+								<img src="{{ asset('images/house/Perigourdine/vue derriere.jpg') }}" alt="La Périgourdine vue extérieur" class="img-fluid">
+							</div>
+						</div>
+					</div>
+
+					<div class="houseall">
+						<hr>
+						<!-- Maison 3 : Image à gauche, texte à droite -->
+						<div class="col-12">
+							<div class="houseall-row p-4 d-flex flex-column flex-md-row align-items-stretch">
+								<div class="houseall-image col-md-6">
+									<img src="{{ asset('images/house/Castille/vue devant.jpg') }}" alt="La Castille vue devant" class="img-fluid">
+								</div>
+								<div class=" houseall-text col-md-6">
+									<h2>La Grande Maison</h2>
+									<p>Superbe maison de caractère au charme intemporel. Cuisine et salle à manger très conviviales. Lieu idéal pour des retrouvailles entre amis et en famille.</p>
+									<a href="{{ path('house3') }}" class="btn-custom-outline">Voir la maison</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<br>
+					<hr>
 				</div>
 			</div>
-
-			<hr>
-
-			<!-- Maison 2 : Image à droite, texte à gauche (inversée) -->
-			<div class="col-12 mb-4">
-				<div class="house-row p-4 d-flex flex-column flex-md-row">
-					<div class="house-text col-md-6">
-						<h2>La Maison des Cousins</h2>
-						<p>Véritable maison périgourdine avec toit à deux pentes et tuiles plates. Mur à colombages et magnifiques chambres avec charpentes apparentes.</p>
-						<a href="{{ path('house2') }}" class="btn-custom-outline">Voir la maison</a>
-					</div>
-					<div class="house-image col-md-6">
-						<img src="{{ asset('images/house/Perigourdine/vue ciel4.png') }}" alt="La Périgourdine vue extérieur" class="img-fluid">
-					</div>
-				</div>
-			</div>
-
-			<div class="houseall">
-				<hr>
-				<!-- Maison 3 : Image à gauche, texte à droite -->
-				<div class="col-12">
-					<div class="house-row d-flex flex-column flex-md-row">
-						<div class="house-image col-md-6">
-							<img src="{{ asset('images/house/Castille/vue devant.jpg') }}" alt="La Castille vue devant" class="img-fluid">
-						</div>
-						<div class="house-text col-md-6">
-							<h2>La Grande Maison</h2>
-							<p>Superbe maison de caractère au charme intemporel. Cuisine et salle à manger très conviviales. Lieu idéal pour des retrouvailles entre amis et familles.</p>
-							<a href="{{ path('house3') }}" class="btn-custom-outline">Voir la maison</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<hr>
 		</div>
 	</section>
 
