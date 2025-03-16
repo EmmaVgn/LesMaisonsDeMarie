@@ -1,0 +1,56 @@
+<div class="container mt-4">
+	<h4>{{ 'house1.gallery'|trans }}</h4>
+	<hr>
+	<div class="gallery">
+		<img src="{{ asset('images/house/Petite/entree.jpeg') }}" alt="entree" class="thumbnail" data-full="{{ asset('images/house/Petite/entree.jpeg') }}" style="grid-column: span 2;">
+		<img src="{{ asset('images/house/Petite/devant.jpeg') }}" alt="entree" class="thumbnail" data-full="{{ asset('images/house/Petite/devant.jpeg') }}" style="grid-column: span 3;">
+		<img src="{{ asset('images/house/Petite/maison.jpeg') }}" alt="maison" class="thumbnail" data-full="{{ asset('images/house/Petite/maison.jpeg') }}">
+
+		<img src="{{ asset('images/house/Petite/terrasse.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Petite/terrasse.jpg') }}" style="grid-column: span 3;">
+		<img src="{{ asset('images/house/Petite/terasse.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Petite/terasse.jpg') }}">
+
+		<img src="{{ asset('images/house/Petite/piscine.jpeg') }}" alt="Piscine" class="thumbnail" data-full="{{ asset('images/house/Petite/piscine.jpeg') }}">
+		<img src="{{ asset('images/house/Petite/piscine:maison.jpg') }}" alt="Piscine" class="thumbnail" data-full="{{ asset('images/house/Petite/piscine:maison.jpg') }}">
+		<img src="{{ asset('images/house/Petite/vue devant2.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Petite/vue devant2.jpg') }}" style="grid-column: span 5;">
+		<img src="{{ asset('images/house/Petite/table a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Petite/table a manger.jpg') }}">
+
+		<img src="{{ asset('images/house/Petite/chambre1.jpg') }}" alt="Chambre 1" class="thumbnail" data-full="{{ asset('images/house/Petite/chambre1.jpg') }}">
+		<img src="{{ asset('images/house/Petite/chambre2.jpeg') }}" alt="Chambre 2" class="thumbnail" data-full="{{ asset('images/house/Petite/chambre2.jpeg') }}" style="grid-column: span 4;">
+		<img src="{{ asset('images/house/Petite/chambre4.jpeg') }}" alt="chambre" class="thumbnail" data-full="{{ asset('images/house/Petite/chambre4.jpeg') }}">
+
+		<img src="{{ asset('images/house/Petite/sdb.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Petite/sdb.jpeg') }}">
+		<img src="{{ asset('images/house/Petite/sdb.jpg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Petite/sdb.jpg') }}" style="grid-column: span 4;">
+		<img src="{{ asset('images/house/Petite/sdb1.jpg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Petite/sdb1.jpg') }}">
+
+
+		<img src="{{ asset('images/house/Petite/cuisine.jpeg') }}" alt="Cuisine" class="thumbnail" data-full="{{ asset('images/house/Petite/cuisine.jpeg') }}">
+		<img src="{{ asset('images/house/Petite/cuisine3.jpeg') }}" alt="Cuisine 3" class="thumbnail" data-full="{{ asset('images/house/Petite/cuisine3.jpeg') }}">
+		<img src="{{ asset('images/house/Petite/table a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Petite/table a manger.jpg') }}" style="grid-column: span 3;">
+		<img src="{{ asset('images/house/Petite/cusine:table:mezzanine.jpg') }}" alt="cusine:table:mezzanine" class="thumbnail" data-full="{{ asset('images/house/Petite/cusine:table:mezzanine.jpg') }}">
+		<img src="{{ asset('images/house/Petite/salon.jpeg') }}" alt="Salon" class="thumbnail" data-full="{{ asset('images/house/Petite/salon.jpeg') }}" style="grid-column: span 1;">
+
+		<img src="{{ asset('images/house/Petite/salon.jpg') }}" alt="Salon" class="thumbnail" data-full="{{ asset('images/house/Petite/salon.jpg') }}" style="grid-column: span 3;">
+		<img src="{{ asset('images/house/Petite/table a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Petite/table a manger.jpg') }}" style="grid-column: span 1;">
+
+		<img src=" {{ asset('images/house/Petite/tableau.jpeg') }} " alt="tableau" class="thumbnail" data-full="{{ asset('images/house/Petite/tableau.jpeg') }}" style="grid-column: span 1;">
+
+	</div>
+</div>
+
+
+<!-- Diaporama Modal -->
+<div id="slideshowModal" class="modal diaporama-house">
+	<div class="diaporama-content">
+		<span class="close">&times;</span>
+		<div class="slideshow-container">
+			<img id="fullImage" src="" alt="Image du diaporama" class="full-image">
+		</div>
+		<a href="javascript:void(0);" class="prev">&#10094;</a>
+		<a href="javascript:void(0);" class="next">&#10095;</a>
+
+		<!-- Miniatures sous l'image principale -->
+		<div
+			class="thumbnail-container"><!-- Miniatures ajoutées dynamiquement avec JavaScript -->
+		</div>
+	</div>
+</div>

@@ -1,17 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La Petite Maison
+{% block title %}
+	{{ 'house1.title'|trans }}
 {% endblock %}
 
 {% block body %}
 	<div class="bg-custom-house">
 		<div class="container-fluid">
 			<section class="house">
-				<img src="{{ asset('images/house/Petite/devant.jpeg') }}" alt="Les Maisons de Marie" class="house-background">
+				<img src="{{ asset('images/house/Petite/devant.jpeg') }}" alt="{{ 'house1.alt'|trans }}" class="house-background">
 				<div class="house-text">
 					<h1>
-						<span class="house-left">LA</span>
-						<span class="house-right">PETITE<br>MAISON</span>
+						<span class="house-left">{{ 'house1.part1'|trans }}</span>
+						<span class="house-right">{{ 'house1.part2'|trans }}</span>
 					</h1>
 				</div>
 			</section>
@@ -24,223 +25,54 @@
 					class="row d-flex justify-content-between">
 					<!-- Texte À propos de la Petite Maison -->
 					<div class="col-12 col-md-6">
-						<h4>À PROPOS DE LA PETITE MAISON</h4>
+						<h4>{{ 'house1.about'|trans }}</h4>
 						<hr>
 						<p style="text-align: justify;">
-							Le sol en terre cuite et les murs en pierres ont été conservés. L'aménagement a été mûrement réfléchi afin de proposer une pièce où tout est possible, cuisiner, passer à table et paresser.
-							<br>
-							Une chambre avec salle d'eau attenante, des toilettes séparées et une seconde salle d'eau complètent le rez-de-chaussée.
-							<br>
-							Sous les toits, à l'étage, se trouvent le coin TV et une seconde chambre pour les enfants.
-							<br>
-							La piscine en pâte de verre est toute proche de la maison, elle est clôturée pour assurer une sécurité maximale. Sous la tonnelle, on se restaure ou on s'endort dans un transat.
+							{{ 'house1.description'|trans|nl2br }}
 						</p>
-
 					</div>
 
 					<!-- Modal pour les équipements -->
 					<div class=" col-12 col-md-4">
-						<h4>
-							LE LOGEMENT
-						</h4><hr>
-					</p>
-					<p>
-						<strong>Étoiles:
-						</strong>
-						★★★
-					</p>
-					<p>
-						<strong>Capacité:</strong>
-						4 personnes
-					</p>
-					<p>
-						<strong>Chambres:</strong>
-						2
+						<h4>{{ 'house1.accommodation'|trans }}</h4><hr>
+						<p>
+							<strong>{{ 'house1.stars'|trans }}:</strong>
+							★★★</p>
+						<p>
+							<strong>{{ 'house1.capacity'|trans }}:</strong>
+							4
+							{{ 'house1.people'|trans }}</p>
+						<p>
+							<strong>{{ 'house1.rooms'|trans }}:</strong>
+							2</p>
+						<p>
+							<strong>{{ 'house1.beds'|trans }}:</strong>
+							3<br><em>{{ 'house1.double_bed'|trans }}</em>
+						</p>
+						<p>
+							<strong>{{ 'house1.bathrooms'|trans }}:</strong>
+							2</p>
 
-					</p>
-					<p>
-						<strong>Lits:</strong>
-						3
-						<br>
-						<em>
-							dont 1 lit double</em>
-					</p>
-					<p>
-						<strong>Salle de bain:</strong>
-						2
-					</p>
+						<!-- Bouton pour afficher le modal avec les équipements -->
+						<button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#equipmentsModal">{{ 'house1.view_equipment'|trans }}</button>
 
-					<!-- Bouton pour afficher le modal avec les équipements -->
-					<button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#equipmentsModal">Voir les équipements</button>
-
-					<!-- Modal pour les équipements -->
-					{% include "_partial/_modal_equipment.html.twig" %}
-				</div>
-			</div>
-
-			<!-- Section Tarifs -->
-			<div class="container mt-4">
-				<h4>TARIFS</h4>
-				<hr>
-
-				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col">Période</th>
-							<th scope="col">Prix</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								Du 28 Juin au 12 Juillet 2025
-							</td>
-							<td>1 490€ / semaine</td>
-						</tr>
-						<tr>
-							<td>Du 12 Juillet au 23 Août 2025
-							</td>
-							<td>1 790€ / semaine</td>
-						</tr>
-						<tr>
-							<td>Du 23 Août au 30 Août 2025
-							</td>
-							<td>1 020€ / semaine
-							</td>
-						</tr>
-						<tr>
-							<td>Du 30 Août au 13 Septembre 2025
-							</td>
-							<td>
-								790€ / semaine
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<p>
-
-
-					1 semaine
-					<strong>
-						minimum
-					</strong>
-					du samedi au samedi
-
-					<br>
-
-					Arrivée à partir de 16h, départ avant 10h
-					<br>
-					Option ménage : 50€
-
-					<br>
-
-				</p>
-			</div>
-
-
-			<!-- Galerie photo -->
-			<div class="container mt-4">
-				<h4>GALERIE D'IMAGES</h4>
-				<hr>
-				<div class="gallery">
-					<img src="{{ asset('images/house/Petite/entree.jpeg') }}" alt="entree" class="thumbnail" data-full="{{ asset('images/house/Petite/entree.jpeg') }}" style="grid-column: span 2;">
-					<img src="{{ asset('images/house/Petite/devant.jpeg') }}" alt="entree" class="thumbnail" data-full="{{ asset('images/house/Petite/devant.jpeg') }}" style="grid-column: span 3;">
-					<img src="{{ asset('images/house/Petite/maison.jpeg') }}" alt="maison" class="thumbnail" data-full="{{ asset('images/house/Petite/maison.jpeg') }}">
-
-					<img src="{{ asset('images/house/Petite/terrasse.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Petite/terrasse.jpg') }}" style="grid-column: span 3;">
-					<img src="{{ asset('images/house/Petite/terasse.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Petite/terasse.jpg') }}">
-
-					<img src="{{ asset('images/house/Petite/piscine.jpeg') }}" alt="Piscine" class="thumbnail" data-full="{{ asset('images/house/Petite/piscine.jpeg') }}">
-					<img src="{{ asset('images/house/Petite/piscine:maison.jpg') }}" alt="Piscine" class="thumbnail" data-full="{{ asset('images/house/Petite/piscine:maison.jpg') }}">
-					<img src="{{ asset('images/house/Petite/vue devant2.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Petite/vue devant2.jpg') }}" style="grid-column: span 5;">
-					<img src="{{ asset('images/house/Petite/table a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Petite/table a manger.jpg') }}">
-
-					<img src="{{ asset('images/house/Petite/chambre1.jpg') }}" alt="Chambre 1" class="thumbnail" data-full="{{ asset('images/house/Petite/chambre1.jpg') }}">
-					<img src="{{ asset('images/house/Petite/chambre2.jpeg') }}" alt="Chambre 2" class="thumbnail" data-full="{{ asset('images/house/Petite/chambre2.jpeg') }}" style="grid-column: span 4;">
-					<img src="{{ asset('images/house/Petite/chambre4.jpeg') }}" alt="chambre" class="thumbnail" data-full="{{ asset('images/house/Petite/chambre4.jpeg') }}">
-
-					<img src="{{ asset('images/house/Petite/sdb.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Petite/sdb.jpeg') }}">
-					<img src="{{ asset('images/house/Petite/sdb.jpg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Petite/sdb.jpg') }}" style="grid-column: span 4;">
-					<img src="{{ asset('images/house/Petite/sdb1.jpg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Petite/sdb1.jpg') }}">
-
-
-					<img src="{{ asset('images/house/Petite/cuisine.jpeg') }}" alt="Cuisine" class="thumbnail" data-full="{{ asset('images/house/Petite/cuisine.jpeg') }}">
-					<img src="{{ asset('images/house/Petite/cuisine3.jpeg') }}" alt="Cuisine 3" class="thumbnail" data-full="{{ asset('images/house/Petite/cuisine3.jpeg') }}">
-					<img src="{{ asset('images/house/Petite/table a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Petite/table a manger.jpg') }}" style="grid-column: span 3;">
-					<img src="{{ asset('images/house/Petite/cusine:table:mezzanine.jpg') }}" alt="cusine:table:mezzanine" class="thumbnail" data-full="{{ asset('images/house/Petite/cusine:table:mezzanine.jpg') }}">
-					<img src="{{ asset('images/house/Petite/salon.jpeg') }}" alt="Salon" class="thumbnail" data-full="{{ asset('images/house/Petite/salon.jpeg') }}" style="grid-column: span 1;">
-
-					<img src="{{ asset('images/house/Petite/salon.jpg') }}" alt="Salon" class="thumbnail" data-full="{{ asset('images/house/Petite/salon.jpg') }}" style="grid-column: span 3;">
-					<img src="{{ asset('images/house/Petite/table a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Petite/table a manger.jpg') }}" style="grid-column: span 1;">
-
-					<img src=" {{ asset('images/house/Petite/tableau.jpeg') }} " alt="tableau" class="thumbnail" data-full="{{ asset('images/house/Petite/tableau.jpeg') }}" style="grid-column: span 1;">
-
-				</div>
-			</div>
-
-
-			<!-- Diaporama Modal -->
-			<div id="slideshowModal" class="modal diaporama-house">
-				<div class="diaporama-content">
-					<span class="close">&times;</span>
-					<div class="slideshow-container">
-						<img id="fullImage" src="" alt="Image du diaporama" class="full-image">
-					</div>
-					<a href="javascript:void(0);" class="prev">&#10094;</a>
-					<a href="javascript:void(0);" class="next">&#10095;</a>
-
-					<!-- Miniatures sous l'image principale -->
-					<div
-						class="thumbnail-container"><!-- Miniatures ajoutées dynamiquement avec JavaScript -->
+						<!-- Modal pour les équipements -->
+						{% include "_partial/_modal_equipment.html.twig" %}
 					</div>
 				</div>
 			</div>
 
+			<!-- Tarifs -->
+			{% include "_partial/_tarifs_house1.html.twig" %}
 
-		</div>
+			<!-- Galerie -->
+			{% include "_partial/_gallery_house1.html.twig" %}
 
+			<!-- Carte -->
+			{% include "_partial/_map.html.twig" %}
 
-		<!-- Plan Map -->
-		<div class="container mt-4 mb-4">
-			<h4>COMMENT VENIR?</h4>
-			<hr>
-			<p>
-				Voiture : Nationale 21 entre Bergerac et Villeneuve sur Lot
-				<br>
-				Avion : Aéroport de Bergerac (20 mns), aéroport d’Agen (60 mns), Toulouse et Bordeaux (2 heures)
-				<br>Train : Gare de Bergerac (30 mns), gare d’Agen (60 mns), gare de Toulouse et Bordeaux (2 heures)</p>
-			<!-- Insérer un iframe pour la carte -->
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.463248357757!2d0.5842170768094005!3d44.66931697107203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aae145148e5047%3A0x1f69e49e3cbc07e0!2sLes%20maisons%20de%20Marie!5e0!3m2!1sfr!2sfr!4v1716988782465!5m2!1sfr!2sfr" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-		</div>
-
-		<!-- Section Contact -->
-		<div class="container mt-4 mb-3">
-			<h4>CONTACEZ-MOI</h4>
-			<hr>
-			<p>Pour toute question, n'hésitez pas à nous contacter via notre formulaire ou par téléphone.</p>
-			<div class="contact-info">
-
-				<p>
-					<strong>Téléphone:</strong>
-					+33 6 09 06 43 01
-				</p>
-			</div>
-			<!-- Formulaire de contact -->
-			<form action="#" method="POST">
-				<div class="mb-3">
-					<label for="name" class="form-label">Nom</label>
-					<input type="text" class="form-control" id="name" required>
-				</div>
-				<div class="mb-3">
-					<label for="email" class="form-label">Email</label>
-					<input type="email" class="form-control" id="email" required>
-				</div>
-				<div class="mb-3">
-					<label for="message" class="form-label">Message</label>
-					<textarea class="form-control" id="message" rows="4" required></textarea>
-				</div>
-				<button type="submit" class="btn-custom-outline">Envoyer</button>
-			</form>
+			<!-- Contact -->
+			{% include "_partial/_contact.html.twig" %}
 		</div>
 	</div>
 {% endblock %}

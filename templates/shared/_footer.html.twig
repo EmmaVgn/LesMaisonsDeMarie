@@ -11,7 +11,7 @@
 
 			<!-- Colonne Droite : Contact, bien aligné -->
 			<div class="col-md-6 d-flex flex-column align-items-md-end align-items-start text-md-end contact-lower">
-				<h5 class="fw-bold" style="color: #c2a47f;">CONTACT</h5>
+				<h5 class="fw-bold" style="color: #c2a47f;">{{ 'footer.contact'|trans }}</h5>
 				<div class="contact-info">
 					<p class="mb-1">
 						<a href="tel:+33606064301" class="text-decoration-none">📞 +33 6 09 06 43 01</a>
@@ -20,7 +20,8 @@
 						<a href="mailto:contact@lesmaisonsdemarie.net" class="text-decoration-none">✉️ contact@lesmaisonsdemarie.net</a>
 					</p>
 					<p class="mb-0">
-						<a href="https://www.google.com/maps?q=1832+Rte+des+Metairies,+47330+Castillonnès" target="_blank" class="text-decoration-none">📍 1832 Rte des Metairies, 47330 Castillonnès</a>
+						<a href="https://www.google.com/maps?q=1832+Rte+des+Metairies,+47330+Castillonnès" target="_blank" class="text-decoration-none">📍
+							{{ 'footer.address'|trans }}</a>
 					</p>
 				</div>
 			</div>
@@ -34,10 +35,12 @@
 	<p class="footer-copyright text-center mb-0">
 		©
 		{{ "now"|date("Y") }}
-		Les Maisons de Marie. Tous droits réservés | Design par
-		<a target="_blank" href="https://www.cameleon-solutions.fr" class="footer-link" style="color: #c2a47f !important;">
-			Caméléon Solutions
-		</a>
+		Les Maisons de Marie.
+		{{ 'footer.rights'|trans }}
+		|
+		{{ 'footer.design'|trans }}
+		<a target="_blank" href="https://www.cameleon-solutions.fr" class="footer-link" style="color: #c2a47f !important;">Caméléon Solutions</a>
 	</p>
 
-	<hr class=" footer-separator"></footer></p>
+	<hr class="footer-separator">
+</footer>

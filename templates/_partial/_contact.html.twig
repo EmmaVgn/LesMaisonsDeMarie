@@ -1,12 +1,27 @@
-<section class="service-contact-section mb-5">
-	<div class="container-fluid">
-		<h2>Contactez-moi pour en savoir plus</h2>
-
-		<div class="d-flex justify-content-center align-items-center">
-			<a href="mailto:contact@lesmaisonsdemarie.net" class="btn-custom-outline">
-
-				<span>Envoyer un message</span>
-			</a>
-
+<div class="container mt-4 mb-3">
+	<h4>{{ 'contact.title1'|trans }}</h4>
+	<hr>
+	<p>{{ 'contact.text'|trans }}</p>
+	<div class="contact-info">
+		<p>
+			<strong>{{ 'contact.phone'|trans }}:</strong>
+			+33 6 09 06 43 01
+		</p>
+	</div>
+	<!-- Formulaire de contact -->
+	<form action="#" method="POST">
+		<div class="mb-3">
+			<label for="name" class="form-label">{{ 'contact.name'|trans }}</label>
+			<input type="text" class="form-control" id="name" required>
 		</div>
-	</section>
+		<div class="mb-3">
+			<label for="email" class="form-label">{{ 'contact.email'|trans }}</label>
+			<input type="email" class="form-control" id="email" required>
+		</div>
+		<div class="mb-3">
+			<label for="message" class="form-label">{{ 'contact.message'|trans }}</label>
+			<textarea class="form-control" id="message" rows="4" required></textarea>
+		</div>
+		<button type="submit" class="btn-custom-outline">{{ 'contact.submit'|trans }}</button>
+	</form>
+</div>

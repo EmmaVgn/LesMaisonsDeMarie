@@ -1,241 +1,77 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}La Maison des Cousins
+{% block title %}
+	{{ 'house2.title'|trans }}
 {% endblock %}
 
 {% block body %}
 	<div class="bg-custom-house">
 		<div class="container-fluid">
 			<section class="house">
-				<img src="{{ asset('images/house/Perigourdine/vue derriere.jpg') }}" alt="Les Maisons de Marie" class="house-background">
+				<img src="{{ asset('images/house/Perigourdine/vue derriere.jpg') }}" alt="{{ 'house2.alt'|trans }}" class="house-background">
 				<div class="house-text">
 					<h1>
-						<span class="house-left">LA</span>
-						<span class="house-right">MAISON<br>DES COUSINS</span>
+						<span class="house-left">{{ 'house2.title1'|trans }}</span>
+						<span class="house-right">{{ 'house2.title2'|trans }}</span>
 					</h1>
 				</div>
 			</section>
 		</div>
 
-
 		<!-- Section À propos de la maison -->
 		<div class="container mt-4 pe-5">
 			<div class="presentation-house">
-
-				<div
-					class="row d-flex justify-content-between">
-					<!-- Texte À propos de la Petite Maison -->
+				<div class="row d-flex justify-content-between">
 					<div class="col-md-6" style="text-align: justify;">
-						<h4>À PROPOS DE LA MAISON DES COUSINS</h4>
+						<h4>{{ 'house2.about'|trans }}</h4>
 						<hr>
-						<p>
-							De grandes baies vitrées illuminent la cuisine, tandis que le salon, la salle à manger et l'espace TV sont trois pièces distinctes. Une chambre avec dressing et une salle d'eau avec WC complètent le rez-de-chaussée.
-							<br>
-							À l'étage, deux magnifiques chambres ainsi qu'une salle d'eau avec WC se partagent l'espace.
-							<br>
-							La piscine, clôturée est exposée plein sud.
-						</p>
-
+						<p>{{ 'house2.description'|trans|raw }}</p>
 					</div>
 
 					<!-- Modal pour les équipements -->
 					<div class=" col-md-4">
-						<h4>
-							LE LOGEMENT
-						</h4><hr>
-					</p>
-					<p>
-						<strong>Étoiles:
-						</strong>
-						★★★
-					</p>
-					<p>
-						<strong>Capacité:</strong>
-						6 personnes
-					</p>
-					<p>
-						<strong>Chambres:</strong>
-						3
+						<h4>{{ 'house2.lodging'|trans }}</h4><hr>
+						<p>
+							<strong>{{ 'house2.stars'|trans }}:</strong>
+							★★★</p>
+						<p>
+							<strong>{{ 'house2.capacity'|trans }}:</strong>
+							6
+							{{ 'house2.people'|trans }}</p>
+						<p>
+							<strong>{{ 'house2.rooms'|trans }}:</strong>
+							3</p>
+						<p>
+							<strong>{{ 'house2.beds'|trans }}:</strong>
+							3
+							<br><em>{{ 'house2.bed_details'|trans }}</em>
+						</p>
+						<p>
+							<strong>{{ 'house2.bathrooms'|trans }}:</strong>
+							2</p>
 
-					</p>
-					<p>
-						<strong>Lits:</strong>
-						3
-						<br>
-						<em>
-							dont 3 lits king size
-						</em>
-					</p>
-					<p>
-						<strong>Salle de bain:</strong>
-						2
-					</p>
+						<button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#equipmentsModal">{{ 'house2.equipments'|trans }}</button>
 
-					<!-- Bouton pour afficher le modal avec les équipements -->
-					<button class="btn-custom-outline" data-bs-toggle="modal" data-bs-target="#equipmentsModal">Voir les équipements</button>
-
-					<!-- Modal pour les équipements -->
-					{% include "_partial/_modal_equipment.html.twig" %}
+						{% include "_partial/_modal_equipment.html.twig" %}
+					</div>
 				</div>
 			</div>
 
 			<!-- Section Tarifs -->
-			<div class="container mt-4">
-				<h4>TARIFS</h4>
-				<hr>
-
-				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col">Période</th>
-							<th scope="col">Prix</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								Du 29 Juin au 13 Juillet 2025
-							</td>
-							<td>1 690€ / semaine</td>
-						</tr>
-						<tr>
-							<td>Du 13 Juillet au 24 Août 2025
-							</td>
-							<td>1 960€ / semaine</td>
-						</tr>
-						<tr>
-							<td>Du 24 Août au 31 Août 2025
-							</td>
-							<td>1 310€ / semaine
-							</td>
-						</tr>
-						<tr>
-							<td>Du 31 Août au 14 Septembre 2025
-							</td>
-							<td>
-								880€ / semaine
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<p>
+			{% include "_partial/_tarifs_house2.html.twig" %}
 
 
-					1 semaine
-					<strong>
-						minimum
-					</strong>
-					du dimanche au dimanche.
+			<!-- Galerie photo -->
+			{% include "_partial/_gallery_house2.html.twig" %}
 
-					<br>
 
-					Arrivée à partir de 16h, départ avant 10h
-					<br>
-					Option ménage : 50€
-
-					<br></p>
-			</p>
 		</div>
 
 
-		<!-- Galerie photo -->
-		<div class="container mt-4">
-			<h4>GALERIE D'IMAGES</h4>
-			<hr>
-			<div class="gallery">
-				<img src="{{ asset('images/house/Perigourdine/vue dehors.jpg') }}" alt="entree" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue dehors.jpg') }}" style="grid-column: span 2;">
-				<img src="{{ asset('images/house/Perigourdine/vue ciel4.png') }}" alt="vue ciel" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue ciel4.png') }}" style="grid-column: span 3;">
-				<img src="{{ asset('images/house/Perigourdine/vue derriere.jpg') }}" alt="maison" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue derriere.jpg') }}">
-				<img src="{{ asset('images/house/Perigourdine/vue ciel.jpg') }}" alt="vue ciel" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue ciel.jpg') }}" style="grid-column: span 1;">
-				<img src="{{ asset('images/house/Perigourdine/piscine2.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/piscine2.jpg') }}">
-				<img src="{{ asset('images/house/Perigourdine/piscine1.jpg') }}" alt="Piscine" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/piscine1.jpg') }}">
-				<img src="{{ asset('images/house/Perigourdine/terrasse.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/terrasse.jpg') }}" style="grid-column: span 3;">
+		<!-- Plan Map -->
+		{% include "_partial/_map.html.twig" %}
 
-				<img src="{{ asset('images/house/Perigourdine/chambre1.jpeg') }}" alt="Chambre 1" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/chambre1.jpeg') }}">
-				<img src="{{ asset('images/house/Perigourdine/chambre1.jpg') }}" alt="Chambre 2" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/chambre1.jpg') }}" style="grid-column: span 1;">
-				<img src="{{ asset('images/house/Perigourdine/chambre2.jpg') }}" alt="chambre" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/chambre2.jpg') }}">
-
-				<img src="{{ asset('images/house/Perigourdine/sdb1.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/sdb1.jpeg') }}">
-				<img src="{{ asset('images/house/Perigourdine/sfb2.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/sfb2.jpeg') }}" style="grid-column: span 2;">
-				<img src="{{ asset('images/house/Perigourdine/sdb3.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/sdb3.jpeg') }}" style="grid-column: span 1;">
-
-
-				<img src="{{ asset('images/house/Perigourdine/cuisine.jpg') }}" alt="Cuisine" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/cuisine.jpg') }}">
-				<img src="{{ asset('images/house/Perigourdine/cuisine1.jpeg') }}" alt="Cuisine 3" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/cuisine1.jpeg') }}">
-				<img src="{{ asset('images/house/Perigourdine/salle a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/salle a manger.jpg') }}" style="grid-column: span 2;">
-				<img src="{{ asset('images/house/Perigourdine/salon.jpeg') }}" alt="salon" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/salon.jpeg') }}">
-				<img src="{{ asset('images/house/Perigourdine/salon5.jpeg') }}" alt="Salon" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/salon5.jpeg') }}" style="grid-column: span 3;">
-				<img src="{{ asset('images/house/Perigourdine/escalier.jpg') }}" alt="Cuisine 3" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/escalier.jpg') }}">
-
-				<img src="{{ asset('images/house/Perigourdine/bureau.jpeg') }}" alt="Bureau" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/assiettes.jpeg') }}" style="grid-column: span 1 ;">
-
-				<img src=" {{ asset('images/house/Perigourdine/objet.jpeg') }} " alt="tableau" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/objet.jpeg') }}" style="grid-column: span 1;">
-
-			</div>
-		</div>
-
-
-		<!-- Diaporama Modal -->
-		<div id="slideshowModal" class="modal diaporama-house">
-			<div class="diaporama-content">
-				<span class="close">&times;</span>
-				<div class="slideshow-container">
-					<img id="fullImage" src="" alt="Image du diaporama" class="full-image">
-				</div>
-				<a href="javascript:void(0);" class="prev">&#10094;</a>
-				<a href="javascript:void(0);" class="next">&#10095;</a>
-
-				<!-- Miniatures sous l'image principale -->
-				<div
-					class="thumbnail-container"><!-- Miniatures ajoutées dynamiquement avec JavaScript -->
-				</div>
-			</div>
-		</div>
-
-
+		<!-- Section Contact -->
+		{% include "_partial/_contact.html.twig" %}
 	</div>
-
-
-	<!-- Plan Map -->
-	<div class="container mt-4 mb-4">
-		<h4>COMMENT VENIR?</h4>
-		<hr>
-		<p>
-			Voiture : Nationale 21 entre Bergerac et Villeneuve sur Lot
-			<br>
-			Avion : Aéroport de Bergerac (20 mns), aéroport d’Agen (60 mns), Toulouse et Bordeaux (2 heures)
-			<br>Train : Gare de Bergerac (30 mns), gare d’Agen (60 mns), gare de Toulouse et Bordeaux (2 heures)</p>
-		<!-- Insérer un iframe pour la carte -->
-		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2837.463248357757!2d0.5842170768094005!3d44.66931697107203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aae145148e5047%3A0x1f69e49e3cbc07e0!2sLes%20maisons%20de%20Marie!5e0!3m2!1sfr!2sfr!4v1716988782465!5m2!1sfr!2sfr" width="100%" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-	</div>
-
-	<!-- Section Contact -->
-	<div class="container mt-4 mb-3">
-		<h4>CONTACEZ-MOI</h4>
-		<hr>
-		<p>Pour toute question, n'hésitez pas à nous contacter via notre formulaire ou par téléphone.</p>
-		<div class="contact-info">
-
-			<p>
-				<strong>Téléphone:</strong>
-				+33 6 09 06 43 01
-			</p>
-		</div>
-		<!-- Formulaire de contact -->
-		<form action="#" method="POST">
-			<div class="mb-3">
-				<label for="name" class="form-label">Nom</label>
-				<input type="text" class="form-control" id="name" required>
-			</div>
-			<div class="mb-3">
-				<label for="email" class="form-label">Email</label>
-				<input type="email" class="form-control" id="email" required>
-			</div>
-			<div class="mb-3">
-				<label for="message" class="form-label">Message</label>
-				<textarea class="form-control" id="message" rows="4" required></textarea>
-			</div>
-			<button type="submit" class="btn-custom-outline">Envoyer</button>
-		</form>
-	</div>
-</div>{% endblock %}
+{% endblock %}

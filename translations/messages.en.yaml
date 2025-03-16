@@ -1,0 +1,211 @@
+menu:
+  home: "Home"
+  gites: "My cottages"
+  house1: "The little house"
+  house2: "The cousins' house"
+  house3: "The Castille house"
+  contact: "Contact"
+footer:
+  contact: "CONTACT"
+  address: "1832 Rte des Métairies, 47330 Castillonnès"
+  rights: "All rights reserved"
+  design: "Design by"
+hero:
+  alt: "Les Maisons de Marie"
+  left: ""
+  right: "HOUSES\nOF MARIE"
+history:
+  alt: "Maisons de Marie"
+  title: "The History of houses of Marie"
+  text1: "Discovering houses of Marie means immersing yourself in a region where history, preserved nature, and gastronomy harmoniously come together."
+  text2: "Built between the 18th and 19th centuries and recently renovated, the three farmhouses form a hamlet where each house is completely independent."
+  text3: "The spirit of the old and contemporary aesthetics blend harmoniously, giving these three homes, with a private swimming pool, an irresistible charm."
+hero_content:
+  title: "Houses of Marie"
+  text1: "In Lot-et-Garonne, at the gateway to Dordogne, in Périgord Pourpre – the land of Bergerac wines – the three Maisons de Marie are nestled in the meanders of the Dropt."
+  text2: "All three houses have a 3 ★★★ furnished tourism classification by the"
+  link_text: "Lot-et-Garonne Departmental Tourism Committee"
+  button: "View the cottages"
+  alt: "House of Marie"
+service_contact:
+  title: "Contact me to learn more"
+  button: "Send a message"
+contact:
+  title: "Contact Me"
+  title1: "CONTACT ME"
+  description: "If you have any questions or requests, feel free to contact me. I'm here to help!"
+  firstname: "First name"
+  lastname: "Last name"
+  phone: "Phone"
+  email: "Email"
+  message: "Your message"
+  submit: "Contact Me"
+  call_me: "OR CALL ME:"
+  phone_label: "Mobile phone"
+  text: "For any questions, do not hesitate to contact us via our form or by phone."
+
+equipments:
+  title: "WHAT THE ACCOMMODATION OFFERS"
+  Extérieur: "Outdoor"
+  Cuisine: "Kitchen"
+  Chambre et linge: "Bedroom and linen"
+  Famille: "Family"
+  Salle de Bain: "Bathroom"
+  Internet et bureau: "Internet and office"
+  Divertissement: "Entertainment"
+  Climatisation: "Air conditioning"
+
+  # Équipements - Extérieur
+  Parking privé: "Private parking"
+  Piscine privée: "Private pool"
+  Jardin privé: "Private garden"
+  Chaises longues: "Lounge chairs"
+  Barbecue: "Barbecue"
+  Espace repas en plein air: "Outdoor dining area"
+  Mobilier d'extérieur: "Outdoor furniture"
+
+  # Équipements - Cuisine
+  Ustensiles de cuisine: "Kitchen utensils"
+  Bouilloire: "Kettle"
+  Cafetière: "Coffee maker: Nespresso, manual coffee maker"
+  Réfrigérateur/congélateur: "Refrigerator/freezer"
+  Plaques de cuisson: "Stove"
+  Four: "Oven"
+  Savon liquide: "Liquid soap"
+
+  # Équipements - Chambre et linge
+  Cintres: "Hangers"
+  Oreillers et couvertures supplémentaires: "Extra pillows and blankets"
+  Étendoir à linge: "Drying rack"
+  Lave-linge: "Washing machine"
+  Fer à repasser: "Iron"
+  Draps: "Bed sheets"
+  Espace de rangement pour les vêtements: "Clothing storage: wardrobe, closet, chest of drawers"
+
+  # Équipements - Famille
+  Jeux de sociétés: "Board games"
+  Chaise de bébé: "High chair"
+  Lit parapluie: "Travel crib"
+  Lit pour bébé: "Free on asking: Baby bed: available on request (130x70cm)"
+  Vaisselle pour enfants: "Children’s tableware"
+
+  # Équipements - Salle de Bain
+  Équipements de base (Serviettes, draps, savon et papier toilette): "Basic toiletries (Towels, bed sheets, soap, toilet paper)"
+  Sèche-cheveux: "Hairdryer"
+  Shampooing: "Shampoo"
+  Produits de nettoyage: "Cleaning products"
+
+  # Équipements - Internet et bureau
+  Espace de travail dédié: "Dedicated workspace"
+  Wifi (Fibre): "WiFi (Fiber)"
+
+  # Équipements - Divertissement
+  Système audio: "Audio system"
+  Télévision: "Television"
+  Livres: "Books"
+
+  # Équipements - Climatisation
+  Climatisation (dans certaines pièces): "Air conditioning (in some rooms)"
+  Ventilateurs portables: "Portable fans"
+house1:
+  title: "The Little House"
+  alt: "Les Maisons de Marie"
+  part1: "THE"
+  part2: "LITTLE HOUSE"
+  about: "ABOUT THE LITTLE HOUSE"
+  description: |
+    The terracotta floor and stone walls have been preserved. The layout has been carefully thought out to offer a room where everything is possible: cooking, dining and lazing around. A bedroom with en-suite shower room, separate toilet and second shower room complete the first floor. Under the roof, upstairs, you'll find the TV corner and a second bedroom for the children. The glass-paste swimming pool is very close to the house, and is fenced in for maximum safety. Under the arbour, you can enjoy a meal or fall asleep in a deckchair.
+  accommodation: "ACCOMMODATION"
+  stars: "Stars"
+  capacity: "Capacity"
+  people: "people"
+  rooms: "Rooms"
+  beds: "Beds"
+  double_bed: "including 1 double bed"
+  bathrooms: "Bathroom"
+  view_equipment: "View the equipment"
+  prices: "PRICES"
+  period: "Period"
+  price: "Price"
+  period1: "From June 28 to July 12, 2025"
+  period2: "From July 12 to August 23, 2025"
+  period3: "From August 23 to August 30, 2025"
+  period4: "From August 30 to September 13, 2025"
+  week: "week"
+  conditions: |
+    1 week minimum from Saturday to Saturday.
+    Check-in from 4 p.m., check-out before 10 a.m.
+    Cleaning option: €50.
+  gallery: "IMAGE GALLERY"
+
+house2:
+  title: "The Cousins' House"
+  alt: "Les Maisons de Marie"
+  title1: "THE"
+  title2: "COUSINS' HOUSE"
+  about: "ABOUT THE COUSINS' HOUSE"
+  description:
+    "Large bay windows illuminate the kitchen, while the living room, dining room and TV area are three separate rooms. A bedroom with dressing room and a shower room with toilet complete the first floor.
+    Upstairs, two magnificent bedrooms and a shower room with toilet share the space.
+    The enclosed swimming pool faces due south."
+  lodging: "THE LODGING"
+  stars: "Stars"
+  capacity: "Capacity"
+  people: "people"
+  rooms: "Rooms"
+  beds: "Beds"
+  bed_details: "including 3 king size beds"
+  bathrooms: "Bathrooms"
+  equipments: "See the equipments"
+  prices: "PRICES"
+  period: "Period"
+  price: "Price"
+  date1: "From June 29 to July 13, 2025"
+  date2: "From July 13 to August 24, 2025"
+  date3: "From August 24 to August 31, 2025"
+  date4: "From August 31 to September 14, 2025"
+  week: "week"
+  rental_terms: "1-week minimum, from Sunday to Sunday. <br> Check-in from 4pm, check-out before 10am <br> Cleaning option: 50€"
+  gallery: "IMAGE GALLERY"
+  slideshow: "Cousins' House Slideshow"
+  how_to_get: "HOW TO GET HERE?"
+  transport: "Car: National 21 between Bergerac and Villeneuve sur Lot <br> Plane: Bergerac Airport (20 mins), Agen Airport (60 mins), Toulouse and Bordeaux (2 hours) <br> Train: Bergerac Station (30 mins), Agen Station (60 mins), Toulouse and Bordeaux Stations (2 hours)"
+house3:
+  title: "The Castille House"
+  alt: "Les Maisons de Marie"
+  title1: "THE"
+  title2: "CASTILLE HOUSE"
+  about: "ABOUT THE CASTILLE HOUSE"
+  description: "Absolute peace and quiet in this 18th-century building.
+    The very convivial ground floor features a kitchen-dining room where everyone can get busy at the stove. Comfortable TV lounge, bedroom with two 90cm beds and en-suite shower room. Separate laundry and toilet.
+    Upstairs is a lovely children's bedroom with bunk beds, 3 further bedrooms, one with en-suite shower room, separate WC and a shower room with triple washbasin.
+    The swimming pool is fenced in, with a wooden deck and a hundred-year-old oak tree nearby. The terrace is shaded by vegetation."
+  lodging: "THE LODGING"
+  stars: "Stars"
+  capacity: "Capacity"
+  people: "people"
+  rooms: "Rooms"
+  beds: "Beds"
+  bed_details: "including 1 king size bed, 1 bunk bed, 2 twin beds, and 2 double beds"
+  bathrooms: "Bathrooms"
+  equipments: "See the equipments"
+  period: "Period"
+  price: "Price"
+  date1: "From June 20 to June 27, 2025"
+  date2: "From June 27 to July 4, 2025"
+  date3: "From July 4 to July 11, 2025"
+  date4: "From July 11 to August 22, 2025"
+  date5: "From August 22 to August 29, 2025"
+  date6: "From August 29 to September 5, 2025"
+  date7: "From September 5 to September 12, 2025"
+  week: "week"
+  rental_terms: "1-week minimum, from Friday to Friday. <br> Check-in from 4pm, check-out before 10am <br> Cleaning option: 50€"
+  gallery: "IMAGE GALLERY"
+  slideshow: "Grand House Slideshow"
+
+map:
+  directions: "HOW TO GET THERE?"
+  directions_text: |
+    Car: National 21 between Bergerac and Villeneuve sur Lot.
+    Plane: Bergerac Airport (20 min), Agen Airport (60 min), Toulouse and Bordeaux (2 hours).
+    Train: Bergerac station (30 min), Agen station (60 min), Toulouse and Bordeaux (2 hours).

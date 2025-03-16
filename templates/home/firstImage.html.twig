@@ -1,10 +1,10 @@
 <!-- Section Hero avec image de fond et texte centré -->
 <section class="hero">
-	<img src="{{ asset('images/Accueil/salon1.png') }}" alt="Les Maisons de Marie" class="hero-background">
+	<img src="{{ asset('images/Accueil/salon1.png') }}" alt="{{ 'hero.alt'|trans }}" class="hero-background">
 	<div class="hero-text">
 		<h1>
-			<span class="hero-left">LES</span>
-			<span class="hero-right">MAISONS<br>DE MARIE</span>
+			<span class="hero-left">{{ 'hero.left'|trans }}</span>
+			<span class="hero-right">{{ 'hero.right'|trans }}</span>
 		</h1>
 	</div>
 </section>

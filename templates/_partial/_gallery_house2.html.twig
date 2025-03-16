@@ -1,0 +1,52 @@
+<div class="container mt-4">
+	<h4>GALERIE D'IMAGES</h4>
+	<hr>
+	<div class="gallery">
+		<img src="{{ asset('images/house/Perigourdine/vue dehors.jpg') }}" alt="entree" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue dehors.jpg') }}" style="grid-column: span 2;">
+		<img src="{{ asset('images/house/Perigourdine/vue ciel4.png') }}" alt="vue ciel" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue ciel4.png') }}" style="grid-column: span 3;">
+		<img src="{{ asset('images/house/Perigourdine/vue derriere.jpg') }}" alt="maison" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue derriere.jpg') }}">
+		<img src="{{ asset('images/house/Perigourdine/vue ciel.jpg') }}" alt="vue ciel" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/vue ciel.jpg') }}" style="grid-column: span 1;">
+		<img src="{{ asset('images/house/Perigourdine/piscine2.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/piscine2.jpg') }}">
+		<img src="{{ asset('images/house/Perigourdine/piscine1.jpg') }}" alt="Piscine" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/piscine1.jpg') }}">
+		<img src="{{ asset('images/house/Perigourdine/terrasse.jpg') }}" alt="Terrasse" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/terrasse.jpg') }}" style="grid-column: span 3;">
+
+		<img src="{{ asset('images/house/Perigourdine/chambre1.jpeg') }}" alt="Chambre 1" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/chambre1.jpeg') }}">
+		<img src="{{ asset('images/house/Perigourdine/chambre1.jpg') }}" alt="Chambre 2" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/chambre1.jpg') }}" style="grid-column: span 1;">
+		<img src="{{ asset('images/house/Perigourdine/chambre2.jpg') }}" alt="chambre" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/chambre2.jpg') }}">
+
+		<img src="{{ asset('images/house/Perigourdine/sdb1.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/sdb1.jpeg') }}">
+		<img src="{{ asset('images/house/Perigourdine/sfb2.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/sfb2.jpeg') }}" style="grid-column: span 2;">
+		<img src="{{ asset('images/house/Perigourdine/sdb3.jpeg') }}" alt="Salle de bain" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/sdb3.jpeg') }}" style="grid-column: span 1;">
+
+
+		<img src="{{ asset('images/house/Perigourdine/cuisine.jpg') }}" alt="Cuisine" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/cuisine.jpg') }}">
+		<img src="{{ asset('images/house/Perigourdine/cuisine1.jpeg') }}" alt="Cuisine 3" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/cuisine1.jpeg') }}">
+		<img src="{{ asset('images/house/Perigourdine/salle a manger.jpg') }}" alt="Table à manger" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/salle a manger.jpg') }}" style="grid-column: span 2;">
+		<img src="{{ asset('images/house/Perigourdine/salon.jpeg') }}" alt="salon" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/salon.jpeg') }}">
+		<img src="{{ asset('images/house/Perigourdine/salon5.jpeg') }}" alt="Salon" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/salon5.jpeg') }}" style="grid-column: span 3;">
+		<img src="{{ asset('images/house/Perigourdine/escalier.jpg') }}" alt="Cuisine 3" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/escalier.jpg') }}">
+
+		<img src="{{ asset('images/house/Perigourdine/bureau.jpeg') }}" alt="Bureau" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/assiettes.jpeg') }}" style="grid-column: span 1 ;">
+
+		<img src=" {{ asset('images/house/Perigourdine/objet.jpeg') }} " alt="tableau" class="thumbnail" data-full="{{ asset('images/house/Perigourdine/objet.jpeg') }}" style="grid-column: span 1;">
+
+	</div>
+</div>
+
+
+<!-- Diaporama Modal -->
+<div id="slideshowModal" class="modal diaporama-house">
+	<div class="diaporama-content">
+		<span class="close">&times;</span>
+		<div class="slideshow-container">
+			<img id="fullImage" src="" alt="Image du diaporama" class="full-image">
+		</div>
+		<a href="javascript:void(0);" class="prev">&#10094;</a>
+		<a href="javascript:void(0);" class="next">&#10095;</a>
+
+		<!-- Miniatures sous l'image principale -->
+		<div
+			class="thumbnail-container"><!-- Miniatures ajoutées dynamiquement avec JavaScript -->
+		</div>
+	</div>
+</div>

@@ -3,453 +3,90 @@
 	<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 		<div class="modal-content modal-list-equipment">
 			<div class="modal-header">
-				<h1 class="modal-title fs-5 fw-bold" id="equipmentsModalLabel">CE QUE PROPOSE LE LOGEMENT</h1>
+				<h1 class="modal-title fs-5 fw-bold" id="equipmentsModalLabel">{{ 'equipments.title'|trans }}</h1>
 				<button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<!-- Critères -->
-				<!-- Extérieur -->
-					<div class="modal-body-criteria"> <h3 class="title-criteria">Extérieur</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/parking.svg') }}" class="img-fluid" alt="Parking privé">
-									</div>
-								</div>
-								<div class="each-equipment-name">Parking privé</div>
-							</div>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/piscine.svg') }}" class="img-fluid" alt="Piscine privée">
-									</div>
-								</div>
-								<div class="each-equipment-name">Piscine privée</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/spring.svg') }}" class="img-fluid" alt="Jardin privé">
-									</div>
-								</div>
-								<div class="each-equipment-name">Jardin privé</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/chaise-longue.svg') }}" class="img-fluid" alt="Chaises Longues">
-									</div>
-								</div>
-								<div class="each-equipment-name">Chaises longues</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/bbq.svg') }}" class="img-fluid" alt="Barbecue">
-									</div>
-								</div>
-								<div class="each-equipment-name">Barbecue</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/bbq.svg') }}" class="img-fluid" alt="Barbecue">
-									</div>
-								</div>
-								<div class="each-equipment-name">Espace repas en plein air</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/terrasse.svg') }}" class="img-fluid" alt="Mobilier d'extérieur">
-									</div>
-								</div>
-								<div class="each-equipment-name">Mobilier d'extérieur</div>
-							</div>
-						</li>
+				{% set categories = {
+					'Extérieur': [
+						{'file': 'parking', 'label': 'equipments.Parking privé'},
+						{'file': 'piscine', 'label': 'equipments.Piscine privée'},
+						{'file': 'spring', 'label': 'equipments.Jardin privé'},
+						{'file': 'chaise-longue', 'label': 'equipments.Chaises longues'},
+						{'file': 'bbq', 'label': 'equipments.Barbecue'},
+						{'file': 'bbq', 'label': 'equipments.Espace repas en plein air'},
+						{'file': 'terrasse', 'label': 'equipments.Mobilier d\'extérieur'}
+					],
+					'Cuisine': [
+						{'file': 'spatule', 'label': 'equipments.Ustensiles de cuisine'},
+						{'file': 'bouilloire', 'label': 'equipments.Bouilloire'},
+						{'file': 'machine-cafe', 'label': 'equipments.Cafetière'},
+						{'file': 'frigo', 'label': 'equipments.Réfrigérateur/congélateur'},
+						{'file': 'cuisson', 'label': 'equipments.Plaques de cuisson'},
+						{'file': 'four', 'label': 'equipments.Four'},
+						{'file': 'savon', 'label': 'equipments.Savon liquide'}
+					],
+					'Chambre et linge': [
+						{'file': 'cintre', 'label': 'equipments.Cintres'},
+						{'file': 'coussin', 'label': 'equipments.Oreillers et couvertures supplémentaires'},
+						{'file': 'etendoir', 'label': 'equipments.Étendoir à linge'},
+						{'file': 'machine-a-laver', 'label': 'equipments.Lave-linge'},
+						{'file': 'fer-a-repasser', 'label': 'equipments.Fer à repasser'},
+						{'file': 'serviette', 'label': 'equipments.Draps'},
+						{'file': 'dressing', 'label': 'equipments.Espace de rangement pour les vêtements'}
+					],
+					'Famille': [
+						{'file': 'dee', 'label': 'equipments.Jeux de sociétés'},
+						{'file': 'chaise-haute', 'label': 'equipments.Chaise de bébé'},
+						{'file': 'lit-bebe', 'label': 'equipments.Lit parapluie'},
+						{'file': 'cododo', 'label': 'equipments.Lit'},
+						{'file': 'couvert', 'label': 'equipments.Vaisselle pour enfants'}
+					],
+					'Salle de Bain': [
+						{'file': 'savon', 'label': 'equipments.Équipements de base'},
+						{'file': 'seche-cheveux', 'label': 'equipments.Sèche-cheveux'},
+						{'file': 'shampooing', 'label': 'equipments.Shampooing'},
+						{'file': 'produits-nettoyage', 'label': 'equipments.Produits de nettoyage'}
+					],
+					'Internet et bureau': [
+						{'file': 'bureau', 'label': 'equipments.Espace de travail dédié'},
+						{'file': 'wifi', 'label': 'equipments.Wifi (Fibre)'}
+					],
+					'Divertissement': [
+						{'file': 'enceinte', 'label': 'equipments.Système audio'},
+						{'file': 'tele', 'label': 'equipments.Télévision'},
+						{'file': 'livre', 'label': 'equipments.Livres'}
+					],
+					'Climatisation': [
+						{'file': 'clim', 'label': 'equipments.Climatisation (dans certaines pièces)'},
+						{'file': 'ventilateur', 'label': 'equipments.Ventilateurs portables'}
+					]
+				} %}
 
-					</ul>
-				</div>
-				<!-- Cuisine -->
-				<div class="modal-body-criteria">
-					<h3 class="title-criteria">Cuisine</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/spatule.svg') }}" class="img-fluid" alt="Ustentiles de cuisine">
-									</div>
-								</div>
-								<div class="each-equipment-name">Ustentiles de cuisine</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/bouilloire.svg') }}" class="img-fluid" alt="Bouilloire">
-									</div>
-								</div>
-								<div class="each-equipment-name">Bouilloire</div>
-							</div>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/machine-cafe.svg') }}" class="img-fluid" alt="Cafetière : Nespresso, cafetière manuelle">
-									</div>
-								</div>
-								<div class="each-equipment-name">Cafetière : Nespresso, cafetière manuelle</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/frigo.svg') }}" class="img-fluid" alt="Réfrigérateur">
-									</div>
-								</div>
-								<div class="each-equipment-name">Réfrigérateur/congélateur</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/cuisson.svg') }}" class="img-fluid" alt="Plaques de cuisson">
-									</div>
-								</div>
-								<div class="each-equipment-name">Plaques de cuisson</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/four.svg') }}" class="img-fluid" alt="Four">
-									</div>
-								</div>
-								<div class="each-equipment-name">
-									Four
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/savon.svg') }}" class="img-fluid" alt="Savon liquide">
-									</div>
-								</div>
-								<div class="each-equipment-name">Savon liquide</div>
-							</div>
-						</li>
 
-					</ul>
-				</div>
-				<!-- Chambres et linges -->
-				<div class="modal-body-criteria">
-					<h3 class="title-criteria">Chambre et linge</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/cintre.svg') }}" class="img-fluid" alt="Cintres">
-									</div>
-								</div>
-								<div class="each-equipment-name">Cintres</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/coussin.svg') }}" class="img-fluid" alt="Oreillers et couvertures supplémentaires">
-									</div>
-								</div>
-								<div class="each-equipment-name">Oreillers et couvertures supplémentaires</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/etendoir.svg') }}" class="img-fluid" alt="Étendoir à linge">
-									</div>
-								</div>
-								<div class="each-equipment-name">Étendoir à linge</div>
-							</div>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/machine-a-laver.svg') }}" class="img-fluid" alt="Lave-linge">
-									</div>
-								</div>
-								<div class="each-equipment-name">Lave-linge</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/fer-a-repasser.svg') }}" class="img-fluid" alt="Fer à repasser">
-									</div>
-								</div>
-								<div class="each-equipment-name">Fer à repasser</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/serviette.svg') }}" class="img-fluid" alt="Draps">
-									</div>
-								</div>
-								<div class="each-equipment-name">Draps</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/dressing.svg') }}" class="img-fluid" alt="Espace de rangement pour les vêtements : dressing, armoire et commode
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																												">
-									</div>
-								</div>
-								<div class="each-equipment-name">
-									Espace de rangement
-																																																																																																																																																																																																																																																																																																																																																																																																																																																
-																																																																																																																																																																																																																																																																																																																																																																																																																																																pour les vêtements:
-									<br>
-									<em>
-										dressing, armoire et commode</em>
 
-								</div>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-				<!-- Familles -->
-				<div class="modal-body-criteria">
-					<h3 class="title-criteria">Famille</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/dee.svg') }}" class="img-fluid" alt="Jeux de sociétés">
-									</div>
-								</div>
-								<div class="each-equipment-name">Jeux de sociétés</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/chaise-haute.svg') }}" class="img-fluid" alt="Chaise de bébé">
-									</div>
-								</div>
-								<div class="each-equipment-name">Chaise de bébé</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/lit-bebe.svg') }}" class="img-fluid" alt="Lit parapluie">
-									</div>
-								</div>
-								<div class="each-equipment-name">Lit parapluie</div>
-							</div>
-						</li>
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/cododo.svg') }}" class="img-fluid" alt="Lit pour bébé">
-									</div>
-								</div>
-								<div class="each-equipment-name">
-									Lit pour bébé :
-									<br>
-									<em>
-										disponible sur demande (130x70cm)</em>
-								</div>
-							</div>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/couvert.svg') }}" class="img-fluid" alt="Vaisselle pour enfants">
-									</div>
-								</div>
-								<div class="each-equipment-name">Vaisselle pour enfants</div>
-							</div>
-						</li>
-
-					</ul>
-				</div>
-				<!-- SDB -->
-				<div class="modal-body-criteria">
-					<h3 class="title-criteria">Salle de Bain</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/savon.svg') }}" class="img-fluid" alt="Équipements de base">
-									</div>
-								</div>
-								<div class="each-equipment-name">Équipements de base
-									<br>
-									<em>(Serviettes, draps, savon et papier toilette)</em>
-								</div>
-							</div>
-						</li>
-					</li>
-					<li>
-						<div class="each-equipment">
-							<div class="each-equipment-svg-content">
-								<div class="each-equipment-svg">
-									<img src="{{ asset ('images/icones/seche-cheveux.svg') }}" class="img-fluid" alt="Sèche-cheveux">
-								</div>
-							</div>
-							<div class="each-equipment-name">Sèche-cheveux</div>
+				<div class="modal-body">
+					{% for category, items in categories %}
+						<div class="modal-body-criteria">
+							<h3 class="title-criteria">{{ ('equipments.' ~ category)|trans }}</h3>
+							<ul class="criteria-ul">
+								{% for item in items %}
+									<li>
+										<div class="each-equipment">
+											<div class="each-equipment-svg-content">
+												<div class="each-equipment-svg">
+													<img src="{{ asset('images/icones/' ~ item.file ~ '.svg') }}" class="img-fluid" alt="{{ item.label|trans }}">
+												</div>
+											</div>
+											<div class="each-equipment-name">{{ item.label|trans }}</div>
+										</div>
+									</li>
+								{% endfor %}
+							</ul>
 						</div>
-					</li>
-					<li>
-						<div class="each-equipment">
-							<div class="each-equipment-svg-content">
-								<div class="each-equipment-svg">
-									<img src="{{ asset ('images/icones/shampooing.svg') }}" class="img-fluid" alt="Shampooing">
-								</div>
-							</div>
-							<div class="each-equipment-name">Shampooing</div>
-						</div>
-					</li>
-
-					<li>
-						<div class="each-equipment">
-							<div class="each-equipment-svg-content">
-								<div class="each-equipment-svg">
-									<img src="{{ asset ('images/icones/produits-nettoyage.svg') }}" class="img-fluid" alt="Produits de nettoyage">
-								</div>
-							</div>
-							<div class="each-equipment-name">
-								Produits de nettoyage</div>
-						</div>
-					</li>
-				</ul>
-				<!-- Bureaux et internet -->
-				<div class="modal-body-criteria">
-					<h3 class="title-criteria">Internet et bureau</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/bureau.svg') }}" class="img-fluid" alt="Espace de travail dédié">
-									</div>
-								</div>
-								<div class="each-equipment-name">Espace de travail dédié
-
-								</div>
-							</div>
-						</li>
-					</li>
-					<li>
-						<div class="each-equipment">
-							<div class="each-equipment-svg-content">
-								<div class="each-equipment-svg">
-									<img src="{{ asset ('images/icones/wifi.svg') }}" class="img-fluid" alt="Wifi">
-								</div>
-							</div>
-							<div class="each-equipment-name">Wifi (Fibre)</div>
-						</div>
-					</li>
+					{% endfor %}
 				</div>
-				<!-- Divertissements -->
-				<div class="modal-body-criteria">
-					<h3 class="title-criteria">Divertissement</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/enceinte.svg') }}" class="img-fluid" alt="Système audio">
-									</div>
-								</div>
-								<div class="each-equipment-name">Système audio
-
-								</div>
-							</div>
-						</li>
-					</li>
-					<li>
-						<div class="each-equipment">
-							<div class="each-equipment-svg-content">
-								<div class="each-equipment-svg">
-									<img src="{{ asset ('images/icones/tele.svg') }}" class="img-fluid" alt="Télévision">
-								</div>
-							</div>
-							<div class="each-equipment-name">Télévision</div>
-						</div>
-					</li>
-					<li>
-						<div class="each-equipment">
-							<div class="each-equipment-svg-content">
-								<div class="each-equipment-svg">
-									<img src="{{ asset ('images/icones/livre.svg') }}" class="img-fluid" alt="Livres">
-								</div>
-							</div>
-							<div class="each-equipment-name">Livres</div>
-						</div>
-					</li>
-				</div>
-				<!-- Chauffage et climatisation -->
-				<div class="modal-body-criteria">
-					<h3 class="title-criteria">Climatisation</h3>
-					<ul class="criteria-ul">
-						<li>
-							<div class="each-equipment">
-								<div class="each-equipment-svg-content">
-									<div class="each-equipment-svg">
-										<img src="{{ asset ('images/icones/clim.svg') }}" class="img-fluid" alt="Climatisation">
-									</div>
-								</div>
-								<div class="each-equipment-name">Climatisation
-									<br><em>
-										dans certaines pièces</em>
-								</div>
-							</div>
-						</li>
-					</li>
-					<li>
-						<div class="each-equipment">
-							<div class="each-equipment-svg-content">
-								<div class="each-equipment-svg">
-									<img src="{{ asset ('images/icones/ventilateur.svg') }}" class="img-fluid" alt="Ventilateurs portables">
-								</div>
-							</div>
-							<div class="each-equipment-name">Ventilateurs portables</div>
-						</div>
-					</li>
-				</div>
-			</div>
-		</div>
-	</div>
+			</div>	
+        </div>
+    </div>
 </div>

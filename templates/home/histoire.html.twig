@@ -3,19 +3,19 @@
 		class="row">
 		<!-- Image à gauche -->
 		<div class="col-lg-5 col-md-12 d-flex justify-content-center">
-			<img src="{{ asset('images/Accueil/vue porte entree.png') }}" alt="Maisons de Marie" class="img-fluid rounded history-image">
+			<img src="{{ asset('images/Accueil/vue porte entree.png') }}" alt="{{ 'history.alt'|trans }}" class="img-fluid rounded history-image">
 		</div>
 
 		<!-- Texte à droite -->
 		<div class="col-lg-7 col-md-12">
 			<div class="history-overlay p-4">
-				<h1 class="mb-3">L’histoire des Maisons de Marie</h1>
+				<h1 class="mb-3">{{ 'history.title'|trans }}</h1>
 				<p>
-					Découvrir les Maisons de Marie, c'est avant tout s'offrir une immersion dans une région où l'histoire, la nature préservée et la gastronomie se rencontrent harmonieusement.
+					{{ 'history.text1'|trans }}
 					<br><br>
-					Construites entre le XVIIIe et XIXe siècle et récemment rénovées, les trois métairies forment un hameau où chaque maison est entièrement indépendante.
+					{{ 'history.text2'|trans }}
 					<br><br>
-					L'esprit de l'ancien et l'esthétique contemporaine se mêlent harmonieusement, offrant à ces trois habitations, avec piscine privative, un charme irrésistible.
+					{{ 'history.text3'|trans }}
 				</p>
 			</div>
 		</div>

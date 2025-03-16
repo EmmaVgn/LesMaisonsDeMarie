@@ -27,16 +27,13 @@ body {
   font-size: 1.3rem;
   line-height: 2;
   color: #3d3d3d !important;
+  overflow-x: hidden !important;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-.right-margin {
-  margin-right: 100px !important; /* Ajoute une marge de 160px à droite */
-  padding-right: 100px !important; /* Si tu veux ajouter aussi du padding pour plus de confort */
 }
 
 /*--------------------------------------------------------------
@@ -74,9 +71,11 @@ body {
 }
 
 .footer-brand {
-  margin-left: 25%;
-  top: 30%;
+  padding-top: 40px; /* Ajuste la hauteur selon besoin */
+  margin-left: 15%; /* Ajuste cette valeur selon la largeur de ta sidebar */
+  width: 50%;
 }
+
 .footer-separator {
   border: none;
   border-top: 1px solid #a7b69a;
@@ -92,6 +91,86 @@ body {
 .contact-lower {
   margin-top: 90px !important;
 }
+#footer .container {
+  margin-right: 15%; /* Ajuste cette valeur selon la largeur de ta sidebar */
+  max-width: calc(100% - 15%);
+}
+/* ✅ Version Desktop Large (écran large, plus de 1440px) */
+@media (min-width: 1440px) {
+  #footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-brand {
+    margin-left: 15%;
+    width: 50%;
+  }
+}
+
+/* ✅ Version MacBook Air & Tablettes en paysage (1024px - 1439px) */
+@media (max-width: 1439px) {
+  #footer .container {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .footer-brand {
+    margin-left: 10%; /* Moins d'espace sur les côtés */
+    width: 60%;
+  }
+  .contact-lower {
+    text-align: center; /* Centre les contacts */
+    margin-top: 50px !important;
+  }
+}
+
+/* ✅ Version Tablettes & Petits Écrans (768px - 1023px) */
+@media (max-width: 1023px) {
+  #footer .container {
+    padding: 0 20px;
+  }
+  .footer-brand {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+  }
+  .contact-lower {
+    text-align: center;
+    align-items: center;
+    margin-top: 40px !important;
+  }
+}
+
+/* ✅ Version Mobile (moins de 768px) */
+@media (max-width: 767px) {
+  #footer .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  .footer-brand {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
+  .contact-lower {
+    text-align: center;
+    align-items: center;
+    margin-top: 20px !important;
+  }
+  .footer-separator {
+    width: 90%;
+  }
+  .footer-copyright {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .contact-info {
+    text-align: left;
+  }
+  .contact-info p {
+    font-size: 0.7rem;
+  }
+}
 
 /*--------------------------------------------------------------
 # Navbar Latérrale
@@ -99,8 +178,9 @@ body {
 .sidebar {
   position: fixed;
   right: 0;
-  width: 80px;
-  height: 100vh;
+  width: 60px;
+  height: 80vh;
+  top: 100px;
   background-color: #3d3d3d;
   display: flex;
   flex-direction: column;
@@ -266,7 +346,7 @@ body {
 .hero-text {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 40%;
   transform: translate(-50%, -50%);
   text-align: center;
   font-weight: bold;
@@ -275,7 +355,7 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 6rem;
+  font-size: 5.5rem;
   font-weight: bold;
   display: flex;
   flex-direction: row;
@@ -286,7 +366,7 @@ body {
 }
 
 .hero-left {
-  font-size: 8rem;
+  font-size: 5rem;
   font-weight: bold;
   margin-top: 50px;
   color: #333;
@@ -321,15 +401,14 @@ body {
 
 .hero-overlay h1 {
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   color: #3d3d3d;
 }
 
 /* Uniformisation des images */
 .hero-image,
-.history-image,
-.presentation-homepage img {
+.history-image {
   width: 100%;
   max-width: 500px;
   height: 400px;
@@ -338,7 +417,14 @@ body {
   opacity: 0.8;
   filter: brightness(80%);
 }
-
+.presentation-homepage img {
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0.8;
+  filter: brightness(80%);
+}
 /* Section Histoire */
 .history-overlay {
   padding: 40px;
@@ -347,7 +433,7 @@ body {
 }
 
 .history-overlay h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: bold;
   text-transform: uppercase;
   color: #333;
@@ -489,7 +575,7 @@ body {
 .house-text {
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 48%;
   transform: translate(-50%, -50%);
   text-align: center;
   font-weight: bold;
@@ -498,7 +584,7 @@ body {
 }
 
 .house-text h1 {
-  font-size: 6rem;
+  font-size: 8rem;
   font-weight: bold;
   display: flex;
   flex-direction: row;
@@ -520,7 +606,7 @@ body {
 }
 
 .house-right {
-  font-size: 4.5rem;
+  font-size: 6rem;
   font-weight: bold;
   color: #ede4d1;
   text-align: left;
@@ -548,6 +634,9 @@ body {
   .house-right {
     font-size: 3.5rem;
   }
+  .house-text {
+    left: 30%;
+  }
 }
 
 /* Ajustement des images */
@@ -562,11 +651,16 @@ body {
   }
 
   .house-left {
-    font-size: 4rem;
+    font-size: 3.6rem;
   }
 
   .house-right {
-    font-size: 3rem;
+    font-size: 3.6rem;
+  }
+
+  .house-text {
+    left: 42%;
+    top: 50%;
   }
 
   /* Ajustement des images */
@@ -575,10 +669,11 @@ body {
     height: auto;
   }
 }
+
+/* Pour les SVG et leur mise en forme */
 .each-equipment-svg-content {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
 }
 
 .each-equipment-svg {
@@ -601,6 +696,45 @@ body {
 
 .modal-body-criteria .criteria-ul li {
   margin-bottom: 15px;
+}
+
+.modal-body-criteria .criteria-ul li .each-equipment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-body-criteria .criteria-ul li .each-equipment-name {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #ede4d1;
+}
+/* Style pour le fond du modal */
+.modal-content {
+  background-color: #c2a47f; /* Fond de couleur beige */
+  color: #3d3d3d; /* Texte en gris */
+}
+
+/* Personnalisation des titres dans le modal */
+.modal-title {
+  color: #ede4d1; /* Titre en gris */
+}
+
+/* Personnalisation des boutons du modal */
+.btn-close {
+  color: #ede4d1; /* Couleur du bouton de fermeture */
+}
+
+/* Ajout d'une couleur de fond et de texte spécifique pour les autres éléments du modal */
+.modal-body-criteria h3 {
+  color: #ede4d1; /* Couleur des titres de critères */
+}
+
+/* Redimensionner les icônes SVG */
+.each-equipment-svg img {
+  width: 24px; /* Taille de l'icône, vous pouvez ajuster cette valeur */
+  height: 24px; /* Taille de l'icône, pour garder le ratio */
+  object-fit: contain;
 }
 
 .modal-header,
@@ -636,85 +770,35 @@ body {
 }
 
 .btn-close {
-  color: #3d3d3d; /* Couleur du bouton de fermeture */
+  color: #ede4d1; /* Couleur du bouton de fermeture */
 }
 
 .modal-body-criteria h3 {
   color: #a7b69a; /* Couleur des titres de critères */
 }
-
-/* Redimensionner les icônes SVG */
-.each-equipment-svg img {
-  width: 24px; /* Taille de l'icône, vous pouvez ajuster cette valeur */
-  height: 24px; /* Taille de l'icône, pour garder le ratio */
-  object-fit: contain;
+.btn-close {
+  font-size: 1.5rem; /* Augmenter la taille du bouton */
+  position: absolute;
+  top: 15px;
+  left: 0px;
+  z-index: 10; /* Assure qu'il est toujours au-dessus du contenu */
+  opacity: 3; /* Empêche qu'il devienne transparent */
 }
 
-/* Responsivité pour les petits écrans */
+/* Ajustements pour les mobiles */
 @media (max-width: 768px) {
-  /* Modale plus petite sur les tablettes et petits écrans */
-  .modal-dialog {
-    max-width: 90%; /* Augmenter la taille pour occuper plus d'espace sur les petits écrans */
-  }
-
-  /* Réduire la taille du bouton de fermeture */
   .btn-close {
-    font-size: 1.2rem;
+    font-size: 1.8rem; /* Rendre plus visible */
     top: 10px;
-    right: 10px;
-  }
-
-  /* Ajuster les paddings pour éviter les débordements */
-  .modal-content {
-    padding: 10px; /* Réduire le padding pour les petits écrans */
-  }
-
-  .modal-body {
-    margin-top: 10px; /* Réduire l'espacement sur les petits écrans */
-  }
-
-  /* Réduire la taille des titres dans le modal */
-  .modal-title {
-    font-size: 1.5rem; /* Réduire la taille des titres */
-  }
-
-  /* Réduire les icônes dans le modal */
-  .each-equipment-svg img {
-    width: 20px;
-    height: 20px;
+    left: 0px !important; /* Forcer la position à gauche */
   }
 }
 
 @media (max-width: 480px) {
-  /* Modale encore plus petite sur les très petits écrans */
-  .modal-dialog {
-    max-width: 95%; /* Plus grand pour occuper l'écran entier */
-  }
-
-  /* Réduire encore la taille du bouton de fermeture */
   .btn-close {
-    font-size: 1rem;
-    top: 5px;
-    right: 5px;
-  }
-
-  /* Réduire encore le padding pour les très petits écrans */
-  .modal-content {
-    padding: 5px;
-  }
-
-  .modal-body {
-    margin-top: 5px; /* Réduire l'espacement sur les très petits écrans */
-  }
-
-  /* Réduire les titres et textes */
-  .modal-title {
-    font-size: 1.2rem;
-  }
-
-  .each-equipment-svg img {
-    width: 16px;
-    height: 16px;
+    font-size: 1.5rem; /* Encore plus visible sur très petits écrans */
+    top: 8px;
+    left: 8px !important; /* Forcer la position à gauche */
   }
 }
 
@@ -868,6 +952,11 @@ h4 {
   color: #c2a47f;
   font-weight: bold;
 }
+
+.presentation-house p {
+  max-width: 85%;
+}
+
 /*--------------------------------------------------------------
 # House houseAll
 --------------------------------------------------------------*/
@@ -887,11 +976,12 @@ h4 {
 }
 
 .houseall-image img {
-  width: 100%;
+  width: 300px;
   height: 300px; /* Uniformiser la hauteur */
   object-fit: cover;
   border-radius: 10px;
   filter: brightness(90%);
+  opacity: 0.8;
 }
 
 @media (max-width: 767px) {

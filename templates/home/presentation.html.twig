@@ -4,25 +4,25 @@
 		<!-- Colonne pour le texte -->
 		<div class="col-lg-7 col-md-12 mb-4">
 			<div class="hero-overlay">
-				<h1>Les Maisons de Marie</h1>
+				<h1>{{ 'hero_content.title'|trans }}</h1>
 				<p>
-					En Lot-et-Garonne, aux portes de la Dordogne, en Périgord pourpre - celui des vins de Bergerac - les trois Maisons de Marie se nichent dans les méandres du Dropt.
+					{{ 'hero_content.text1'|trans }}
 					<br><br>
-					Les trois maisons ont toutes un classement 3 ★★★ meublé de tourisme par le
+					{{ 'hero_content.text2'|trans }}
 					<a href="https://www.tourisme-lotetgaronne.com/sejourner/locations-vacances/?place=CASTILLONNES" target="_blank" class="text-dark text-decoration-none">
-						Comité Départemental du Tourisme de Lot-et-Garonne
+						{{ 'hero_content.link_text'|trans }}
 					</a>.
 					<br>
 					<a href="{{ path('houseAll') }}" class="btn btn-outline-dark mt-3">
-						Voir les gîtes
+						{{ 'hero_content.button'|trans }}
 					</a>
 				</p>
 			</div>
 		</div>
 
 		<!-- Colonne pour l'image -->
-		<div class="col-lg-5 col-md-12 d-flex align-items-center justify-content-end presentation-homepage">
-			<img src="{{ asset('images/house/Petite/maison.jpeg') }}" alt="Maison de Marie" class="img-fluid rounded hero-image">
+		<div class="col-lg-5 col-md-12 d-flex justify-content-end presentation-homepage">
+			<img src="{{ asset('images/house/Petite/maison.jpeg') }}" alt="{{ 'hero_content.alt'|trans }}" class="img-fluid rounded hero-image">
 		</div>
 	</div>
 </section>

@@ -1,32 +1,40 @@
 <nav class="sidebar">
+	<ul class="navbar-nav">
+		<li class="nav-item">
+			<a href="{{ path('change_language', {'lang': 'fr'}) }}" class="nav-link">
+				<img src="{{ asset('img/fr_flag.jpg') }}" alt="Français" width="25" height="15">
+			</a>
+		</li>
+		<li class="nav-item">
+			<a href="{{ path('change_language', {'lang': 'en'}) }}" class="nav-link">
+				<img src="{{ asset('img/en_flag.jpg') }}" alt="English" width="25" height="15">
+			</a>
+		</li>
+	</ul>
+
 	<button class="toggle-btn" id="toggleBtn">☰</button>
+
 	<ul class="nav-links">
 		<li>
-			<a href="{{ path('homepage')}}">Accueil</a>
+			<a href="{{ path('homepage') }}">{{ 'menu.home'|trans }}</a>
 		</li>
 		<li>
-
-			<a href={{ path('houseAll')}} class="main-link">Mes gîtes</a>
-
+			<a href="{{ path('houseAll') }}" class="main-link">{{ 'menu.gites'|trans }}</a>
 			<button class="dropdown-btn" id="toggleGites">▼</button>
-
 			<ul class="submenu" id="submenuGites">
 				<li>
-					<a href={{ path('house1')}}>La petite maison
-					</a>
+					<a href="{{ path('house1') }}">{{ 'menu.house1'|trans }}</a>
 				</li>
 				<li>
-					<a href={{ path('house2')}}>La maison des cousin
-					</a>
+					<a href="{{ path('house2') }}">{{ 'menu.house2'|trans }}</a>
 				</li>
 				<li>
-					<a href={{ path('house3')}}>La grande maison
-					</a>
+					<a href="{{ path('house3') }}">{{ 'menu.house3'|trans }}</a>
 				</li>
 			</ul>
 		</li>
 		<li>
-			<a href={{ path('contact')}}>Contact</a>
+			<a href="{{ path('contact') }}">{{ 'menu.contact'|trans }}</a>
 		</li>
 	</ul>
 </nav>
