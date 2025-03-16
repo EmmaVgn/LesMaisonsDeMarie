@@ -188,7 +188,8 @@ body {
   justify-content: flex-start;
   padding-top: 20px;
   transition: width 0.3s ease-in-out;
-  overflow: hidden;
+  overflow-y: auto; /* Active le scroll vertical si nécessaire */
+  overflow-x: hidden;
   z-index: 2000;
 }
 
