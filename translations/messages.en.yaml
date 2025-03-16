@@ -235,3 +235,20 @@ mentions:
 mentions.create: "Website creation"
 mentions.create_website: "Website developed by"
 mentions.create_cameleon: "Caméléon Solutions"
+houses:
+  title: "Our Houses"
+  house1:
+    name: "The Little House"
+    description: "Absolute charm for this small farmhouse where nothing is missing."
+    button: "View the house"
+    image_alt: "The Little House front view"
+  house2:
+    name: "The Cousins' House"
+    description: "A true Périgord-style house with a double-sloped roof and flat tiles. Half-timbered walls and magnificent bedrooms with exposed beams."
+    button: "View the house"
+    image_alt: "The Périgourdine exterior view"
+  house3:
+    name: "The Castille House"
+    description: "A superb character house with timeless charm. Very friendly kitchen and dining room. An ideal place for reunions with friends and family."
+    button: "View the house"
+    image_alt: "The Castille front view"

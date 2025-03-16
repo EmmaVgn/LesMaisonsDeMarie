@@ -241,3 +241,21 @@ mentions:
 mentions.create: "Création du site"
 mentions.create_website: "Site réalisé par"
 mentions.create_cameleon: "Caméléon Solutions"
+
+houses:
+  title: "Mes Maisons"
+  house1:
+    name: "La Petite Maison"
+    description: "Charme absolu pour cette petite ferme où rien ne manque."
+    button: "Voir la maison"
+    image_alt: "La Petite Maison vue devant"
+  house2:
+    name: "La Maison des Cousins"
+    description: "Véritable maison périgourdine avec toit à deux pentes et tuiles plates. Mur à colombages et magnifiques chambres avec charpentes apparentes."
+    button: "Voir la maison"
+    image_alt: "La Périgourdine vue extérieur"
+  house3:
+    name: "La Grande Maison"
+    description: "Superbe maison de caractère au charme intemporel. Cuisine et salle à manger très conviviales. Lieu idéal pour des retrouvailles entre amis et en famille."
+    button: "Voir la maison"
+    image_alt: "La Castille vue devant"
