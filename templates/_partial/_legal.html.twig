@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ 'mentions.title'|trans }}
+{% endblock %}
+
+{% block body %}
+	<div class="container mt-5 mb-5">
+		<h1 class="text-center">{{ 'mentions.title'|trans }}</h1>
+		<hr>
+
+		<h2>{{ 'mentions.identity'|trans }}</h2>
+		<p>{{ 'mentions.owner'|trans }}
+			: Les Maisons de Marie</p>
+		<p>{{ 'mentions.address'|trans }}
+			: 1832 Rte des Métairies, 47330 Castillonnès</p>
+		<p>{{ 'mentions.phone'|trans }}
+			: +33 6 09 06 43 01</p>
+		<p>{{ 'mentions.email'|trans }}
+			: contact@lesmaisonsdemarie.net</p>
+
+		<h2>{{ 'mentions.create'|trans }}</h2>
+		<p>
+			{{ 'mentions.create_website'|trans }}
+			:
+			<a href="http://cameleon-solutions.fr" target="_blank">{{ 'mentions.create_cameleon'|trans }}</a>
+		</p>
+
+
+		<h2>{{ 'mentions.hosting'|trans }}</h2>
+		<p>{{ 'mentions.hosting_company'|trans }}
+			: Hostinger</p>
+		<p>{{ 'mentions.hosting_address'|trans }}
+			: Adresse de l'hébergeur</p>
+		<p>{{ 'mentions.hosting_contact'|trans }}
+			: Contact de l'hébergeur</p>
+
+		<h2>{{ 'mentions.publication'|trans }}</h2>
+		<p>{{ 'mentions.publication_responsible'|trans }}
+			: Les Maisons de Marie</p>
+
+		<h2>{{ 'mentions.intellectual_property'|trans }}</h2>
+		<p>{{ 'mentions.copyright'|trans }}</p>
+
+		<h2>{{ 'mentions.personal_data'|trans }}</h2>
+		<p>{{ 'mentions.data_policy'|trans }}</p>
+
+		<h2>{{ 'mentions.cookies'|trans }}</h2>
+		<p>{{ 'mentions.cookies_policy'|trans }}</p>
+
+		<h2>{{ 'mentions.liability'|trans }}</h2>
+		<p>{{ 'mentions.liability_text'|trans }}</p>
+	</div>
+{% endblock %}

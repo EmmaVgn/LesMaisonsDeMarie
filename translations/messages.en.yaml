@@ -10,6 +10,7 @@ footer:
   address: "1832 Rte des Métairies, 47330 Castillonnès"
   rights: "All rights reserved"
   design: "Design by"
+  mentions: "Legal notices"
 hero:
   alt: "Les Maisons de Marie"
   left: ""
@@ -209,3 +210,28 @@ map:
     Car: National 21 between Bergerac and Villeneuve sur Lot.
     Plane: Bergerac Airport (20 min), Agen Airport (60 min), Toulouse and Bordeaux (2 hours).
     Train: Bergerac station (30 min), Agen station (60 min), Toulouse and Bordeaux (2 hours).
+
+mentions:
+  title: "Legal Notice"
+  identity: "Identity"
+  owner: "Website Owner"
+  address: "Address"
+  phone: "Phone"
+  email: "Email"
+  hosting: "Hosting"
+  hosting_company: "HOSTINGER INTERNATIONAL LTD"
+  hosting_address: "HOSTINGER INTERNATIONAL LTD, 61 Lordou Vironos Street, 6023 Larnaca, Chypre"
+  hosting_contact: "support@hostinger.com."
+  publication: "Les Maisons de Marie"
+  publication_responsible: "Les Maisons de Marie"
+  intellectual_property: "Les Maisons de Marie"
+  copyright: "The content of this website (texts, images, logos) is protected by intellectual property laws and cannot be used without permission."
+  personal_data: "Personal Data"
+  data_policy: "The information collected on this site is used only for contact purposes and will never be resold."
+  cookies: "Cookies"
+  cookies_policy: "This website uses cookies to enhance the user experience. By continuing to browse, you accept their use."
+  liability: "Liability"
+  liability_text: "Les Maisons de Marie declines any responsibility for errors, inaccuracies, or omissions in the information provided on this site."
+mentions.create: "Website creation"
+mentions.create_website: "Website developed by"
+mentions.create_cameleon: "Caméléon Solutions"

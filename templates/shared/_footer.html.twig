@@ -22,8 +22,11 @@
 					<p class="mb-0">
 						<a href="https://www.google.com/maps?q=1832+Rte+des+Metairies,+47330+Castillonnès" target="_blank" class="text-decoration-none">📍
 							{{ 'footer.address'|trans }}</a>
+						|
+
 					</p>
 				</div>
+
 			</div>
 		</div>
 	</div>
@@ -37,6 +40,9 @@
 		{{ "now"|date("Y") }}
 		Les Maisons de Marie.
 		{{ 'footer.rights'|trans }}
+		|
+
+		<a href="{{ path('mentions_legales') }}" class="footer-link" style="color: #c2a47f !important;">{{ 'footer.mentions'|trans }}</a>
 		|
 		{{ 'footer.design'|trans }}
 		<a target="_blank" href="https://www.cameleon-solutions.fr" class="footer-link" style="color: #c2a47f !important;">Caméléon Solutions</a>
